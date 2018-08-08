@@ -1,0 +1,516 @@
+.product-filters-wrap {
+	height: 61px;
+	margin-bottom: 38px;
+	border-top: 1px solid $border;
+	border-bottom: 1px solid $border;
+	@include breakpoint(portrait) {
+		height: 58px;
+		margin-bottom: 80px;
+	}
+	@include breakpoint(touch) {
+		height: 0;
+		border: 0;
+		margin: 0;
+		.product-filters {
+			display: none;
+		}
+	}
+}
+
+.product-filters-mobile-wrap {
+	justify-content: space-between;
+	display: none;
+	@include breakpoint(touch) {
+		display: flex;
+	}
+}
+
+.product-filters {
+	width: 100%;
+	position: relative;
+	padding: 0 80px;
+	float: left;
+	background-color: #f4f4f4;
+	text-align: center;
+	.filter {
+		display: inline-block;
+	}
+	.filter-toggle {
+		position: relative;
+		font-size: 13px;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		line-height: 58px;
+		padding: 1px 44px 0 32px;
+		border-left: 1px solid transparent;
+		border-right: 1px solid transparent;
+		cursor: pointer;
+		display: block;
+		&::after {
+			content: '';
+			position: relative;
+			width: 0;
+			height: 0;
+			border: solid transparent;
+			border-top-color: $black;
+			border-width: 5px;
+			margin-left: 8px;
+			top: 4px;
+			display: inline-block;
+		}
+	}
+	.opened {
+		.filter-toggle {
+			border-left-color: $grey;
+			border-right-color: $grey;
+			background-color: $white;
+			&::before {
+				content: '';
+				position: absolute;
+				bottom: -2px;
+				left: 0;
+				width: 100%;
+				height: 3px;
+				background-color: $white;
+				display: block;
+			}
+			&::after {
+				@extend %font;
+				content: font-char(ico-close);
+				font-size: 8px;
+				color: $black;
+				border: 0;
+				width: 10px;
+				top: 0;
+			}
+		}
+	}
+	.filter-body {
+		position: absolute;
+		top: calc(100% + 1px);
+		left: 0;
+		width: 100%;
+		padding: 60px 110px;
+		background-color: $white;
+		border-bottom: 1px solid $grey;
+		z-index: 100;
+		display: none;
+	}
+	.apply-filters {
+		margin-right: 40px;
+	}
+	.reset-filters:not(.btn),
+	.size-guide {
+		font-family: $font-headings;
+		font-size: 23px;
+		letter-spacing: 0.025em;
+		color: $black;
+		text-decoration: underline;
+	}
+	.size-guide {
+		margin-left: 23px;
+	}
+	h3,
+	.close-filter,
+	.filter-actions {
+		display: none;
+	}
+	@include breakpoint(laptop) {
+		.filter-toggle {
+			padding: 1px 20px 0;
+		}
+	}
+	@include breakpoint(landscape) {
+		padding: 0 40px;
+		.filter-toggle {
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+		.filter-body {
+			padding: 40px 60px;
+		}
+	}
+	@include breakpoint(portrait) {
+		padding: 0 10px;
+		.filter-toggle {
+			line-height: 54px;
+			padding-left: 15px;
+			padding-right: 15px;
+			&::after {
+				margin-left: 12px;
+			}
+		}
+		.filter-body {
+			padding: 30px 40px;
+		}
+	}
+	@include breakpoint(touch) {
+		position: fixed;
+		top: 0;
+		background: $white;
+		z-index: 500;
+		height: 100vh;
+		overflow: auto;
+		padding: 33px 25px 20px;
+		text-align: left;
+		.filter {
+			width: 100%;
+			border-bottom: 1px solid $black;
+		}
+		.filter-toggle {
+			font-size: 15px;
+			font-family: $font-default;
+			display: block;
+			padding: 0;
+			line-height: 44px;
+			&::after {
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				top: 10px;
+				margin: auto;
+				transition: $duration $easing;
+				border-width: 8px;
+			}
+		}
+		.filter-body {
+			position: relative;
+			padding: 0 0 0 4px;
+			.btn,
+			.reset-filters {
+				display: none;
+			}
+		}
+		h3,
+		.close-filter {
+			display: block;
+		}
+		.filter-actions {
+			display: flex;
+			justify-content: space-between;
+			padding-top: 26px;
+			.apply-filters {
+				margin-right: 0;
+				order: 1;
+			}
+			.btn {
+				width: calc(50% - 10px);
+				padding: 13px 10px 14px;
+				font-size: 21px;
+			}
+		}
+		.opened {
+			.filter-toggle {
+				border: 0;
+				&::after {
+					content: '';
+					width: 0;
+					height: 0;
+					border: solid transparent;
+					border-top-color: $black;
+					border-width: 8px;
+					margin-left: 22px;
+					top: -10px;
+					display: inline-block;
+					transform: rotate(180deg);
+				}
+			}
+		}
+		.grid-switch {
+			display: none;
+		}
+		.close-filter {
+			position: absolute;
+			top: 27px;
+			right: 28px;
+			z-index: 1;
+			.icon {
+				font-size: 19px;
+				line-height: 1.5;
+			}
+		}
+		.size-guide {
+			font-family: $font-default;
+			font-size: 15px;
+			margin: -13px 0 21px;
+			display: block;
+		}
+		h3 {
+			font-size: 15px;
+			letter-spacing: 0.05em;
+			font-family: $font-default;
+			margin-bottom: 12px;
+			padding-bottom: 26px;
+			position: relative;
+			text-align: center;
+			&::before {
+				content: '';
+				display: block;
+				height: 1px;
+				position: absolute;
+				left: -25px;
+				background-color: $border;
+				width: auto;
+				bottom: 0;
+				right: -25px;
+			}
+		}
+		.filter-list {
+			margin-bottom: 14px;
+			ul {
+				width: 100%;
+				margin-right: 0;
+			}
+			li {
+				margin-bottom: 10px;
+			}
+			.filter-option {
+				font-size: 15px;
+			}
+			.size {
+				padding-left: 0;
+				line-height: 30px;
+				&::before {
+					width: 30px;
+					height: 30px;
+					background-color: transparent;
+					border: 0;
+				}
+				span {
+					display: inline-block;
+					width: 30px;
+					text-align: center;
+					position: relative;
+					z-index: 1;
+				}
+			}
+			.selected {
+				.size {
+					&::before {
+						background: $black;
+						color: $white;
+					}
+					span {
+						color: $white;
+					}
+				}
+			}
+		}
+	}
+}
+
+.filter-list {
+	margin-bottom: 50px;
+	ul {
+		width: 276px;
+		margin-right: 30px;
+		display: inline-block;
+		text-align: left;
+	}
+	li {
+		margin-bottom: 10px;
+	}
+	.filter-option {
+		position: relative;
+		padding-left: 32px;
+		font-size: 13px;
+		letter-spacing: 0.1em;
+		line-height: 1.4em;
+		display: block;
+		cursor: pointer;
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 16px;
+			height: 16px;
+			border: 1px solid $black;
+			background-color: $white;
+			transition: background-color $duration $easing;
+			display: block;
+		}
+	}
+	.selected {
+		.filter-option {
+			&::before {
+				background-color: $yellow;
+			}
+		}
+	}
+	@include breakpoint(desktop) {
+		.filter-option {
+			&:hover {
+				&::before {
+					background-color: rgba($yellow, 0.5);
+				}
+			}
+		}
+	}
+	@include breakpoint(portrait) {
+		margin-bottom: 30px;
+	}
+}
+
+.fixed-filters {
+	position: fixed;
+	top: 93px;
+	right: 535px;
+	width: 610px;
+	padding: 32px 20px 50px 65px;
+	background-color: $white;
+	border: 1px solid $border;
+	border-top: 0;
+	z-index: 50;
+	display: none;
+	.filter {
+		width: 100%;
+		clear: both;
+	}
+	.filter-toggle {
+		padding: 0;
+		font-size: 13px;
+		line-height: 52px;
+		&::after {
+			margin-left: 32px;
+		}
+	}
+	.opened {
+		.filter-toggle {
+			border: 0;
+			&::after {
+				content: '';
+				position: relative;
+				width: 0;
+				height: 0;
+				border: solid transparent;
+				border-bottom-color: $black;
+				border-width: 5px;
+				margin-left: 32px;
+				top: -2px;
+				display: inline-block;
+			}
+		}
+	}
+	.filter-body {
+		position: relative;
+		top: auto;
+		left: auto;
+		border-bottom: 0;
+		padding: 5px 0;
+		> a {
+			display: none;
+		}
+	}
+	.filter-list {
+		margin-bottom: 28px;
+		ul {
+			width: 50%;
+			margin-right: 0;
+			padding-right: 20px;
+			&:last-of-type {
+				padding-right: 0;
+			}
+		}
+	}
+	.filter-actions {
+		padding-top: 35px;
+		display: block;
+	}
+	.grid-switch {
+		display: none;
+	}
+	@include breakpoint(desktop) {
+		text-align: left;
+	}
+	@include breakpoint(laptop) {
+		right: auto;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+	@include breakpoint(tablet) {
+		left: 0;
+		right: 0;
+		transform: none;
+		width: 100%;
+		.opened .filter-toggle::after {
+			border-top-color: #141517;
+			border-bottom-color: transparent;
+			border-width: 8px;
+			margin-left: 32px;
+			top: -2px;
+			position: absolute;
+		}
+	}
+	@include breakpoint(touch) {
+		right: auto;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+}
+
+.grid-switch {
+	position: absolute;
+	top: 20px;
+	right: 74px;
+	float: left;
+	.grid-trigger {
+		width: 20px;
+		height: 20px;
+		opacity: 0.25;
+		cursor: pointer;
+		text-indent: -9999px;
+		float: left;
+		&.selected {
+			opacity: 1;
+		}
+	}
+	.grid-rows {
+		background: url('../img/grid-rows.svg') center center no-repeat;
+		background-size: 100% 100%;
+	}
+	.grid-columns {
+		background: url('../img/grid-columns.svg') center center no-repeat;
+		background-size: 100% 100%;
+	}
+	.sep {
+		width: 1px;
+		height: 28px;
+		margin: -4px 12px 0;
+		background-color: $border;
+		float: left;
+	}
+	@include breakpoint(landscape) {
+		top: 28px;
+		right: 20px;
+	}
+	@include breakpoint(portrait) {
+		top: -36px;
+		right: 20px;
+	}
+}
+
+.mobile-grid-switch {
+	position: relative;
+	top: auto;
+	right: auto;
+	margin: 20px;
+	float: right;
+	display: none;
+	@include breakpoint(phone) {
+		display: block;
+	}
+}
+
+.mobile-filter-content {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background-color: $white;
+	z-index: 1000;
+	overflow: auto;
+	padding: 20px;
+}

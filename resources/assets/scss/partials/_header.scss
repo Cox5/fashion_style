@@ -1,0 +1,990 @@
+//----------  header
+//------------------------------------------------------------------------------
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 93px;
+	background-color: $white;
+	border-bottom: 1px solid $border;
+	z-index: 500;
+	font-family: $font-headings;
+	.wrap {
+		max-width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-left: 80px;
+		padding-right: 80px;
+		&::before, &::after {
+			display: none;
+		}
+	}
+	.filters-toggle {
+		font-family: $font-headings;
+		text-transform: uppercase;
+		position: absolute;
+		right: 535px;
+		top: 0;
+		height: 93px;
+		line-height: 99px;
+		padding: 0 64px 0 76px;
+		border-left: 1px solid $border;
+		border-right: 1px solid $border;
+		display: none;
+		cursor: pointer;
+		font-size: 20px;
+		letter-spacing: 0.05em;
+		&::after {
+			content: '';
+			position: relative;
+			width: 0;
+			height: 0;
+			border: solid transparent;
+			border-top-color: $black;
+			border-width: 5px;
+			margin-left: 26px;
+			top: 2px;
+			display: inline-block;
+		}
+		&.opened {
+			&::after {
+				@extend %font;
+				content: font-char(ico-close);
+				font-size: 8px;
+				color: $black;
+				border: 0;
+				width: 10px;
+				top: 0;
+			}
+		}
+	}
+	@include breakpoint(laptop) {
+		.filters-toggle {
+			right: 48%;
+		}
+	}
+	@include breakpoint(tablet) {
+		.wrap {
+			padding-left: 40px;
+			padding-right: 40px;
+		}
+		.filters-toggle {
+			right: 34%;
+		}
+	}
+	@include breakpoint(touch) {
+		&.nav-opened {
+			.basket-link,
+			.profile-link {
+				display: none;
+			}
+		}
+	}
+	@include breakpoint(phone) {
+		height: 80px;
+		.wrap {
+			padding: 26px 24px 10px 25px;
+			display: block;
+		}
+		.filters-toggle {
+			display: none !important;
+		}
+		.logo {
+			margin-top: 5px;
+    		display: inline-block;
+			img {
+				width: 116px;
+			}
+		}
+	}
+}
+
+.main-nav {
+	margin-left: 284px;
+	transition: opacity $duration $easing, visibility $duration $easing;
+	opacity: 1;
+	visibility: visible;
+	display: flex;
+	li {
+		margin: 0 20px;
+		display: block;
+		position: relative;
+	}
+	a {
+		font-family: $font-headings;
+		position: relative;
+		display: block;
+		font-size: 26px;
+		letter-spacing: 0.025em;
+		text-transform: uppercase;
+		padding: 0 6px 0 8px;
+		color: $black;
+		transition: .3s ease;
+		&.active,
+		&:hover {
+			background-color: $black;
+			color: $white;
+		}
+	}
+	@media only screen and (min-width: 1281px) and (max-width: 1450px) {
+		margin-left: 185px;
+	}
+	@include breakpoint(laptop) {
+		margin-left: 124px;
+		li {
+			margin: 0 5px;
+		}
+	}
+	@include breakpoint(desktop) {
+		margin-top: 3px;
+	}
+	@include breakpoint(touch) {
+		display: none;
+	}
+}
+
+.hidden-menu {
+	.main-nav {
+		opacity: 0;
+		visibility: hidden;
+	}
+}
+
+.checkout-links {
+	@include breakpoint(phone) {
+		margin-right: -15px;
+		float: right;
+		display: flex;
+		li {
+			margin: 0 15px;
+		}
+	}
+}
+
+.nav-submenu {
+	position: fixed;
+	top: 93px;
+	left: 0;
+	width: 100%;
+	padding: 16px 0;
+	background-color: $white;
+	border-bottom: 1px solid $border;
+	display: none;
+	.wrap {
+		display: flex;
+		justify-content: center;
+		max-width: 1230px;
+		padding: 0;
+		height: auto;
+	}
+	.nav-submenu-item {
+		font-size: 20px;
+		text-transform: uppercase;
+		letter-spacing: 0.075em;
+		margin: 0 12px;
+	}
+	&.active {
+		display: block;
+	}
+	@include breakpoint(laptop) {
+		.wrap {
+			padding-left: 40px;
+			padding-right: 40px;
+		}
+	}
+	@include breakpoint(tablet) {
+		.wrap {
+			padding-left: 40px;
+			padding-right: 40px;
+		}
+	}
+}
+
+.header-actions {
+	position: relative;
+	li {
+		display: inline-block;
+		margin-left: 30px;
+	}
+	.profile-link {
+		margin-left: 39px;
+	}
+	a {
+		position: relative;
+		display: block;
+	}
+	.icon {
+		font-size: 23px;
+	}
+	.font-ico-basket {
+		font-size: 26px;
+	}
+	.disabled {
+		cursor: default;
+		pointer-events: none;
+		.icon {
+			color: $grey;
+		}
+	}
+	.basket-link {
+		.disabled .basket-items {
+			display: none;
+		}
+	}
+	.professionals {
+		font-size: 20px;
+		letter-spacing: 0.025em;
+		text-transform: uppercase;
+		a {
+			transition: .3s ease;
+			padding: 0 6px 0 8px;
+			&:hover {
+				color: $white;
+				background-color: $black;
+			}
+		}
+	}
+	.subnav-desktop {
+		a {
+			font-size: 31px;
+			letter-spacing: 0.05em;
+			position: relative;
+			top: -7px;
+		}
+	}
+	.menu-toggle-wrap {
+		margin-left: 0;
+	}
+	@include breakpoint(desktop) {
+		.subnav-desktop {
+			margin-left: 29px;
+		}
+		.search-link {
+			position: relative;
+			top: 2px;
+			margin-left: 32px;
+		}
+		.basket-link {
+			margin-left: 32px;
+		}
+		.subnav-desktop {
+			position: relative;
+			top: 1px;
+		}
+	}
+	@include breakpoint(laptop) {
+		li {
+			margin-left: 12px;
+		}
+		.profile-link {
+			margin-left: 22px;
+		}
+		.subnav-desktop {
+			margin-left: 9px;
+		}
+		.basket-link {
+			margin-left: 12px;
+		}
+		.search-link {
+			margin-left: 22px;
+		}
+	}
+	@include breakpoint(touch) {
+		margin-left: 0;
+		float: right;
+		li {
+			margin-left: 18px;
+		}
+		.search-link {
+			display: none;
+		}
+		.menu-toggle-wrap {
+			margin: 0 0 -1px 16px;
+		}
+		.menu-toggle {
+			position: relative;
+			top: -4px;
+		}
+		.profile-link {
+			margin-left: 23px;
+		}
+		.subnav-desktop,
+		.professionals,
+		.currency-language {
+			display: none;
+		}
+	}
+	@include breakpoint(tablet) {
+		margin-top: 4px;
+		.menu-toggle.opened {
+			top: 3px;
+		}
+	}
+	@include breakpoint(phone) {
+		.menu-toggle.opened {
+			top: 5px;
+		}
+	}
+}
+
+.basket-items {
+	position: absolute;
+	top: 6px;
+	right: -12px;
+	width: 20px;
+	height: 20px;
+	font-size: 14px;
+	color: $white;
+	line-height: 20px;
+	text-align: center;
+	border-radius: 50%;
+	background-color: $black;
+	display: block;
+}
+
+.menu-toggle {
+	position: relative;
+	padding: 7px 0;
+	display: inline-block;
+	.hamburger {
+		display: none;
+		position: relative;
+		width: 25px;
+		height: 2px;
+		transition: background-color $duration $easing;
+		background-color: $black;
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			width: 100%;
+			left: 0;
+			height: 2px;
+			display: block;
+			background-color: $black;
+		}
+		&::before {
+			top: -7px;
+			transition: top $duration $easing, transform $duration $easing;
+		}
+		&::after {
+			bottom: -7px;
+			transition: bottom $duration $easing, transform $duration $easing;
+		}
+	}
+	&.opened {
+		.hamburger {
+			background-color: transparent;
+			&::before {
+				top: 0;
+				transform: rotate(-225deg);
+			}
+			&::after {
+				bottom: 0;
+				transform: rotate(225deg);
+			}
+		}
+	}
+	@include breakpoint(touch) {
+		.hamburger {
+			display: block;
+		}
+	}
+}
+
+.header-subnav {
+	width: 460px;
+	position: absolute;
+	top: 92px;
+	right: 20px;
+	border: 1px solid $border;
+	background-color: $white;
+	z-index: 100;
+	display: none;
+	.close-subnav {
+		display: none;
+	}
+	@include breakpoint(desktop-small) {
+		padding: 35px;
+	}
+	@include breakpoint(laptop) {
+		padding: 35px;
+	}
+	@include breakpoint(phone) {
+		.close-subnav {
+			position: absolute;
+			top: 30px;
+			right: 25px;
+			display: block;
+			cursor: pointer;
+			.icon {
+				font-size: 20px;
+			}
+		}
+	}
+}
+
+.subnav {
+	width: 340px;
+	padding: 34px 32px 17px;
+	@include breakpoint(desktop-small) {
+		padding: 35px;
+	}
+	@include breakpoint(laptop) {
+		padding: 35px;
+	}
+}
+.subnav-links {
+	li {
+		margin-left: 0;
+		margin-bottom: 14px;
+		display: block;
+		a {
+			font-size: 20px;
+			letter-spacing: 0.025em;
+			padding: 0 6px 0 8px;
+			text-transform: uppercase;
+			color: $black;
+			display: inline-block;
+			transition: .3s ease;
+			&:hover {
+				color: $white;
+				background-color: $black;
+			}
+		}
+	}
+}
+.subnav-social-media {
+	padding-top: 26px;
+	h4 {
+		font-size: 15px;
+		text-transform: uppercase;
+		color: $black;
+		letter-spacing: 0.1em;
+	}
+	ul {
+		padding: 28px 0;
+		align-items: center;
+		flex-wrap: wrap;
+		display: flex;
+	}
+	li {
+		margin-left: 0;
+		text-align: center;
+		flex-basis: 33.333333%;
+		align-self: flex-end;
+		margin-bottom: 18px;
+		a {
+			display: inline-block;
+		}
+	}
+	.icon {
+		font-size: 22px;
+		color: $black;
+	}
+	.font-ico-youtube {
+		font-size: 28px;
+	}
+}
+
+.login-subnav {
+	padding: 32px 58px;
+	.login-form-wrap {
+		padding: 0;
+	}
+	h3 {
+		margin-bottom: 22px;
+	}
+	h6 {
+		line-height: 1.2em;
+	}
+	.login-form {
+		padding-top: 24px;
+		.create-account-btn {
+			margin-bottom: 42px;
+		}
+		.forgot-password {
+			margin-bottom: 38px;
+			letter-spacing: 0.06em;
+			margin-top: -16px;
+			font-size: 14px;
+			font-family: $font-default;
+		}
+		.login-btn {
+			margin-bottom: 26px;
+		}
+		.form-item-text,
+		.btn {
+			max-width: 100%;
+		}
+	}
+	@include breakpoint(desktop-small) {
+		padding: 25px 35px;
+	}
+	@include breakpoint(laptop) {
+		padding: 25px 35px;
+	}
+	@include breakpoint(phone) {
+		top: 0;
+		padding: 20px;
+		border: 0;
+		right: 0;
+		width: 100%;
+		overflow-y: auto;
+		height: 100vh;
+		h3 {
+			font-size: 39px;
+		}
+	}
+}
+
+.header-search {
+	position: fixed;
+	top: 93px;
+	left: 0;
+	width: 100%;
+	padding: 54px 0;
+	background-color: $white;
+	border-bottom: 1px solid $border;
+	display: none;
+	.wrap {
+		max-width: 1332px;
+		display: block;
+	}
+	.search-form {
+		width: 100%;
+		margin-bottom: 54px;
+		float: left;
+		input {
+			width: calc(100% - 268px);
+			float: left;
+			border-right: 0;
+		}
+		.btn {
+			width: 268px;
+			padding: 20px;
+			float: left;
+		}
+	}
+}
+
+.search-suggestions {
+	margin-bottom: 40px;
+	h6 {
+		margin-bottom: 38px;
+		.icon {
+			position: relative;
+			font-size: 30px;
+			transform: rotate(90deg);
+			top: 2px;
+			margin-left: -10px;
+			margin-right: 2px;
+			float: left;
+		}
+	}
+	ul {
+		margin: 0 -4px;
+	}
+	li {
+		width: 16.666667%;
+		margin-left: 0;
+		padding: 0 4px;
+		float: left;
+		img {
+			width: 100%;
+		}
+	}
+}
+
+.basket-subnav {
+	padding: 32px 58px;
+	h3 {
+		margin-bottom: 13px;
+	}
+	.btn {
+		padding-left: 20px;
+		padding-right: 20px;
+		margin-bottom: 20px;
+		clear: both;
+	}
+	.logo {
+		display: none;
+	}
+	@include breakpoint(phone) {
+		top: 0;
+		padding: 99px 25px 44px;
+		border: 0;
+		right: 0;
+		width: 100%;
+		overflow-y: auto;
+		height: 100vh;
+		&::before {
+			content: '';
+			display: block;
+			height: 1px;
+			width: auto;
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 80px;
+			background-color: $border;
+		}
+		h3 {
+			font-size: 37px;
+		}
+		.logo {
+			display: block;
+			position: absolute;
+			top: 27px;
+			left: 24px;
+		}
+		.btn {
+			position: relative;
+			&::before {
+				content: '';
+				display: block;
+				width: calc(100% + 50px);
+				height: 1px;
+				background-color: $border;
+				position: absolute;
+				left: -25px;
+				bottom: -38px;
+			}
+		}
+	}
+}
+.basket-item {
+	width: 100%;
+	position: relative;
+	padding-bottom: 26px;
+	margin-bottom: 30px;
+	border-bottom: 1px solid $black;
+	float: left;
+	clear: both;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	.basket-thumbnail {
+		width: 100px;
+		float: left;
+		border: 1px solid $border;
+	}
+	.basket-description {
+		width: calc(100% - 120px);
+		h6 {
+			margin-bottom: 4px;
+			letter-spacing: 0.05em;
+			a {
+				letter-spacing: 0.02em;
+				display: inline-block;
+				font-size: 24px;
+			}
+		}
+	}
+	.price {
+		font-family: $font-headings;
+		font-size: 24px;
+		letter-spacing: 0;
+		sup {
+			font-size: 16px;
+			top: -6px;
+		}
+	}
+	.remove-product {
+		float: right;
+		.icon {
+			font-size: 20px;
+		}
+	}
+	.variations {
+		text-transform: uppercase;
+		font-family: $font-default;
+		font-size: 13px;
+		color: #15140e;
+		span {
+			float: left;
+			display: inline-block;
+		}
+	}
+	.separator {
+		padding: 0 10px;
+	}
+	@include breakpoint(tablet) {
+		.price {
+			font-size: 18px;
+			margin-top: -8px;
+		}
+	}
+	@include breakpoint(phone) {
+		padding-bottom: 27px;
+		margin-bottom: 28px;
+		align-items: flex-start;
+		.basket-description {
+			width: calc(100% - 108px);
+			padding-top: 10px;
+			.select-size {
+				select {
+					padding: 0 10px;
+					width: 70px;
+				}
+			}
+			h6 {
+				margin-bottom: -3px;
+			}
+			h6 .remove-product {
+				font-size: 18px;
+				position: relative;
+				top: 4px;
+			}
+		}
+		.price {
+			font-size: 24px;
+			margin-top: -8px;
+		}
+		.basket-thumbnail {
+			width: 88px;
+		}
+		.variations {
+			span:not(.separator) {
+				letter-spacing: 0.16em;
+			}
+		}
+		.separator {
+			padding: 0 11px;
+		}
+	}
+}
+.basket-prices {
+	text-transform: uppercase;
+	text-align: right;
+	margin-bottom: 36px;
+	.price-label {
+		float: left;
+		font-family: $font-default;
+		font-size: 20px;
+		font-weight: bold;
+		letter-spacing: 0.075em;
+	}
+	.price {
+		font-family: $font-headings;
+		letter-spacing: 0;
+		font-size: 27px;
+		sup {
+			font-size: 16px;
+			top: -8px;
+		}
+	}
+	@include breakpoint(phone) {
+		margin: -8px 0 23px;
+		.price-label {
+			font-size: 21px;
+			padding-left: 11px;
+		}
+		.price {
+			font-size: 26px;
+		}
+	}
+}
+.basket-discount-code {
+	.form-label {
+		font-size: 13px;
+	}
+	.form-item-text {
+		padding-left: 15px;
+		font-size: 13px;
+		letter-spacing: 0.05em;
+	}
+	@include breakpoint(touch) {
+		padding-right: 0;
+	}
+}
+
+.currency-language {
+	label {
+		font-size: 20px;
+		text-transform: uppercase;
+		letter-spacing: 0.025em;
+		margin-bottom: 6px;
+		display: block;
+	}
+	select {
+		height: 44px;
+		padding: 0 14px;
+		margin-bottom: 17px;
+		font-size: 13px;
+		color: #868686;
+		text-transform: uppercase;
+	}
+	.cl-toggle {
+		position: relative;
+		letter-spacing: 0.025em;
+		&::after {
+			content: '';
+			position: relative;
+			width: 0;
+			height: 0;
+			border: solid transparent;
+			border-top-color: $black;
+			border-width: 5px;
+			margin-left: 2px;
+			top: 2px;
+			display: inline-block;
+			transition: .3s ease;
+		}
+		&.opened {
+			&::after {
+				top: -3px;
+				transform: rotate(180deg);
+			}
+		}
+	}
+	.c-label {
+		font-size: 16px;
+		margin-right: 3px;
+	}
+	.l-label {
+		font-size: 20px;
+	}
+	.cl-dropdown {
+		width: 340px;
+		position: absolute;
+		top: 92px;
+		right: 20px;
+		padding: 32px 40px 22px;
+		border: 1px solid $border;
+		background-color: $white;
+		z-index: 100;
+		display: none;
+	}
+	.l-dropdown {
+		position: relative;
+		select {
+			padding-left: 40px;
+		}
+	}
+	@include breakpoint(phone) {
+		@include base-float;
+		position: relative;
+		padding-top: 24px;
+		&::before {
+			content: '';
+			display: block;
+			width: calc(100% + 48px);
+			position: absolute;
+			left: -24px;
+			top: 0;
+			height: 1px;
+			background-color: $border;
+		}
+		label {
+			font-size: 20px;
+		}
+	}
+}
+
+.mobile-nav {
+	position: fixed;
+	top: 80px;
+	left: 0;
+	width: 100%;
+	height: calc(100vh - 80px);
+	overflow-y: auto;
+	background-color: $white;
+	display: none;
+	a {
+		font-family: $font-headings;
+		text-transform: uppercase;
+	}
+	h6 {
+		font-size: 18px;
+		text-align: center;
+		padding: 12px;
+	}
+	.horizontal-links {
+		width: 100%;
+		border-top: 1px solid $grey-medium;
+		border-bottom: 1px solid $grey-medium;
+		float: left;
+		clear: both;
+		li {
+			width: 25%;
+			border-left: 1px solid $grey-medium;
+			float: left;
+			&:first-of-type {
+				border-left: 0;
+			}
+		}
+		a {
+			font-size: 18px;
+			padding: 20px 5px 18px;
+			text-align: center;
+			display: block;
+		}
+	}
+	.links-list {
+		width: 100%;
+		padding: 27px 27px 12px 24px;
+		float: left;
+		clear: both;
+		li {
+			width: 100%;
+			text-align: left;
+			margin-bottom: 22px;
+			float: left;
+			a {
+				font-size: 20px;
+				letter-spacing: 0.05em;
+			}
+		}
+	}
+	.search-form {
+		position: relative;
+		margin-bottom: 30px;
+		input {
+			padding-right: 50px;
+			height: 43px;
+			padding-left: 16px;
+			font-size: 14px;
+			color: #868686;
+			@include placeholder {
+				color: #868686;
+			}
+		}
+		button {
+			@include font(ico-search);
+			width: auto;
+			padding: 11px 0 0;
+			font-size: 21px;
+			position: absolute;
+			top: 0;
+			right: 14px;
+			background-color: transparent;
+			box-shadow: none;
+			border: 0;
+		}
+	}
+	@include breakpoint(tablet) {
+		top: 93px;
+	}
+}
+.mobile-nav-products {
+	@include base-float;
+	position: relative;
+	text-align: center;
+	padding: 22px 0 20px;
+	border-bottom: 1px solid $border;
+	a {
+		display: inline-block;
+		padding: 0 8px;
+		letter-spacing: 0.025em;
+	}
+	.text {
+		font-size: 26px;
+		width: 100%;
+		text-align: center;
+		display: block;
+	}
+}

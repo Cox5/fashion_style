@@ -1,0 +1,174 @@
+//----------  helpers
+//------------------------------------------------------------------------------
+%clearfix {
+	&::before, &::after {
+		content: '';
+		display: table;
+	}
+
+	&::after {
+		clear: both;
+	}
+}
+
+* {
+	box-sizing: border-box;
+	&::before,
+	&::after {
+		box-sizing: border-box;
+	}
+}
+
+@include breakpoint(phablet) {
+	.hide-phablet {
+		display: none !important;
+	}
+}
+@media (min-width: 961px) {
+	.hide-tablet-up {
+		display: none !important;
+	}
+}
+
+.clearfix {
+	@extend %clearfix;
+}
+
+.block {
+	width: 100%;
+	position: relative;
+	float: left;
+	clear: both;
+}
+
+.flex-block {
+	align-items: center;
+	display: flex;
+	clear: both;
+	@include breakpoint(touch) {
+		display: block;
+	}
+}
+
+.block-half {
+	width: 50%;
+	float: left;
+	position: relative;
+	@include breakpoint(phablet) {
+		width: 100%;
+		min-height: 1px;
+	}
+}
+
+.hide {
+	display: none;
+}
+
+.show {
+	display: block;
+}
+
+.clear {
+	clear: both;
+}
+
+.no-margin {
+	margin: 0 !important;
+}
+
+.margin-top {
+	margin-top: 160px;
+	@include breakpoint(phone) {
+		margin-top: 30px;
+	}
+}
+
+.margin-top-small {
+	margin-top: 80px;
+	@include breakpoint(phone) {
+		margin-top: 30px;
+	}
+}
+
+.mt-20 {
+	margin: 22px 0 0 !important;
+	@include breakpoint(phone) {
+		margin-top: 11px !important;
+	}
+}
+
+.fleft {
+	float: left;
+}
+
+.fright {
+	float: right;
+}
+
+.centered {
+	text-align: center;
+}
+.text-right {
+	text-align: right;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	&.full-width {
+		width: 100%;
+	}
+	&.rounded {
+		border-radius: 50%;
+	}
+}
+
+// background colors
+.bg-black {
+	background-color: $black;
+}
+
+.bg-white {
+	background-color: $white;
+}
+
+.text-rotate {
+	transform: rotate(-90deg) translate(100%, 0);
+	transform-origin: bottom right;
+	position: absolute;
+	text-transform: uppercase;
+	font-family: $font-headings;
+	font-size: 20px;
+	&.wider {
+		letter-spacing: 0.07em;
+	}
+}
+
+// product image variation - screen size based
+.desktop-img {
+	display: block !important;
+	@include breakpoint(phone) {
+		display: none !important;
+	}
+}
+
+.mobile-img {
+	display: none !important;
+	@include breakpoint(phone) {
+		display: block !important;
+	}
+}
+
+.mob-border {
+	@include breakpoint(phone) {
+		padding-bottom: 20px;
+		border-bottom: 1px solid $black;
+	}
+}
+
+.mob-only {
+	display: none !important;
+	@include breakpoint(phone) {
+		display: block !important;
+	}
+}

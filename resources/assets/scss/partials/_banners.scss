@@ -1,0 +1,135 @@
+.main-banner {
+	position: relative;
+	padding: 60px 80px;
+	margin-bottom: 100px;
+	&::after {
+		content: '';
+		display: block;
+		width: 42px;
+		height: 53%;
+		background-color: $black;
+		position: absolute;
+		top: 19%;
+		right: 6.5%;
+		transform: skewX(-8deg);
+		transform-origin: top;
+	}
+	.main-banner-content {
+		position: absolute;
+		top: 145px;
+		right: 210px;
+		width: 390px;
+		text-align: center;
+	}
+	.main-banner-text {
+		width: 100%;
+		margin-bottom: 10px;
+		float: right;
+		img {
+			width: 100%;
+		}
+	}
+	ul {
+		font-size: 30px;
+		text-transform: uppercase;
+		letter-spacing: 0.025em;
+		display: inline-block;
+		clear: both;
+	}
+	li {
+		display: inline-block;
+		padding: 0 4px;
+		font-family: $font-headings;
+		float: left;
+		&:not(:last-child) a::after {
+			content: '/';
+			margin-left: 5px;
+		}
+	}
+	a {
+		font-family: $font-headings;
+	}
+	.text-rotate {
+		bottom: 60px;
+		right: 240px;
+		letter-spacing: -0.5px;
+	}
+	.img-full {
+		width: 100%;
+		max-width: 100%;
+		height: auto;
+		padding-right: 206px;
+	}
+	@include breakpoint(touch) {
+		padding: 0;
+		&::after {
+			display: none;
+		}
+		.main-banner-content {
+			right: 10px;
+			top: 22px;
+			width: 51%;
+		}
+		.main-banner-text {
+			margin-bottom: 5px;
+			text-align: right;
+		}
+		h2 {
+			font-size: 50px;
+			text-align: center;
+		}
+		ul {
+			float: right;
+		}
+		li {
+			font-size: 15px;
+		}
+		a::after {
+			display: none;
+		}
+		.text-rotate {
+			right: 3px;
+			bottom: 0;
+			font-size: 12px;
+		}
+		.img-full {
+			padding-right: 25px;
+		}
+	}
+	@include breakpoint(phone) {
+		margin-bottom: 75px;
+		h2 {
+			font-size: 20px;
+		}
+	}
+}
+
+.category-banner {
+	@include breakpoint(phone) {
+		padding-top: 130px;
+		margin-bottom: 32px;
+		.main-banner-content {
+			right: 0;
+			top: 20px;
+			width: 100%;
+		}
+		ul {
+			float: none;
+		}
+		li {
+			font-size: 18px;
+		}
+		.img-full {
+			padding-right: 0;
+		}
+		.img-wrap {
+			margin-right: 25px;
+			overflow: hidden;
+			img {
+				width: 200%;
+				max-width: none;
+				margin-left: -30%;
+			}
+		}
+	}
+}

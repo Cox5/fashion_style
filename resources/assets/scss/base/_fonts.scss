@@ -1,0 +1,25 @@
+//----------  fonts
+//------------------------------------------------------------------------------
+
+@font-face {
+	font-family: 'Akkurat';
+	src: url('../fonts/Akkurat.woff') format('woff'),
+		 url('../fonts/Akkurat.ttf') format('truetype');
+	font-style: normal;
+	font-weight: 400;
+}
+@font-face {
+	font-family: 'Akkurat';
+	src: url('../fonts/Akkurat-Bold.woff') format('woff'),
+		 url('../fonts/Akkurat-Bold.ttf') format('truetype');
+	font-style: normal;
+	font-weight: 700;
+}
+
+@font-face {
+	font-family:'Knockout HTF68-FullFeatherwt';
+	src: url('../fonts/Knockout-HTF68-FullFeatherwt.woff') format('woff'),
+		url('../fonts/Knockout-HTF68-FullFeatherwt.ttf') format('truetype');
+	font-style: normal;
+	font-weight: 500;
+}

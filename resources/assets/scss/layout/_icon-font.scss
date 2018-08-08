@@ -1,0 +1,187 @@
+@font-face {
+	font-family: "svgicons";
+	src: url('../fonts/svgicons.eot');
+	src: url('../fonts/svgicons.eot?#iefix') format('eot'),
+		url('../fonts/svgicons.woff') format('woff'),
+		url('../fonts/svgicons.ttf') format('truetype');
+}
+
+@mixin font-styles {
+	font-family: "svgicons";
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	// speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+	text-decoration: none;
+	text-transform: none;
+}
+
+%font {
+	@include font-styles;
+}
+
+@function font-char($filename) {
+	$char: "";
+
+	@if $filename == ico-arrow-left {
+		$char: "\E001";
+	}
+	@if $filename == ico-arrow-right {
+		$char: "\E002";
+	}
+	@if $filename == ico-basket {
+		$char: "\E003";
+	}
+	@if $filename == ico-close-big {
+		$char: "\E004";
+	}
+	@if $filename == ico-close {
+		$char: "\E005";
+	}
+	@if $filename == ico-facebook {
+		$char: "\E006";
+	}
+	@if $filename == ico-filter {
+		$char: "\E007";
+	}
+	@if $filename == ico-flag-belgium {
+		$char: "\E008";
+	}
+	@if $filename == ico-flag-uk {
+		$char: "\E009";
+	}
+	@if $filename == ico-instagram {
+		$char: "\E00A";
+	}
+	@if $filename == ico-linkedin {
+		$char: "\E00B";
+	}
+	@if $filename == ico-plus {
+		$char: "\E00C";
+	}
+	@if $filename == ico-print {
+		$char: "\E00D";
+	}
+	@if $filename == ico-profile {
+		$char: "\E00E";
+	}
+	@if $filename == ico-recycle-bin {
+		$char: "\E00F";
+	}
+	@if $filename == ico-search {
+		$char: "\E010";
+	}
+	@if $filename == ico-slide-next-small {
+		$char: "\E011";
+	}
+	@if $filename == ico-slide-next {
+		$char: "\E012";
+	}
+	@if $filename == ico-slide-prev {
+		$char: "\E013";
+	}
+	@if $filename == ico-snapchat {
+		$char: "\E014";
+	}
+	@if $filename == ico-sort {
+		$char: "\E015";
+	}
+	@if $filename == ico-twitter {
+		$char: "\E016";
+	}
+	@if $filename == ico-youtube {
+		$char: "\E017";
+	}
+	@if $filename == ico-zoom {
+		$char: "\E018";
+	}
+
+	@return $char;
+}
+
+@mixin font($filename, $insert: before, $extend: true) {
+	&:#{$insert} {
+		@if $extend {
+			@extend %font;
+		} @else {
+			@include font-styles;
+		}
+		content: font-char($filename);
+	}
+}
+
+.font-ico-arrow-left {
+	@include font(ico-arrow-left);
+}
+.font-ico-arrow-right {
+	@include font(ico-arrow-right);
+}
+.font-ico-basket {
+	@include font(ico-basket);
+}
+.font-ico-close-big {
+	@include font(ico-close-big);
+}
+.font-ico-close {
+	@include font(ico-close);
+}
+.font-ico-facebook {
+	@include font(ico-facebook);
+}
+.font-ico-filter {
+	@include font(ico-filter);
+}
+.font-ico-flag-belgium {
+	@include font(ico-flag-belgium);
+}
+.font-ico-flag-uk {
+	@include font(ico-flag-uk);
+}
+.font-ico-instagram {
+	@include font(ico-instagram);
+}
+.font-ico-linkedin {
+	@include font(ico-linkedin);
+}
+.font-ico-plus {
+	@include font(ico-plus);
+}
+.font-ico-print {
+	@include font(ico-print);
+}
+.font-ico-profile {
+	@include font(ico-profile);
+}
+.font-ico-recycle-bin {
+	@include font(ico-recycle-bin);
+}
+.font-ico-search {
+	@include font(ico-search);
+}
+.font-ico-slide-next-small {
+	@include font(ico-slide-next-small);
+}
+.font-ico-slide-next {
+	@include font(ico-slide-next);
+}
+.font-ico-slide-prev {
+	@include font(ico-slide-prev);
+}
+.font-ico-snapchat {
+	@include font(ico-snapchat);
+}
+.font-ico-sort {
+	@include font(ico-sort);
+}
+.font-ico-twitter {
+	@include font(ico-twitter);
+}
+.font-ico-youtube {
+	@include font(ico-youtube);
+}
+.font-ico-zoom {
+	@include font(ico-zoom);
+}
+

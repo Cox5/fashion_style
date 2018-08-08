@@ -1,0 +1,138 @@
+//----------  button
+//------------------------------------------------------------------------------
+.btn {
+	font-family: $font-headings;
+	border: 1px solid $black;
+	color: $black;
+	padding: 9px 48px 8px;
+	font-size: 18px;
+	text-align: center;
+	transition: background-color $duration $easing, color $duration $easing;
+	text-transform: uppercase;
+	letter-spacing: 0.025em;
+	display: inline-block;
+	&:hover {
+		background-color: $black;
+		color: $white;
+	}
+	&.btn-mob {
+		display: none;
+	}
+	@include breakpoint(phone) {
+		width: 100%;
+		&.btn-mob {
+			display: block;
+		}
+	}
+}
+
+.btn-big {
+	font-size: 28px;
+	padding: 18px 100px 17px;
+	@include breakpoint(phone) {
+		font-size: 21px;
+		padding: 13px 40px;
+		letter-spacing: 0.06em;
+	}
+}
+
+.btn-medium {
+	font-size: 24px;
+	padding: 19px 42px;
+	letter-spacing: 0.08em;
+}
+
+.btn-black {
+	background-color: $black;
+	color: $white;
+	&:hover {
+		background-color: $white;
+		color: $black;
+	}
+}
+
+.btn-play {
+	background-color: transparent;
+	border: 1px solid $white;
+	padding: 58px 62px;
+	margin-bottom: 40px;
+	transition: background-color $duration $easing;
+	&::before {
+		content: '';
+		width: 0;
+		height: 0;
+		position: relative;
+		left: 4px;
+		border-style: solid;
+		border-width: 16px 0 16px 25px;
+		border-color: transparent;
+		border-left-color: $white;
+		display: block;
+	}
+	@include breakpoint(phone) {
+		padding: 22px 26px;
+		margin-bottom: 25px;
+	}
+}
+
+.add-more {
+	@include font(ico-plus);
+	font-size: 14px;
+	padding-left: 42px;
+	position: relative;
+	letter-spacing: 0.05em;
+	&::before {
+		position: absolute;
+		font-size: 23px;
+		top: -8px;
+		left: 1px;
+	}
+	@include breakpoint(phone) {
+		margin-bottom: 40px;
+		display: inline-block;
+	}
+}
+.block-buttons {
+	padding-top: 20px;
+	.btn:not(:last-child) {
+		margin-right: 45px;
+	}
+	@include breakpoint(phone) {
+		.btn {
+			margin-bottom: 25px;
+		}
+		.btn:not(:last-child) {
+			margin-right: 0;
+		}
+	}
+}
+
+.mobile-filter-toggle {
+	display: flex;
+	border: 1px solid $border;
+	border-left: 0;
+	border-right: 0;
+	font-size: 15px;
+	font-family: $font-default;
+	padding: 30px 23px;
+	text-transform: uppercase;
+	margin-left: 0;
+	width: 100%;
+	background-color: #f4f4f4;
+	justify-content: center;
+	margin-bottom: 25px;
+	letter-spacing: 0.08em;
+	&::after {
+		content: '';
+		position: relative;
+		width: 0;
+		height: 0;
+		border: solid transparent;
+		border-top-color: $black;
+		border-width: 5px;
+		margin-left: 15px;
+		top: 7px;
+		display: inline-block;
+		transition: .3s ease;
+	}
+}

@@ -1,0 +1,85 @@
+.artist-highlight {
+	position: relative;
+	margin-bottom: 145px;
+	&.padding-top {
+		padding-top: 40px;
+	}
+	.artist {
+		position: relative;
+		margin-top: 78px;
+		width: 330px;
+		&.moved-down {
+			margin-top: 278px;
+		}
+	}
+	h2 {
+		letter-spacing: -0.01em;
+		margin-bottom: 73px;
+	}
+	h3 {
+		line-height: 1.3em;
+		margin-bottom: 70px;
+	}
+	.art {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		padding-left: 10%;
+		padding-right: 30px;
+		&.no-text {
+			padding-right: 0;
+		}
+	}
+	.art-image {
+		width: 100%;
+		height: 590px;
+		background-size: cover;
+		background-position: center;
+	}
+	.text-rotate {
+		right: -12px;
+		bottom: 0;
+		letter-spacing: 0.03em;
+	}
+	.btn {
+		margin-top: 100px;
+	}
+	@include breakpoint(tablet) {
+		margin-bottom: 80px;
+	}
+	@include breakpoint(phone) {
+		margin-bottom: 82px;
+		h2 {
+			margin-bottom: 16px;
+		}
+		h3 {
+			font-size: 24px;
+			margin-bottom: 37px;
+		}
+		.artist {
+			margin-top: 45px;
+			width: 165px;
+		}
+		.art {
+			padding-left: 70px;
+			padding-right: 10px;
+		}
+		.art-image {
+			height: 305px;
+		}
+		.text-rotate {
+			right: -12px;
+			font-size: 12px;
+		}
+		.btn {
+			margin-top: 40px;
+		}
+	}
+}
+
+.artist-highlight-content {
+	position: relative;
+	float: left;
+	width: 100%;
+}

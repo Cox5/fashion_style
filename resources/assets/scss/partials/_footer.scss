@@ -1,0 +1,363 @@
+//----------  footer
+//------------------------------------------------------------------------------
+.footer {
+	width: 100%;
+	border-top: 1px solid $border;
+	padding-top: 55px;
+	float: left;
+	clear: both;
+	.content-wrap {
+		@extend %clearfix;
+		padding: 0 80px;
+	}
+	@include breakpoint(tablet) {
+		.content-wrap {
+			padding-left: 40px;
+			padding-right: 40px;
+		}
+		.services {
+			padding-top: 0;
+			.content-wrap {
+				padding-left: 20px;
+				padding-right: 20px;
+			}
+		}
+	}
+	@include breakpoint(phone) {
+		padding-top: 5px;
+		.content-wrap {
+			padding: 0 20px;
+		}
+	}
+}
+
+.footer-simple {
+	padding-top: 0;
+	ul {
+		float: left;
+	}
+	p {
+		font-size: 15px;
+		float: right;
+		position: relative;
+		top: 4px;
+		a {
+			text-decoration: underline;
+		}
+	}
+	@include breakpoint(phone) {
+		.footer-links {
+			padding: 21px 5px 7px;
+			ul {
+				width: 50%;
+				li {
+					width: 100%;
+				}
+			}
+			li {
+				margin-bottom: 11px;
+				&:first-child {
+					margin-bottom: 12px;
+				}
+			}
+			p {
+				width: 39%;
+				text-align: right;
+			}
+		}
+	}
+}
+
+.services {
+	border-bottom: 1px solid $border;
+	padding: 20px 0 65px;
+	.wrap {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	@include breakpoint(phone) {
+		padding: 30px 0 5px;
+		.content-wrap {
+			display: flex;
+			flex-wrap: wrap;
+			text-align: center;
+		}
+	}
+}
+.service-item {
+	width: 25%;
+	float: left;
+	text-align: center;
+	position: relative;
+	padding: 0 15px;
+	&:not(:last-child)::after {
+		content: '';
+		width: 1px;
+		height: 21px;
+		background-color: #bfbfbf;
+		position: absolute;
+		top: 30px;
+		right: 0;
+		display: block;
+	}
+	.thumb {
+		height: 44px;
+		margin-bottom: 14px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	h6 {
+		font-size: 19px;
+		margin-bottom: 13px;
+		letter-spacing: 0.075em;
+	}
+	.service-body {
+		max-width: 310px;
+		margin: 0 auto;
+		letter-spacing: 0.1em;
+		font-size: 14px;
+		line-height: 20px;
+	}
+	@include breakpoint(phone) {
+		width: 49%;
+		margin-bottom: 28px;
+		padding: 0;
+		.service-item-main {
+			float: left;
+			width: 100%;
+		}
+		.thumb {
+			height: 50px;
+			margin-bottom: 15px;
+		}
+		h6 {
+			line-height: normal;
+		}
+		.service-body {
+			display: none;
+		}
+		&:not(:last-child)::after {
+			display: none;
+		}
+	}
+}
+
+.subscribe-form {
+	padding: 23px 0;
+	color: $white;
+	float: left;
+	max-width: 60%;
+	width: 100%;
+	label {
+		font-size: 19px;
+		text-transform: uppercase;
+		color: $white;
+		letter-spacing: 0.08em;
+		line-height: 26px;
+		padding-top: 6px;
+		margin-right: 42px;
+		float: left;
+		font-family: $font-headings;
+	}
+	input[type='email'] {
+		background-color: $black;
+		border: 1px solid $white;
+		color: $white;
+		padding: 0 27px;
+		font-size: 12px;
+		padding-left: 13px;
+		height: 34px;
+		max-width: 236px;
+		width: 100%;
+		float: left;
+		&::selection {
+			background-color: $white;
+			color: $black;
+		}
+		@include placeholder {
+			color: $white;
+		}
+	}
+	button[type='submit'] {
+		font-family: $font-headings;
+		height: 34px;
+		line-height: 33px;
+		border: 0;
+		background-color: $white;
+		padding: 0 13px;
+		float: left;
+		font-size: 18px;
+		text-align: center;
+	}
+	@include breakpoint(portrait) {
+		max-width: 50%;
+	}
+	@include breakpoint(phone) {
+		width: 100%;
+		max-width: 100%;
+		padding-bottom: 0;
+		margin-bottom: 31px;
+		label {
+			margin-right: 0;
+			margin-bottom: 17px;
+		}
+		input[type='email'] {
+			max-width: 100%;
+			width: calc(100% - 42px);
+			height: 42px;
+		}
+		button[type='submit'] {
+			font-size: 18px;
+			padding: 0;
+			width: 42px;
+			height: 42px;
+			line-height: 41px;
+		}
+	}
+}
+
+.block-social {
+	color: $white;
+	padding-top: 29px;
+	float: right;
+	ul {
+		margin-left: 12px;
+		float: left;
+	}
+	li {
+		margin-left: 23px;
+		float: left;
+	}
+	.icon {
+		font-size: 18px;
+		color: $white;
+		transition: color $duration $easing;
+		&:hover {
+			color: $yellow;
+		}
+	}
+	.font-ico-youtube {
+		font-size: 22px;
+		margin-top: -4px;
+	}
+	h4 {
+		font-size: 17px;
+		text-transform: uppercase;
+		color: $white;
+		letter-spacing: 0.1em;
+		line-height: 26px;
+		float: left;
+	}
+	@include breakpoint(phone) {
+		width: 100%;
+		padding-top: 0;
+		margin-bottom: 25px;
+		ul {
+			float: right;
+			margin-left: 0;
+		}
+		li {
+			margin-left: 0;
+			width: 33%;
+			text-align: center;
+		}
+		a {
+			display: block;
+			padding-left: 28px;
+		}
+		.icon {
+			font-size: 25px;
+		}
+	}
+}
+
+.block-payment {
+	padding: 60px 0 70px;
+	.wrap {
+		display: flex;
+		justify-content: center;
+	}
+	.payment-item {
+		margin: 0 25px;
+		border: 1px solid $border;
+		width: 75px;
+		height: 47px;
+		padding: 6px 9px;
+	}
+	@include breakpoint(phone) {
+		padding: 24px 0;
+		.payment-item {
+			margin: 0 10px;
+		}
+	}
+}
+
+.footer-links {
+	padding: 28px 0 26px;
+	font-size: 19px;
+	li {
+		font-family: $font-headings;
+		padding: 0 23px 0 9px;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		display: inline-block;
+		position: relative;
+		&:not(:last-child) {
+			&::before {
+				content: '';
+				display: block;
+				background-color: #dfdfdf;
+				height: 14px;
+				width: 1px;
+				position: absolute;
+				right: 0;
+				top: 6px;
+			}
+		}
+		&:first-child {
+			padding-left: 0;
+		}
+	}
+	a {
+		color: $black;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+	@include breakpoint(portrait) {
+		li {
+			padding: 0 14px 0 10px;
+		}
+	}
+	@include breakpoint(tablet) {
+		text-align: center;
+		li {
+			letter-spacing: 0.03em;
+		}
+	}
+	@include breakpoint(phone) {
+		padding: 29px 0 20px;
+		ul {
+			display: flex;
+			flex-wrap: wrap;
+			position: relative;
+		}
+		li {
+			width: 50%;
+			text-align: left;
+			padding: 0 10px 0 0;
+			margin-bottom: 8px;
+			letter-spacing: 0.03em;
+			&:not(:last-child) {
+				&::before {
+					display: none;
+				}
+			}
+			&:first-child {
+				width: 100%;
+				margin-bottom: 20px;
+			}
+		}
+	}
+}

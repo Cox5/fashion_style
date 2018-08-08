@@ -1,0 +1,30 @@
+//----------  lists
+//------------------------------------------------------------------------------
+
+.arrows-list {
+	li {
+		position: relative;
+		padding-left: 60px;
+		margin-bottom: 28px;
+		font-size: 15px;
+		letter-spacing: 0.1em;
+		&::before {
+			@include font-styles;
+			content: font-char(ico-arrow-right);
+			position: absolute;
+			top: -4px;
+			left: 0;
+			font-size: 30px;
+			line-height: 1;
+		}
+	}
+	@include breakpoint(phone) {
+		li {
+			padding-left: 42px;
+			margin-bottom: 16px;
+			&::before {
+				font-size: 24px;
+			}
+		}
+	}
+}

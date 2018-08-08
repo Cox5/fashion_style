@@ -1,0 +1,68 @@
+//----------  layout
+//------------------------------------------------------------------------------
+html, body {
+	@include font-smoothing(antialiased);
+	height: 100%;
+	&.no-scroll {
+		overflow: hidden;
+	}
+}
+
+body {
+	font-family: $font-default;
+	font-size: 14px;
+	font-weight: 400;
+	color: $black;
+}
+
+.container {
+	width: 100%;
+	position: relative;
+	float: left;
+	@media only screen and (max-width: 319px) {
+		width: 320px;
+	}
+}
+
+.page-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba($white, 0.7);
+	z-index: 450;
+	display: none;
+}
+
+.wrap {
+	@extend %clearfix;
+	width: 100%;
+	max-width: 1200px;
+	padding-left: 15px;
+	padding-right: 15px;
+	margin: 0 auto;
+	position: relative;
+	@include breakpoint(phone) {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+}
+
+.content {
+	padding-top: 93px;
+	.products-page & {
+		padding-top: 154px;
+	}
+	@include breakpoint(touch) {
+		.products-page & {
+			padding-top: 93px;
+		}
+	}
+	@include breakpoint(phone) {
+		padding-top: 80px;
+		.products-page & {
+			padding-top: 80px;
+		}
+	}
+}

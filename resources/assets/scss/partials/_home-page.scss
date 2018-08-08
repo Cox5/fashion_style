@@ -1,0 +1,246 @@
+//----------  home styles
+//------------------------------------------------------------------------------
+
+// collections
+.collections-block {
+	display: flex;
+	img {
+		width: 100%;
+	}
+	.block-wrap {
+		position: relative;
+		flex-basis: 0;
+		flex-grow: 1;
+	}
+	.btn {
+		@include align(absolute, xy);
+		min-width: 275px;
+		padding: 20px 20px 17px;
+		letter-spacing: 0.1em;
+		max-width: 100%;
+		font-size: 26px;
+	}
+	@include breakpoint(touch) {
+		.btn {
+			height: 58px;
+			line-height: 58px;
+			padding: 0 30px;
+			overflow: hidden;
+			min-width: 0;
+			width: 130px;
+		}
+	}
+	@include breakpoint(phone) {
+		&.three-cols {
+			flex-wrap: wrap;
+			.block-wrap {
+				width: 100%;
+				flex-basis: 100%;
+			}
+		}
+	}
+}
+
+// new
+.novelties {
+	text-align: center;
+	padding: 122px 0 130px;
+	.wrap {
+		max-width: 935px;
+		width: 100%;
+	}
+	h2 {
+		position: relative;
+		margin-bottom: 12px;
+	}
+	p {
+		font-size: 15px;
+		max-width: 626px;
+		line-height: 1.35;
+		width: 100%;
+		margin: 0 auto 41px;
+		letter-spacing: 0.1em;
+	}
+	a {
+		font-size: 15px;
+		text-decoration: underline;
+		transition: .3s ease;
+		&:hover {
+			opacity: .8;
+		}
+	}
+	.back {
+		font-size: 200px;
+		letter-spacing: 0.07em;
+		color: $yellow;
+	}
+	.front {
+		@include align(absolute, xy);
+		font-size: 72px;
+		letter-spacing: 0.017em;
+		color: $black;
+	}
+	@include breakpoint(tablet) {
+		padding: 70px 25px;
+		.back {
+			font-size: 140px;
+		}
+		.front {
+			font-size: 50px;
+		}
+	}
+	@include breakpoint(phone) {
+		padding: 44px 0 46px;
+		h2 {
+			margin-bottom: 28px;
+		}
+		p {
+			line-height: 24px;
+			letter-spacing: 0.1em;
+			margin-bottom: 25px;
+		}
+		a {
+			line-height: 24px;
+			letter-spacing: 0.1em;
+		}
+		.back {
+			font-size: 95px;
+			line-height: 79px;
+		}
+		.front {
+			font-size: 41px;
+			width: 100%;
+			text-align: center;
+			left: 0;
+			transform: translate(0, -50%);
+			margin-top: 5px;
+			letter-spacing: 0.03em;
+		}
+	}
+}
+
+// video
+.video-block {
+	height: 945px;
+	position: relative;
+	@include breakpoint(phone) {
+		height: 301px;
+	}
+}
+.video-bg-wrap {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+	z-index: 2;
+	background: #000;
+	video {
+		@include align(absolute, x);
+		top: 0;
+		width: 100%;
+		height: 100%;
+		min-width: 100%;
+		max-height: 100%;
+		z-index: -100;
+		background-size: cover;
+		display: inline-block;
+	}
+}
+
+// subscribe
+.subscribe-block {
+	background-color: $white;
+	border: 1px solid $border;
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	width: 420px;
+	padding: 36px 40px 37px 39px;
+	z-index: 3;
+	display: none;
+	h2 {
+		line-height: 55px;
+		margin-bottom: 21px;
+		padding-right: 30px;
+		font-size: 62px;
+	}
+	p {
+		font-size: 26px;
+		letter-spacing: 0.025em;
+		line-height: 1em;
+		text-transform: uppercase;
+		margin-bottom: 15px;
+		font-family: $font-headings;
+	}
+	input[type='email'] {
+		height: 44px;
+		margin-bottom: 9px;
+		font-size: 16px;
+		color: #868686;
+		font-family: $font-default;
+		@include placeholder {
+			color: #868686;
+		}
+	}
+	.checkbox {
+		display: inline-block;
+		margin: 0 29px 29px 0;
+		width: auto;
+		float: left;
+	}
+	.btn {
+		width: 100%;
+		padding: 22px 30px 21px;
+	}
+	.icon {
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		font-size: 40px;
+	}
+	@include breakpoint(tablet) {
+		width: 395px;
+	}
+	@include breakpoint(phone) {
+		bottom: 0;
+		right: 0;
+		left: 0;
+		width: 100%;
+		padding: 33px 24px 40px;
+		h2 {
+			font-size: 38px;
+			margin-bottom: 14px;
+			max-width: 59%;
+			padding-right: 0;
+			line-height: 37px;
+		}
+		p {
+			font-size: 22px;
+		}
+		input[type='email'] {
+			height: 38px;
+			font-size: 15px;
+			margin-bottom: 4px;
+		}
+		.btn {
+			padding: 17px 30px;
+		}
+		.checkbox {
+			margin: 0 22px 24px 0;
+		}
+		.icon {
+			display: block;
+			width: 19px;
+			height: 19px;
+			top: 26px;
+			right: 23px;
+			background: url('../svg/ico-close.svg') no-repeat 0 0;
+			background-size: 19px;
+			&::before {
+				display: none;
+			}
+		}
+	}
+}
