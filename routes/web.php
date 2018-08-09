@@ -13,9 +13,12 @@
 
 # handle login form with Customer controller's login function
 Route::post('/login', 'SessionsController@store');
-
 # allow user to logout by typing /logout in URL field
 Route::get('/logout', 'SessionsController@destroy');
+
+Route::post('/register', 'RegistrationController@store');
+Route::get('/register', 'RegistrationController@create');
+
 
 
 # Manage homepage routes 

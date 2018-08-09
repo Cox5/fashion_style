@@ -63,32 +63,32 @@
                                     <ul>
                                         <li>
                                             <a href="javascript:;">
-                                                <img src="assets/img/content/suggestion-01.jpg" alt="">
+                                                <img src="{{ URL::asset('img/content/suggestion-01.jpg') }}" alt="" />
                                             </a>
                                         </li>
                                         <li>
                                             <a href="javascript:;">
-                                                <img src="assets/img/content/suggestion-02.jpg" alt="">
+                                                <img src="{{ URL::asset('img/content/suggestion-02.jpg') }}" alt="" />
                                             </a>
                                         </li>
                                         <li>
                                             <a href="javascript:;">
-                                                <img src="assets/img/content/suggestion-03.jpg" alt="">
+                                                <img src="{{ URL::asset('img/content/suggestion-03.jpg') }}" alt="" />
                                             </a>
                                         </li>
                                         <li>
                                             <a href="javascript:;">
-                                                <img src="assets/img/content/suggestion-04.jpg" alt="">
+                                                <img src="{{ URL::asset('img/content/suggestion-04.jpg') }}" alt="" />
                                             </a>
                                         </li>
                                         <li>
                                             <a href="javascript:;">
-                                                <img src="assets/img/content/suggestion-05.jpg" alt="">
+                                                <img src="{{ URL::asset('img/content/suggestion-05.jpg') }}" alt="" />
                                             </a>
                                         </li>
                                         <li>
                                             <a href="javascript:;">
-                                                <img src="assets/img/content/suggestion-06.jpg" alt="">
+                                                <img src="{{ URL::asset('img/content/suggestion-06.jpg') }}" alt="" />
                                             </a>
                                         </li>
                                     </ul>
@@ -102,14 +102,14 @@
                         </a>
                         <div class="basket-subnav header-subnav">
                             <a href="/" class="logo">
-                                <img src="assets/img/logo.png" width="162" alt="Fashion/Style">
+                                <img src="{{ URL::asset('img/logo.jpg') }}" width="60" alt="Fashion/Style"/>
                             </a>
                             <span class="close-subnav js-close-subnav"><i class="icon font-ico-close"></i></span>
                             <h3>My bag</h3>
                             <div class="basket-item">
                                 <div class="basket-thumbnail">
                                     <a href="javascript:;">
-                                        <img src="assets/img/content/bag-item1.jpg" alt="">
+                                        <img src="{{ URL::asset('img/content/bag-item1.jpg') }}" alt=""/>
                                     </a>
                                 </div>
                                 <div class="basket-description">
@@ -130,7 +130,7 @@
                             <div class="basket-item">
                                 <div class="basket-thumbnail">
                                     <a href="javascript:;">
-                                        <img src="assets/img/content/bag-item1.jpg" alt="">
+                                            <img src="{{ URL::asset('img/content/bag-item1.jpg') }}" alt=""/>
                                     </a>
                                 </div>
                                 <div class="basket-description">
@@ -195,16 +195,27 @@
                             <div class="l-dropdown">
                                 <label for="language">choose language</label>
                                 <div class="select-list">
-                                    <span class="selected"><img src="assets/svg/ico-flag-uk.svg" alt="English flag">English</span>
+                                    <span class="selected"><img src="{{ URL::asset('/svg/ico-flag-uk.svg') }}" alt="English flag">English</span>
                                     <div class="dest-dropdown js-dest-overlay">
                                         <ul>
-                                            <li><span class="primary"><img src="assets/svg/ico-flag-uk.svg" alt="English flag">English</span></li>
-                                            <li><span class="primary"><img src="assets/svg/ico-flag-belgium.svg" alt="Belgium flag">Belgium</span></li>
+                                            <li><span class="primary"><img src="{{ URL::asset('/svg/ico-flag-uk.svg') }}" alt="English flag">English</span></li>
+                                            <li><span class="primary"><img src="{{ URL::asset('/svg/ico-flag-belgium.svg') }}" alt="Belgium flag">Belgium</span></li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </li>
+                    <li class="user-info">
+                            @if (Auth::check())
+                            <div class="logged-in-user" style="font-size: 15px;">
+                                <label for="user"></label>
+                                <a href="/logout"><span class="user-info" style="font-size: 14px;">{{ Auth::user()->name }}</span>
+                                </a>
+        
+                            </div>
+                            @endif
+
                     </li>
                     <li class="menu-toggle-wrap">
                         <a class="menu-toggle js-subnav-toggle" href="javascript:;">
@@ -299,11 +310,11 @@
                         <div class="l-dropdown">
                             <label for="language">choose language</label>
                             <div class="select-list">
-                                <span class="selected"><img src="assets/svg/ico-flag-uk.svg" alt="English flag">English</span>
+                                <span class="selected"><img src="{{ URL::asset('/svg/ico-flag-uk.svg') }}" alt="English flag">English</span>
                                 <div class="dest-dropdown js-dest-overlay">
                                     <ul>
-                                        <li><span class="primary"><img src="assets/svg/ico-flag-uk.svg" alt="English flag">English</span></li>
-                                        <li><span class="primary"><img src="assets/svg/ico-flag-belgium.svg" alt="Belgium flag">Belgium</span></li>
+                                        <li><span class="primary"><img src="{{ URL::asset('/svg/ico-flag-uk.svg') }}" alt="English flag">English</span></li>
+                                        <li><span class="primary"><img src="{{ URL::asset('/svg/ico-flag-belgium.svg') }}" alt="Belgium flag">Belgium</span></li>
                                     </ul>
                                 </div>
                             </div>
