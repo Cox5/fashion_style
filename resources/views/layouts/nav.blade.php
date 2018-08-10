@@ -97,7 +97,7 @@
                         </div>
                     </li>
                     <li class="basket-link">
-                        <a href="javascript:;" class="disabled js-basket-subnav-toggle">
+                        <a href="javascript:;" class="js-basket-subnav-toggle">
                             <i class="icon font-ico-basket"></i>
                         </a>
                         <div class="basket-subnav header-subnav">
@@ -156,17 +156,24 @@
                         </div>
                     </li>
                     <li class="profile-link">
-                        <a href="javascript:;" class="disabled js-login-subnav-toggle">
+                        <a href="javascript:;" class="js-login-subnav-toggle">
                             <i class="icon font-ico-profile"></i>
                         </a>
                         <div class="login-subnav header-subnav">
                             <span class="close-subnav js-close-subnav"><i class="icon font-ico-close"></i></span>
                             <div class="login-form-wrap">
+                                @if (Auth::check())
+                                    <div class="logged-in-user" style="font-size: 15px;">
+                                        <label for="user"></label>
+                                        <h3>Welcome back {{ Auth::user()->customer->firstname }}</h3>
+                                    </div>
+                                @else
                                 <h3>Log in</h3>
                                 <h6>Manage your orders, newsletter are like saving shipping address...</h6>
                                 <div class="login-form clearfix">
                                     <h6>Don't have an account?</h6>
                                     <a class="btn btn-big create-account-btn" href="javascript:;">Create an account</a>
+                                    
                                     <h6>Log in</h6>
                                     <div class="form-item form-item-full">
                                         <input class="form-item-text" type="text" name="" placeholder="E-mail address">
@@ -177,6 +184,8 @@
                                     <a class="forgot-password" href="javascript:;">Forgot your password?</a>
                                     <a class="btn btn-black btn-big login-btn" href="javascript:;">Log in</a>
                                 </div>
+                                @endif
+                                
                             </div>
                         </div>
                     </li>
@@ -210,7 +219,7 @@
                             @if (Auth::check())
                             <div class="logged-in-user" style="font-size: 15px;">
                                 <label for="user"></label>
-                                <a href="/logout"><span class="user-info" style="font-size: 14px;">{{ Auth::user()->name }}</span>
+                                <a href="/logout"><span class="user-info" style="font-size: 14px;">{{ Auth::user()->customer->firstname }}</span>
                                 </a>
         
                             </div>

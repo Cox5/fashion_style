@@ -40,8 +40,8 @@
                                 <div class="form-item form-item-full">
                                 <select class="form-item-text" name="gender" id="gender" form="registerform" class="c-dropdown">
                                         <option value="None"></option>
-                                        <option value="">Male</option>
-                                        <option value="">Female</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
                                 </select>
                                 </div>
                                 <button type="submit" class="btn btn-black btn-big login-btn">Register</button>

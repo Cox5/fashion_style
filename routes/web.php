@@ -19,6 +19,8 @@ Route::get('/logout', 'SessionsController@destroy');
 Route::post('/register', 'RegistrationController@store');
 Route::get('/register', 'RegistrationController@create');
 
+Route::get('/my-account-account-info', 'CustomerController@show');
+
 
 
 # Manage homepage routes 
@@ -58,9 +60,7 @@ Route::get('/my-account', function() {
     return view('my-account');
 });
 
-Route::get('/my-account-account-info', function() {
-    return view('my-account-account-info');
-});
+
 
 Route::get('/my-account-account-info-edit', function() {
     return view('my-account-account-info-edit');

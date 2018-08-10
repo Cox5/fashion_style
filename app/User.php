@@ -26,4 +26,16 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    // Add a mutator to ensure hadhed password
+    public function setPasswordAttribute($password) 
+    {   
+        $this->attributes['password'] = bcrypt($password);
+    }
+
+    // User equals to one customer
+    public function customer() 
+    {
+        return $this->hasOne('App\Customer');
+    }
 }

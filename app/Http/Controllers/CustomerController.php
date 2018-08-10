@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Customer;
+use Auth;
+use App\User;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
@@ -44,9 +46,14 @@ class CustomerController extends Controller
      * @param  \App\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function show(Customer $customer)
+    public function show(User $user)
+    
     {
-        //
+        $user = Auth::user();
+        $customer = $user->customer();
+
+        return view('my-account-account-info')->with(['user' => $user, 'customer' => $customer]);
+
     }
 
     /**

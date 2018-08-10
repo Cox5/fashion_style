@@ -60,27 +60,27 @@
 							<div class="account-block-form clearfix">
 								<div class="form-item">
 									<span class="form-item-label">first name</span>
-									<p class="form-item-text">John</p>
+									<p class="form-item-text">{{ $user->customer->firstname }}</p>
 								</div>
 								<div class="form-item">
 									<span class="form-item-label">last name</span>
-									<p class="form-item-text">Smith</p>
+									<p class="form-item-text">{{ $user->customer->lastname}}</p>
 								</div>
 								<div class="form-item">
 									<span class="form-item-label">Email address</span>
-									<p class="form-item-text">johnsmith@gmail.com</p>
+									<p class="form-item-text">{{ $user->email }}</p>
 								</div>
 								<div class="form-item">
 									<span class="form-item-label">Phone number</span>
-									<p class="form-item-text">+32 678202087</p>
+									<p class="form-item-text">{{ $user->customer->phone }}</p>
 								</div>
 								<div class="form-item">
 									<span class="form-item-label">Birthday</span>
-									<p class="form-item-text">12 décembre 1985</p>
+									<p class="form-item-text">{{$user->customer->date_of_birth}}</p>
 								</div>
 								<div class="form-item">
 									<span class="form-item-label">Gender</span>
-									<p class="form-item-text">Male</p>
+									<p class="form-item-text">{{$user->customer->gender}}</p>
 								</div>
 							</div>
 						</div>
