@@ -55,41 +55,46 @@
 						<div class="account-block-full">
 							<div class="account-block-header">
 								<h6>Contact infos</h6>
-								<a href="javascript:;">Edit</a>
+								<a href="">Edit</a>
 							</div>
+						<form action="/save-changes" method="POST">
+							{{ csrf_field() }}
 							<div class="form-item form-item-full">
 								<input id="cbX" type="checkbox" name="cb" value="">
 								<label class="form-checkbox" for="cbX">Use default shipping address infos</label>
 							</div>
 							<div class="account-block-form clearfix">
 								<div class="form-item">
-									<label for="input1" class="form-item-label">first name</label>
-									<input id="input1" class="form-item-text" type="text" name="" value="John">
+									<label for="firstname" class="form-item-label">first name</label>
+									<input id="firstname" class="form-item-text" type="text" name="firstname" value="{{$user->customer->firstname}}">
 								</div>
 								<div class="form-item">
-									<label for="input2" class="form-item-label">last name</label>
-									<input id="input2" class="form-item-text" type="text" name="" value="Smith">
+									<label for="lastname" class="form-item-label">last name</label>
+									<input id="lastname" class="form-item-text" type="text" name="lastname" value="{{$user->customer->lastname}}">
 								</div>
 								<div class="form-item">
-									<label for="input3" class="form-item-label">Email address</label>
-									<input id="input3" class="form-item-text" type="text" name="" value="johnsmith@gmail.com">
+									<label for="email" class="form-item-label">Email address</label>
+									<input id="email" class="form-item-text" type="text" name="email" value="{{$user->email}}">
 								</div>
 								<div class="form-item">
-									<label for="input4" class="form-item-label">Phone number</label>
-									<input id="input4" class="form-item-text" type="text" name="" value="+32 678202087">
+									<label for="phone" class="form-item-label">Phone number</label>
+									<input id="phone" class="form-item-text" type="text" name="phone" value="{{$user->customer->phone}}">
 								</div>
 								<div class="form-item">
-									<label for="input5" class="form-item-label">Birthday</label>
-									<input id="input5" class="form-item-text" type="date" name="" value="12 décembre 1985">
+									<label for="date_of_birth" class="form-item-label">Birthday</label>
+									<input id="date_of_birth" class="form-item-text" type="date" name="date_of_birth" value="{{$user->customer->date_of_birth}}">
 								</div>
 								<div class="form-item">
-									<label for="select1" class="form-item-label">Gender</label>
-									<select id="select1" class="form-item-select" name="">
-										<option value="">Male</option>
-										<option value="">Female</option>
+									<label for="gender" class="form-item-label">Gender</label>
+									<select id="gender" class="form-item-select" name="gender">
+										<option selected="{{$user->customer->gender}}">{{$user->customer->gender}}</option>
+										<option value="Male">Male</option>
+										<option value="Female">Female</option>
 									</select>
 								</div>
+								<button type="submit" class="btn btn-small btn-black">Save changes</button>
 							</div>
+						</form>
 						</div>
 						<div class="account-block-full">
 							<div class="account-block-header">

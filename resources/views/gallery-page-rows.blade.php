@@ -288,7 +288,7 @@
 					<li class="product">
 						<div class="product-wrap">
 							<a class="product-thumbnail" href="javascript:;">
-								<img src="assets/img/content/gallery-product-1.jpg" alt="">
+								<img src=" {{ URL::asset('img/content/gallery-product-1.jpg')}}" alt="">
 							</a>
 							<div class="product-info">
 								<h6><a href="javascript:;">Womens t-shirt flannel</a></h6>
@@ -297,17 +297,17 @@
 									<ul class="clearfix">
 										<li>
 											<a href="javascript:;" data-color="brown light">
-												<img src="assets/img/content/product-colors/color-brown-light.png" alt="">
+												<img src=" {{ URL::asset('img/content/product-colors/color-brown-light.png')}}" alt="">
 											</a>
 										</li>
 										<li>
 											<a href="javascript:;" data-color="grey smoke">
-												<img src="assets/img/content/product-colors/color-grey-smoke.png" alt="">
+												<img src="{{ URL::asset('img/content/product-colors/color-grey-smoke.png')}}" alt="">
 											</a>
 										</li>
 										<li>
 											<a href="javascript:;" data-color="dark blue">
-												<img src="assets/img/content/product-colors/color-dark-blue.png" alt="">
+												<img src="{{ URL::asset('img/content/product-colors/color-dark-blue.png')}}" alt="">
 											</a>
 										</li>
 									</ul>
@@ -319,7 +319,7 @@
 					<li class="product">
 						<div class="product-wrap">
 							<a class="product-thumbnail" href="javascript:;">
-								<img src="assets/img/content/gallery-product-2.jpg" alt="">
+								<img src="{{ URL::asset('img/content/gallery-product-2.jpg')}}" alt="">
 							</a>
 							<div class="product-info">
 								<h6><a href="javascript:;">Womens t-shirt flannel</a></h6>
@@ -328,17 +328,17 @@
 									<ul class="clearfix">
 										<li>
 											<a href="javascript:;" data-color="brown light">
-												<img src="assets/img/content/product-colors/color-brown-light.png" alt="">
+												<img src="{{ URL::asset('img/content/product-colors/color-brown-light.png')}}" alt="">
 											</a>
 										</li>
 										<li>
 											<a href="javascript:;" data-color="grey smoke">
-												<img src="assets/img/content/product-colors/color-grey-smoke.png" alt="">
+												<img src="{{ URL::asset('img/content/product-colors/color-grey-smoke.png')}}" alt="">
 											</a>
 										</li>
 										<li>
 											<a href="javascript:;" data-color="dark blue">
-												<img src="assets/img/content/product-colors/color-dark-blue.png" alt="">
+												<img src="{{ URL::asset('img/content/product-colors/color-dark-blue.png')}}" alt="">
 											</a>
 										</li>
 									</ul>
@@ -350,7 +350,7 @@
 					<li class="product">
 						<div class="product-wrap">
 							<a class="product-thumbnail" href="javascript:;">
-								<img src="assets/img/content/gallery-product-3.jpg" alt="">
+								<img src="{{ URL::asset('img/content/gallery-product-3.jpg')}}" alt="">
 							</a>
 							<span class="product-tag">New</span>
 							<div class="product-info">
@@ -360,17 +360,17 @@
 									<ul class="clearfix">
 										<li>
 											<a href="javascript:;" data-color="brown light">
-												<img src="assets/img/content/product-colors/color-brown-light.png" alt="">
+												<img src="{{ URL::asset('img/content/product-colors/color-brown-light.png')}}" alt="">
 											</a>
 										</li>
 										<li>
 											<a href="javascript:;" data-color="grey smoke">
-												<img src="assets/img/content/product-colors/color-grey-smoke.png" alt="">
+												<img src="{{ URL::asset('img/content/product-colors/color-grey-smoke.png')}}" alt="">
 											</a>
 										</li>
 										<li>
 											<a href="javascript:;" data-color="dark blue">
-												<img src="assets/img/content/product-colors/color-dark-blue.png" alt="">
+												<img src="{{ URL::asset('img/content/product-colors/color-dark-blue.png')}}" alt="">
 											</a>
 										</li>
 									</ul>
@@ -382,7 +382,7 @@
 					<li class="product">
 						<div class="product-wrap">
 							<a class="product-thumbnail" href="javascript:;">
-								<img src="assets/img/content/gallery-product-4.jpg" alt="">
+								<img src="{{ URL::asset('img/content/gallery-product-4.jpg')}}" alt="">
 							</a>
 							<div class="product-info">
 								<h6><a href="javascript:;">Womens t-shirt flannel</a></h6>
@@ -391,17 +391,17 @@
 									<ul class="clearfix">
 										<li>
 											<a href="javascript:;" data-color="brown light">
-												<img src="assets/img/content/product-colors/color-brown-light.png" alt="">
+												<img src="{{ URL::asset('img/content/product-colors/color-brown-light.png')}}" alt="">
 											</a>
 										</li>
 										<li>
 											<a href="javascript:;" data-color="grey smoke">
-												<img src="assets/img/content/product-colors/color-grey-smoke.png" alt="">
+												<img src="{{ URL::asset('img/content/product-colors/color-grey-smoke.png')}}" alt="">
 											</a>
 										</li>
 										<li>
 											<a href="javascript:;" data-color="dark blue">
-												<img src="assets/img/content/product-colors/color-dark-blue.png" alt="">
+												<img src="{{ URL::asset('img/content/product-colors/color-dark-blue.png')}}" alt="">
 											</a>
 										</li>
 									</ul>
@@ -413,7 +413,7 @@
 					<li class="product">
 						<div class="product-wrap">
 							<a class="product-thumbnail" href="javascript:;">
-								<img src="assets/img/content/gallery-product-5.jpg" alt="">
+								<img src="{{ URL::asset('img/content/gallery-product-5.jpg')}}" alt="">
 							</a>
 							<div class="product-info">
 								<h6><a href="javascript:;">Womens t-shirt flannel</a></h6>
@@ -422,17 +422,17 @@
 									<ul class="clearfix">
 										<li>
 											<a href="javascript:;" data-color="brown light">
-												<img src="assets/img/content/product-colors/color-brown-light.png" alt="">
+												<img src="{{ URL::asset('img/content/product-colors/color-brown-light.png')}}" alt="">
 											</a>
 										</li>
 										<li>
 											<a href="javascript:;" data-color="grey smoke">
-												<img src="assets/img/content/product-colors/color-grey-smoke.png" alt="">
+												<img src="{{ URL::asset('img/content/product-colors/color-grey-smoke.png')}}" alt="">
 											</a>
 										</li>
 										<li>
 											<a href="javascript:;" data-color="dark blue">
-												<img src="assets/img/content/product-colors/color-dark-blue.png" alt="">
+												<img src="{{ URL::asset('img/content/product-colors/color-dark-blue.png')}}" alt="">
 											</a>
 										</li>
 									</ul>
@@ -444,7 +444,7 @@
 					<li class="product">
 						<div class="product-wrap">
 							<a class="product-thumbnail" href="javascript:;">
-								<img src="assets/img/content/gallery-product-1.jpg" alt="">
+								<img src="{{ URL::asset('img/content/gallery-product-1.jpg')}}" alt="">
 							</a>
 							<div class="product-info">
 								<h6><a href="javascript:;">Womens t-shirt flannel</a></h6>
@@ -453,17 +453,17 @@
 									<ul class="clearfix">
 										<li>
 											<a href="javascript:;" data-color="brown light">
-												<img src="assets/img/content/product-colors/color-brown-light.png" alt="">
+												<img src="{{ URL::asset('img/content/product-colors/color-brown-light.png')}}" alt="">
 											</a>
 										</li>
 										<li>
 											<a href="javascript:;" data-color="grey smoke">
-												<img src="assets/img/content/product-colors/color-grey-smoke.png" alt="">
+												<img src="{{ URL::asset('img/content/product-colors/color-grey-smoke.png')}}" alt="">
 											</a>
 										</li>
 										<li>
 											<a href="javascript:;" data-color="dark blue">
-												<img src="assets/img/content/product-colors/color-dark-blue.png" alt="">
+												<img src="{{ URL::asset('img/content/product-colors/color-dark-blue.png')}}" alt="">
 											</a>
 										</li>
 									</ul>
@@ -475,7 +475,7 @@
 					<li class="product">
 						<div class="product-wrap">
 							<a class="product-thumbnail" href="javascript:;">
-								<img src="assets/img/content/gallery-product-2.jpg" alt="">
+								<img src="{{ URL::asset('img/content/gallery-product-2.jpg')}}" alt="">
 							</a>
 							<div class="product-info">
 								<h6><a href="javascript:;">Womens t-shirt flannel</a></h6>
@@ -484,17 +484,17 @@
 									<ul class="clearfix">
 										<li>
 											<a href="javascript:;" data-color="brown light">
-												<img src="assets/img/content/product-colors/color-brown-light.png" alt="">
+												<img src="{{ URL::asset('img/content/product-colors/color-brown-light.png')}}" alt="">
 											</a>
 										</li>
 										<li>
 											<a href="javascript:;" data-color="grey smoke">
-												<img src="assets/img/content/product-colors/color-grey-smoke.png" alt="">
+												<img src="{{ URL::asset('img/content/product-colors/color-grey-smoke.png')}}" alt="">
 											</a>
 										</li>
 										<li>
 											<a href="javascript:;" data-color="dark blue">
-												<img src="assets/img/content/product-colors/color-dark-blue.png" alt="">
+												<img src="{{ URL::asset('img/content/product-colors/color-dark-blue.png')}}" alt="">
 											</a>
 										</li>
 									</ul>
@@ -506,163 +506,7 @@
 					<li class="product">
 						<div class="product-wrap">
 							<a class="product-thumbnail" href="javascript:;">
-								<img src="assets/img/content/gallery-product-3.jpg" alt="">
-							</a>
-							<span class="product-tag">New</span>
-							<div class="product-info">
-								<h6><a href="javascript:;">Womens t-shirt flannel</a></h6>
-								<!-- reusable product-colors block from product page -->
-								<div class="product-colors">
-									<ul class="clearfix">
-										<li>
-											<a href="javascript:;" data-color="brown light">
-												<img src="assets/img/content/product-colors/color-brown-light.png" alt="">
-											</a>
-										</li>
-										<li>
-											<a href="javascript:;" data-color="grey smoke">
-												<img src="assets/img/content/product-colors/color-grey-smoke.png" alt="">
-											</a>
-										</li>
-										<li>
-											<a href="javascript:;" data-color="dark blue">
-												<img src="assets/img/content/product-colors/color-dark-blue.png" alt="">
-											</a>
-										</li>
-									</ul>
-									<a class="more-colors" href="javascript:;">+ More colors</a>
-								</div>
-							</div>
-						</div>
-					</li>
-					<li class="product">
-						<div class="product-wrap">
-							<a class="product-thumbnail" href="javascript:;">
-								<img src="assets/img/content/gallery-product-4.jpg" alt="">
-							</a>
-							<div class="product-info">
-								<h6><a href="javascript:;">Womens t-shirt flannel</a></h6>
-								<!-- reusable product-colors block from product page -->
-								<div class="product-colors">
-									<ul class="clearfix">
-										<li>
-											<a href="javascript:;" data-color="brown light">
-												<img src="assets/img/content/product-colors/color-brown-light.png" alt="">
-											</a>
-										</li>
-										<li>
-											<a href="javascript:;" data-color="grey smoke">
-												<img src="assets/img/content/product-colors/color-grey-smoke.png" alt="">
-											</a>
-										</li>
-										<li>
-											<a href="javascript:;" data-color="dark blue">
-												<img src="assets/img/content/product-colors/color-dark-blue.png" alt="">
-											</a>
-										</li>
-									</ul>
-									<a class="more-colors" href="javascript:;">+ More colors</a>
-								</div>
-							</div>
-						</div>
-					</li>
-					<li class="product">
-						<div class="product-wrap">
-							<a class="product-thumbnail" href="javascript:;">
-								<img src="assets/img/content/gallery-product-5.jpg" alt="">
-							</a>
-							<div class="product-info">
-								<h6><a href="javascript:;">Womens t-shirt flannel</a></h6>
-								<!-- reusable product-colors block from product page -->
-								<div class="product-colors">
-									<ul class="clearfix">
-										<li>
-											<a href="javascript:;" data-color="brown light">
-												<img src="assets/img/content/product-colors/color-brown-light.png" alt="">
-											</a>
-										</li>
-										<li>
-											<a href="javascript:;" data-color="grey smoke">
-												<img src="assets/img/content/product-colors/color-grey-smoke.png" alt="">
-											</a>
-										</li>
-										<li>
-											<a href="javascript:;" data-color="dark blue">
-												<img src="assets/img/content/product-colors/color-dark-blue.png" alt="">
-											</a>
-										</li>
-									</ul>
-									<a class="more-colors" href="javascript:;">+ More colors</a>
-								</div>
-							</div>
-						</div>
-					</li>
-					<li class="product">
-						<div class="product-wrap">
-							<a class="product-thumbnail" href="javascript:;">
-								<img src="assets/img/content/gallery-product-1.jpg" alt="">
-							</a>
-							<div class="product-info">
-								<h6><a href="javascript:;">Womens t-shirt flannel</a></h6>
-								<!-- reusable product-colors block from product page -->
-								<div class="product-colors">
-									<ul class="clearfix">
-										<li>
-											<a href="javascript:;" data-color="brown light">
-												<img src="assets/img/content/product-colors/color-brown-light.png" alt="">
-											</a>
-										</li>
-										<li>
-											<a href="javascript:;" data-color="grey smoke">
-												<img src="assets/img/content/product-colors/color-grey-smoke.png" alt="">
-											</a>
-										</li>
-										<li>
-											<a href="javascript:;" data-color="dark blue">
-												<img src="assets/img/content/product-colors/color-dark-blue.png" alt="">
-											</a>
-										</li>
-									</ul>
-									<a class="more-colors" href="javascript:;">+ More colors</a>
-								</div>
-							</div>
-						</div>
-					</li>
-					<li class="product">
-						<div class="product-wrap">
-							<a class="product-thumbnail" href="javascript:;">
-								<img src="assets/img/content/gallery-product-2.jpg" alt="">
-							</a>
-							<div class="product-info">
-								<h6><a href="javascript:;">Womens t-shirt flannel</a></h6>
-								<!-- reusable product-colors block from product page -->
-								<div class="product-colors">
-									<ul class="clearfix">
-										<li>
-											<a href="javascript:;" data-color="brown light">
-												<img src="assets/img/content/product-colors/color-brown-light.png" alt="">
-											</a>
-										</li>
-										<li>
-											<a href="javascript:;" data-color="grey smoke">
-												<img src="assets/img/content/product-colors/color-grey-smoke.png" alt="">
-											</a>
-										</li>
-										<li>
-											<a href="javascript:;" data-color="dark blue">
-												<img src="assets/img/content/product-colors/color-dark-blue.png" alt="">
-											</a>
-										</li>
-									</ul>
-									<a class="more-colors" href="javascript:;">+ More colors</a>
-								</div>
-							</div>
-						</div>
-					</li>
-					<li class="product">
-						<div class="product-wrap">
-							<a class="product-thumbnail" href="javascript:;">
-								<img src="assets/img/content/gallery-product-3.jpg" alt="">
+								<img src="{{ URL::asset('img/content/gallery-product-3.jpg')}}" alt="">
 							</a>
 							<span class="product-tag">New</span>
 							<div class="product-info">
@@ -672,17 +516,17 @@
 									<ul class="clearfix">
 										<li>
 											<a href="javascript:;" data-color="brown light">
-												<img src="assets/img/content/product-colors/color-brown-light.png" alt="">
+												<img src="{{ URL::asset('img/content/product-colors/color-brown-light.png')}}" alt="">
 											</a>
 										</li>
 										<li>
 											<a href="javascript:;" data-color="grey smoke">
-												<img src="assets/img/content/product-colors/color-grey-smoke.png" alt="">
+												<img src="{{ URL::asset('img/content/product-colors/color-grey-smoke.png')}}" alt="">
 											</a>
 										</li>
 										<li>
 											<a href="javascript:;" data-color="dark blue">
-												<img src="assets/img/content/product-colors/color-dark-blue.png" alt="">
+												<img src="{{ URL::asset('img/content/product-colors/color-dark-blue.png')}}" alt="">
 											</a>
 										</li>
 									</ul>
@@ -694,7 +538,7 @@
 					<li class="product">
 						<div class="product-wrap">
 							<a class="product-thumbnail" href="javascript:;">
-								<img src="assets/img/content/gallery-product-4.jpg" alt="">
+								<img src="{{ URL::asset('img/content/gallery-product-4.jpg')}}" alt="">
 							</a>
 							<div class="product-info">
 								<h6><a href="javascript:;">Womens t-shirt flannel</a></h6>
@@ -703,17 +547,17 @@
 									<ul class="clearfix">
 										<li>
 											<a href="javascript:;" data-color="brown light">
-												<img src="assets/img/content/product-colors/color-brown-light.png" alt="">
+												<img src="{{ URL::asset('img/content/product-colors/color-brown-light.png')}}" alt="">
 											</a>
 										</li>
 										<li>
 											<a href="javascript:;" data-color="grey smoke">
-												<img src="assets/img/content/product-colors/color-grey-smoke.png" alt="">
+												<img src="{{ URL::asset('img/content/product-colors/color-grey-smoke.png')}}" alt="">
 											</a>
 										</li>
 										<li>
 											<a href="javascript:;" data-color="dark blue">
-												<img src="assets/img/content/product-colors/color-dark-blue.png" alt="">
+												<img src="{{ URL::asset('img/content/product-colors/color-dark-blue.png')}}" alt="">
 											</a>
 										</li>
 									</ul>
@@ -725,7 +569,7 @@
 					<li class="product">
 						<div class="product-wrap">
 							<a class="product-thumbnail" href="javascript:;">
-								<img src="assets/img/content/gallery-product-5.jpg" alt="">
+								<img src="{{ URL::asset('img/content/gallery-product-5.jpg')}}" alt="">
 							</a>
 							<div class="product-info">
 								<h6><a href="javascript:;">Womens t-shirt flannel</a></h6>
@@ -734,17 +578,173 @@
 									<ul class="clearfix">
 										<li>
 											<a href="javascript:;" data-color="brown light">
-												<img src="assets/img/content/product-colors/color-brown-light.png" alt="">
+												<img src="{{ URL::asset('img/content/product-colors/color-brown-light.png')}}" alt="">
 											</a>
 										</li>
 										<li>
 											<a href="javascript:;" data-color="grey smoke">
-												<img src="assets/img/content/product-colors/color-grey-smoke.png" alt="">
+												<img src="{{ URL::asset('img/content/product-colors/color-grey-smoke.png')}}" alt="">
 											</a>
 										</li>
 										<li>
 											<a href="javascript:;" data-color="dark blue">
-												<img src="assets/img/content/product-colors/color-dark-blue.png" alt="">
+												<img src="{{ URL::asset('img/content/product-colors/color-dark-blue.png')}}" alt="">
+											</a>
+										</li>
+									</ul>
+									<a class="more-colors" href="javascript:;">+ More colors</a>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="product">
+						<div class="product-wrap">
+							<a class="product-thumbnail" href="javascript:;">
+								<img src="{{ URL::asset('img/content/gallery-product-1.jpg')}}" alt="">
+							</a>
+							<div class="product-info">
+								<h6><a href="javascript:;">Womens t-shirt flannel</a></h6>
+								<!-- reusable product-colors block from product page -->
+								<div class="product-colors">
+									<ul class="clearfix">
+										<li>
+											<a href="javascript:;" data-color="brown light">
+												<img src="{{ URL::asset('img/content/product-colors/color-brown-light.png')}}" alt="">
+											</a>
+										</li>
+										<li>
+											<a href="javascript:;" data-color="grey smoke">
+												<img src="{{ URL::asset('img/content/product-colors/color-grey-smoke.png')}}" alt="">
+											</a>
+										</li>
+										<li>
+											<a href="javascript:;" data-color="dark blue">
+												<img src="{{ URL::asset('img/content/product-colors/color-dark-blue.png')}}" alt="">
+											</a>
+										</li>
+									</ul>
+									<a class="more-colors" href="javascript:;">+ More colors</a>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="product">
+						<div class="product-wrap">
+							<a class="product-thumbnail" href="javascript:;">
+								<img src="{{ URL::asset('img/content/gallery-product-2.jpg')}}" alt="">
+							</a>
+							<div class="product-info">
+								<h6><a href="javascript:;">Womens t-shirt flannel</a></h6>
+								<!-- reusable product-colors block from product page -->
+								<div class="product-colors">
+									<ul class="clearfix">
+										<li>
+											<a href="javascript:;" data-color="brown light">
+												<img src="{{ URL::asset('img/content/product-colors/color-brown-light.png')}}" alt="">
+											</a>
+										</li>
+										<li>
+											<a href="javascript:;" data-color="grey smoke">
+												<img src="{{ URL::asset('img/content/product-colors/color-grey-smoke.png')}}" alt="">
+											</a>
+										</li>
+										<li>
+											<a href="javascript:;" data-color="dark blue">
+												<img src="{{ URL::asset('img/content/product-colors/color-dark-blue.png')}}" alt="">
+											</a>
+										</li>
+									</ul>
+									<a class="more-colors" href="javascript:;">+ More colors</a>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="product">
+						<div class="product-wrap">
+							<a class="product-thumbnail" href="javascript:;">
+								<img src="{{ URL::asset('img/content/gallery-product-3.jpg')}}" alt="">
+							</a>
+							<span class="product-tag">New</span>
+							<div class="product-info">
+								<h6><a href="javascript:;">Womens t-shirt flannel</a></h6>
+								<!-- reusable product-colors block from product page -->
+								<div class="product-colors">
+									<ul class="clearfix">
+										<li>
+											<a href="javascript:;" data-color="brown light">
+												<img src="{{ URL::asset('img/content/product-colors/color-brown-light.png')}}" alt="">
+											</a>
+										</li>
+										<li>
+											<a href="javascript:;" data-color="grey smoke">
+												<img src="{{ URL::asset('img/content/product-colors/color-grey-smoke.png')}}" alt="">
+											</a>
+										</li>
+										<li>
+											<a href="javascript:;" data-color="dark blue">
+												<img src="{{ URL::asset('img/content/product-colors/color-dark-blue.png')}}" alt="">
+											</a>
+										</li>
+									</ul>
+									<a class="more-colors" href="javascript:;">+ More colors</a>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="product">
+						<div class="product-wrap">
+							<a class="product-thumbnail" href="javascript:;">
+								<img src="{{ URL::asset('img/content/gallery-product-4.jpg')}}" alt="">
+							</a>
+							<div class="product-info">
+								<h6><a href="javascript:;">Womens t-shirt flannel</a></h6>
+								<!-- reusable product-colors block from product page -->
+								<div class="product-colors">
+									<ul class="clearfix">
+										<li>
+											<a href="javascript:;" data-color="brown light">
+												<img src="{{ URL::asset('img/content/product-colors/color-brown-light.png')}}" alt="">
+											</a>
+										</li>
+										<li>
+											<a href="javascript:;" data-color="grey smoke">
+												<img src="{{ URL::asset('img/content/product-colors/color-grey-smoke.png')}}" alt="">
+											</a>
+										</li>
+										<li>
+											<a href="javascript:;" data-color="dark blue">
+												<img src="{{ URL::asset('img/content/product-colors/color-dark-blue.png')}}" alt="">
+											</a>
+										</li>
+									</ul>
+									<a class="more-colors" href="javascript:;">+ More colors</a>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="product">
+						<div class="product-wrap">
+							<a class="product-thumbnail" href="javascript:;">
+								<img src="{{ URL::asset('img/content/gallery-product-5.jpg')}}" alt="">
+							</a>
+							<div class="product-info">
+								<h6><a href="javascript:;">Womens t-shirt flannel</a></h6>
+								<!-- reusable product-colors block from product page -->
+								<div class="product-colors">
+									<ul class="clearfix">
+										<li>
+											<a href="javascript:;" data-color="brown light">
+												<img src="{{ URL::asset('img/content/product-colors/color-brown-light.png')}}" alt="">
+											</a>
+										</li>
+										<li>
+											<a href="javascript:;" data-color="grey smoke">
+												<img src="{{ URL::asset('img/content/product-colors/color-grey-smoke.png')}}" alt="">
+											</a>
+										</li>
+										<li>
+											<a href="javascript:;" data-color="dark blue">
+												<img src="{{ URL::asset('img/content/product-colors/color-dark-blue.png')}}" alt="">
 											</a>
 										</li>
 									</ul>

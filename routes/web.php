@@ -32,6 +32,14 @@ Route::get('/product/{id}', ['uses' =>'ProductController@show']);
 // show billing/shipping address for a customer
 Route::get('/my-account', 'CustomerController@showAccount');
 
+Route::get('/my-account-account-info-edit', 'CustomerController@create');
+
+Route::post('/save-changes', 'CustomerController@update');
+
+Route::get('/change-password', 'CustomerController@showChangePassword');
+
+Route::post('/change-password', 'CustomerController@changePassword');
+
 # Manage homepage routes 
 Route::get('/', function () {
     return view('index');
@@ -58,14 +66,11 @@ Route::get('/checkout-page', function() {
     return view('checkout-page');
 });
 
+#route for successfull order 
 Route::get('/thank-you-page', function() {
     return view('thank-you-page');
 });
 
-
-Route::get('/my-account-account-info-edit', function() {
-    return view('my-account-account-info-edit');
-});
 
 Route::get('/my-account-orders', function() {
     return view('my-account-orders');

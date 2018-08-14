@@ -16,9 +16,11 @@
                             <h2>Create account</h2>
                             <form method="POST" action="/register" id="registerform">
                                 {{ csrf_field() }}
+                        <div class="container">
+                            <div class="row">
                             <div class="login-form clearfix">
 
-                                <div class="block-half">
+                                <div class="block-half" style="padding-left:25%;">
                                 <h6>Register</h6>
                                 <div class="form-item form-item-full">
                                     <input class="form-item-text" type="text" name="name" id="name" placeholder="Your name" required>
@@ -40,19 +42,53 @@
                                 </div>
                                 <div class="form-item form-item-full">
                                 <select class="form-item-text" name="gender" id="gender" form="registerform" class="c-dropdown">
-                                        <option value="None"></option>
+                                        <option value="">Gender</option>
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
                                 </select>
                             </div>
                                 </div>
                                 <div class="block-half">
-                                    <h6>Address Info</h6>
-                                    #TODO
+                                    <h6>Shipping Address Info</h6>
+                                    
+                                    <div class="form-item form-item-full">
+                                        <input class="form-item-text" type="text" name="bill_address" id="bill_address" placeholder="Billing Address" required>
+                                    </div>
+                                    <div class="form-item form-item-full">
+                                        <input class="form-item-text" type="text" name="bill_city" id="bill_city" placeholder="Billing city" required>
+                                    </div>
+                                    <div class="form-item form-item-full">
+                                        <input class="form-item-text" type="number" name="bill_zip" id="bill_zip" placeholder="Billing ZIP" required>
+                                    </div>
+                                    <div class="form-item form-item-full">
+                                        <input class="form-item-text" type="text" name="bill_country" id="bill_country" placeholder="Billing country" required>
+                                    </div>
+                                    
+                                    
                                 </div>
-                                <button type="submit" class="btn btn-black btn-big login-btn">Register</button>
 
-                                
+                                <div class="block-half">
+                                        <h6>Billing Address Info</h6>
+                                        
+                                        <div class="form-item form-item-full">
+                                            <input class="form-item-text" type="text" name="ship_address" id="ship_address" placeholder="Shipping Address" required>
+                                        </div>
+                                        <div class="form-item form-item-full">
+                                            <input class="form-item-text" type="text" name="ship_city" id="ship_city" placeholder="Shipping city" required>
+                                        </div>
+                                        <div class="form-item form-item-full">
+                                            <input class="form-item-text" type="number" name="ship_zip" id="ship_zip" placeholder="Shipping ZIP" required>
+                                        </div>
+                                        <div class="form-item form-item-full">
+                                            <input class="form-item-text" type="text" name="ship_country" id="ship_country" placeholder="Shipping country" required>
+                                         </div>
+
+                                        
+                                        <button type="submit" class="btn btn-black btn-big login-btn">Register</button>
+                                        
+                                </div>
+                            </div>
+
                             </div>
                         </form>
                             @include('layouts.errors')

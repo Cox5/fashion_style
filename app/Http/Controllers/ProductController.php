@@ -17,7 +17,7 @@ class ProductController extends Controller
     public function index()
     {
 
-        $products = Product::all();
+        $products = Product::latest()->get();
 
         //dump($products);
 
@@ -52,12 +52,11 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    #show product by its ID from database , related to product-page view
+     public function show($id)
     {
-        //
-        $data['id'] = $id;
-
-        $product = DB::table('products')->where('product_id', $data)->first();
+        
+        $product = Product::where('product_id', $id)->first();
 
         return view('product-page')->with(['product' => $product]);
     }

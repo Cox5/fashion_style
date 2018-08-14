@@ -38,7 +38,9 @@
 							</div>
 							<a class="forgot-password" href="javascript:;">Forgot your password?</a>
 							<button type="submit" class="btn btn-black btn-big login-btn">Log in</button>
+							<br>
 						</div>
+						@include('layouts.errors')
 					</form>
 					</div>
 				</div>

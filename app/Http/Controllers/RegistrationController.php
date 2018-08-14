@@ -24,6 +24,14 @@ class RegistrationController extends Controller
             'date_of_birth' => 'required',
             'phone' => 'required',
             'gender' => 'required',
+            'bill_address' => 'required',
+            'bill_city' => 'required',
+            'bill_zip' => 'required',
+            'bill_country' => 'required',
+            'ship_address' => 'required',
+            'ship_city' => 'required',
+            'ship_zip' => 'required',
+            'ship_country' => 'required',
         ]);
 
 
@@ -49,6 +57,16 @@ class RegistrationController extends Controller
         $customer->date_of_birth = request('date_of_birth');
         $customer->phone = request('phone');
         $customer->gender = request('gender');
+        
+        $customer->bill_address = request('bill_address');
+        $customer->bill_city = request('bill_city');
+        $customer->bill_zip = request('bill_zip');
+        $customer->bill_country = request('bill_country');
+
+        $customer->ship_address = request('ship_address');
+        $customer->ship_city = request('ship_city');
+        $customer->ship_zip = request('ship_zip');
+        $customer->ship_country = request('ship_country');
 
         $customer->save();
 

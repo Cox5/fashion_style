@@ -20,7 +20,7 @@
 		<header class="header checkout-header">
 			<div class="wrap">
 				<a href="/" class="logo">
-					<img src="assets/img/logo.png" width="162" alt="Fashion/Style" />
+					<img src="{{URL::asset('img/logo.jpg')}}" width="50" alt="Fashion/Style" />
 				</a>
 				<ul class="main-nav checkout-links">
 					<li>
@@ -94,13 +94,13 @@
 						<div class="radio">
 							<input id="rd1" type="radio" name="shipping-method" value="1" checked>
 							<label class="form-radio" for="rd1">
-								<span class="shipping-merchant"><img src="assets/img/dpd-shipping.png" width="87" alt=""></span> <span class="text">Standard<br/> (3 open days)</span> <strong>Free</strong>
+								<span class="shipping-merchant"><img src="{{URL::asset('img/dpd-shipping.png')}}" width="87" alt=""></span> <span class="text">Standard<br/> (3 open days)</span> <strong>Free</strong>
 							</label>
 						</div>
 						<div class="radio">
 							<input id="rd2" type="radio" name="shipping-method" value="2">
 							<label class="form-radio" for="rd2">
-								<span class="shipping-merchant"><img src="assets/img/dpd-shipping.png" width="87" alt=""></span> <span class="text">Pick up point<br/> (2 open days)</span> <strong>Free</strong>
+								<span class="shipping-merchant"><img src="{{URL::asset('img/dpd-shipping.png')}}" width="87" alt=""></span> <span class="text">Pick up point<br/> (2 open days)</span> <strong>Free</strong>
 							</label>
 						</div>
 					</div>
@@ -110,7 +110,7 @@
 							<input id="pay1" type="radio" name="payment-method" value="1" checked>
 							<label class="form-radio" for="pay1">
 								<span class="payment-merchant">
-									<img src="assets/img/master-card-bw.svg" alt="">
+									<img src="{{URL::asset('img/master-card-bw.svg')}}" alt="">
 								</span>
 								Mastercard
 							</label>
@@ -119,7 +119,7 @@
 							<input id="pay2" type="radio" name="payment-method" value="2">
 							<label class="form-radio" for="pay2">
 								<span class="payment-merchant">
-									<img src="assets/img/master-card-bw.svg" alt="">
+									<img src="{{URL::asset('img/master-card-bw.svg')}}" alt="">
 								</span>
 								Amex
 							</label>
@@ -128,7 +128,7 @@
 							<input id="pay3" type="radio" name="payment-method" value="2">
 							<label class="form-radio" for="pay3">
 								<span class="payment-merchant">
-									<img src="assets/img/visa-bw.svg" alt="">
+									<img src="{{URL::asset('img/visa-bw.svg')}}" alt="">
 								</span>
 								Visa
 							</label>
@@ -137,7 +137,7 @@
 							<input id="pay4" type="radio" name="payment-method" value="2">
 							<label class="form-radio" for="pay4">
 								<span class="payment-merchant">
-									<img src="assets/img/visa-bw.svg" alt="">
+									<img src="{{URL::asset('img/visa-bw.svg')}}" alt="">
 								</span>
 								Bancontact
 							</label>
@@ -146,7 +146,7 @@
 							<input id="pay5" type="radio" name="payment-method" value="3">
 							<label class="form-radio" for="pay5">
 								<span class="payment-merchant">
-									<img src="assets/img/paypal-bw.svg" alt="">
+									<img src="{{URL::asset('img/paypal-bw.svg')}}" alt="">
 								</span>
 								Paypal
 							</label>
@@ -155,7 +155,7 @@
 							<input id="pay6" type="radio" name="payment-method" value="2">
 							<label class="form-radio" for="pay6">
 								<span class="payment-merchant">
-									<img src="assets/img/paypal-bw.svg" alt="">
+									<img src="{{URL::asset('img/paypal-bw.svg')}}" alt="">
 								</span>
 								Direct transfer
 							</label>
@@ -169,7 +169,7 @@
 						<div class="checkout-order">
 							<div class="order-thumbnail">
 								<a href="javascript:;">
-									<img src="assets/img/content/table-item1.jpg" alt="">
+									<img src="{{URL::asset('img/content/table-item1.jpg')}}" alt="">
 								</a>
 							</div>
 							<div class="order-description">
@@ -182,7 +182,7 @@
 						<div class="checkout-order">
 							<div class="order-thumbnail">
 								<a href="javascript:;">
-									<img src="assets/img/content/table-item1.jpg" alt="">
+									<img src="{{URL::asset('img/content/table-item1.jpg')}}" alt="">
 								</a>
 							</div>
 							<div class="order-description">

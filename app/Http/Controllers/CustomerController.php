@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Customer;
 use Auth;
 use App\User;
+use App;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class CustomerController extends Controller
 {
@@ -27,6 +29,15 @@ class CustomerController extends Controller
     public function create()
     {
         //
+        if (Auth::check()) 
+        {
+            $user = Auth::user();
+            $customer = $user->customer();
+
+            return view('my-account-account-info-edit')->with(['user' => $user, 'customer' => $customer]);
+        }
+
+        return view('not-authorized');
     }
 
     /**
@@ -38,6 +49,7 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         //
+
     }
 
     /**
@@ -57,12 +69,13 @@ class CustomerController extends Controller
             return view('my-account-account-info')->with(['user' => $user, 'customer' => $customer]);
         }
 
-        return view('my-account-account-info');
+        return view('not-authorized');
         
 
 
     }
 
+    #display account info page if logged in
     public function showAccount(User $user) 
     {
         if (Auth::check())
@@ -73,9 +86,62 @@ class CustomerController extends Controller
             return view('my-account')->with(['user' => $user, 'customer' => $customer]);
         }
         
-        return view('my-account');
+        return view('not-authorized');
 
         
+    }
+
+    #display password change form if authorized (logged in)
+    public function showChangePassword() 
+    {
+        if (Auth::check()) 
+        {
+            return view('/change-password');
+        }
+        return view('not-authorized');
+    }
+
+    public function changePassword(Request $request) 
+    {
+        if (Auth::check()) 
+        {
+            $this->validate(request(), [
+                'old_password' => 'required',
+                'password' => 'required|confirmed',
+            ]);
+
+            $request_data = $request->all();
+            dump($request->all());
+        
+
+            $current_password = Auth::user()->password;
+            $current_psw_hashed = Hash::make($current_password);
+            //$new_password = bcrypt(request('password'));
+
+            dump($current_password);
+            if(Hash::check($request->get('old_password'), Auth::user()->password))
+            {
+                $user_id = Auth::user()->id;
+                $user = User::find($user_id);
+                $user->password = bcrypt(request('password_confirmation'));
+                $user->save();
+
+                dump($user);
+
+                auth()->logout();
+                // log out the user and prompt login form again with new password
+                return 'ok';
+            } 
+            else 
+            {
+                return 'error';    
+            }
+            
+        }
+
+        return view('not-authorized');
+
+        //return redirect()->back()->with("success","Password changed successfully !");
     }
 
     /**
@@ -88,6 +154,7 @@ class CustomerController extends Controller
     {
         //
 
+
     }
 
     /**
@@ -97,9 +164,35 @@ class CustomerController extends Controller
      * @param  \App\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Customer $customer)
+    # edit customer info on acount-acount-info-edit page
+     public function update(Request $request, Customer $customer)
     {
         //
+
+        $this->validate(request(), [
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email' => 'required|email|exists:users',
+            'date_of_birth' => 'required',
+            'phone' => 'required',
+            'gender' => 'required',
+        ]);
+
+        //dump($request->all());
+
+
+        $name = request('firstname') . " " . request('lastname');
+
+        //dump($name);
+
+        App\User::where('id', Auth::id())->update(['name' => $name, 'email' => request('email')]);
+
+        App\Customer::where('user_id', Auth::id())->update(['firstname' => request('firstname'), 'lastname' => request('lastname'), 
+                            'date_of_birth' => request('date_of_birth'), 'phone' => request('phone'), 'gender' => request('gender')]);
+
+        return redirect('my-account-account-info');
+
+
     }
 
     /**

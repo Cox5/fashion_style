@@ -38,4 +38,12 @@ class SessionsController extends Controller
 
         // If true, sign them in
     }
+
+    public function update(Request $request, Customer $customer)
+    {
+        if (Auth::check()) 
+        {
+            
+        }
+    }
 }

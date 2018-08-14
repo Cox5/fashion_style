@@ -19,8 +19,8 @@
 						<div class="checkout-order">
 							<div class="order-thumbnail">
 								<a href="javascript:;">
-									<img src="assets/img/content/bag-item2.jpg" alt="" class="desktop-img">
-									<img src="assets/img/content/bag-item-mob1.jpg" alt="" class="mobile-img">
+									<img src="{{URL::asset('img/content/bag-item2.jpg')}}" alt="" class="desktop-img">
+									<img src="{{URL::asset('img/content/bag-item-mob1.jpg')}}" alt="" class="mobile-img">
 									<span class="img-ratio">image vignette ratio <span>800x1000</span></span>
 								</a>
 							</div>
@@ -52,8 +52,8 @@
 						<div class="checkout-order">
 							<div class="order-thumbnail">
 								<a href="javascript:;">
-									<img src="assets/img/content/bag-item2.jpg" alt="" class="desktop-img">
-									<img src="assets/img/content/bag-item-mob1.jpg" alt="" class="mobile-img">
+									<img src="{{URL::asset('img/content/bag-item2.jpg')}}" alt="" class="desktop-img">
+									<img src="{{URL::asset('img/content/bag-item-mob1.jpg')}}" alt="" class="mobile-img">
 									<span class="img-ratio">image vignette ratio <span>800x1000</span></span>
 								</a>
 							</div>
@@ -114,19 +114,19 @@
 						<div class="radio">
 							<input id="rd1" type="radio" name="shipping-method" value="1" checked>
 							<label class="form-radio" for="rd1">
-								<span class="shipping-merchant"><img src="assets/img/dpd-shipping.png" width="87" alt=""></span> <span class="text">Standard<br/> (3 open days)</span> <span class="order-price">5<sup>,00€</sup></span>
+								<span class="shipping-merchant"><img src="{{URL::asset('img/dpd-shipping.png')}}" width="87" alt=""></span> <span class="text">Standard<br/> (3 open days)</span> <span class="order-price">5<sup>,00€</sup></span>
 							</label>
 						</div>
 						<div class="radio">
 							<input id="rd2" type="radio" name="shipping-method" value="2">
 							<label class="form-radio" for="rd2">
-								<span class="shipping-merchant"><img src="assets/img/dpd-shipping.png" width="87" alt=""></span> <span class="text">Express<br/> (24h)</span> <span class="order-price">10<sup>,00€</sup></span>
+								<span class="shipping-merchant"><img src="{{URL::asset('img/dpd-shipping.png')}}" width="87" alt=""></span> <span class="text">Express<br/> (24h)</span> <span class="order-price">10<sup>,00€</sup></span>
 							</label>
 						</div>
 						<div class="radio">
 							<input id="rd3" type="radio" name="shipping-method" value="2">
 							<label class="form-radio" for="rd3">
-								<span class="shipping-merchant"><img src="assets/img/dpd-shipping.png" width="87" alt=""></span> <span class="text">Pick up point<br/> (2 open days)</span> <span class="order-price">5<sup>,00€</sup></span>
+								<span class="shipping-merchant"><img src="{{URL::asset('img/dpd-shipping.png')}}" width="87" alt=""></span> <span class="text">Pick up point<br/> (2 open days)</span> <span class="order-price">5<sup>,00€</sup></span>
 							</label>
 						</div>
 					</div>

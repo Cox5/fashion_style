@@ -91,7 +91,7 @@
 								<a href="javascript:;">Edit</a>
 							</div>
 							<div class="account-block-form no-margin clearfix">
-								<a class="btn btn-black" href="javascript:;">Change password</a>
+								<a class="btn btn-black" href="/change-password">Change password</a>
 							</div>
 							@endauth
 							@guest
