@@ -34,11 +34,13 @@
         <div class="bg-black">
             <div class="content-wrap">
                 <div class="subscribe-form">
-                    <form action="">
+                    <form action="/subscribe" method="POST">
+                        {{ csrf_field() }}
                         <label for="subscribe-input">SUBSCRIBE TO OUR NEWSLETTER</label>
-                        <input type="email" placeholder="Your e-mail" id="subscribe-input">
+                        <input type="email" placeholder="Your e-mail" id="email" name="email">
                         <button type="submit">OK</button>
                     </form>
+                    @include('layouts.errors')
                 </div>
                 <div class="block-social">
                     <h4>Follow us</h4>

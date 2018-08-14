@@ -21,7 +21,7 @@
 							<a href="homepage">01. Homepage</a>
 						</li>
 						<li>
-							<a href="product-overvirew">02. Product overview</a>
+							<a href="product-overview">02. Product overview</a>
 						</li>
 						<li>
 							<a href="product-page">03. Product page</a>

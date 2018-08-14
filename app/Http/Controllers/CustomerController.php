@@ -49,11 +49,33 @@ class CustomerController extends Controller
     public function show(User $user)
     
     {
-        $user = Auth::user();
-        $customer = $user->customer();
+        if (Auth::check()) 
+        {
+            $user = Auth::user();
+            $customer = $user->customer();
 
-        return view('my-account-account-info')->with(['user' => $user, 'customer' => $customer]);
+            return view('my-account-account-info')->with(['user' => $user, 'customer' => $customer]);
+        }
 
+        return view('my-account-account-info');
+        
+
+
+    }
+
+    public function showAccount(User $user) 
+    {
+        if (Auth::check())
+        {
+            $user = Auth::user();
+            $customer = $user->customer();
+
+            return view('my-account')->with(['user' => $user, 'customer' => $customer]);
+        }
+        
+        return view('my-account');
+
+        
     }
 
     /**
@@ -65,6 +87,7 @@ class CustomerController extends Controller
     public function edit(Customer $customer)
     {
         //
+
     }
 
     /**

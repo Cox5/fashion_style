@@ -18,6 +18,7 @@
                                 {{ csrf_field() }}
                             <div class="login-form clearfix">
 
+                                <div class="block-half">
                                 <h6>Register</h6>
                                 <div class="form-item form-item-full">
                                     <input class="form-item-text" type="text" name="name" id="name" placeholder="Your name" required>
@@ -43,6 +44,11 @@
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
                                 </select>
+                            </div>
+                                </div>
+                                <div class="block-half">
+                                    <h6>Address Info</h6>
+                                    #TODO
                                 </div>
                                 <button type="submit" class="btn btn-black btn-big login-btn">Register</button>
 

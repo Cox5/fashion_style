@@ -23,7 +23,7 @@ class RegistrationController extends Controller
             'password' => 'required|confirmed',
             'date_of_birth' => 'required',
             'phone' => 'required',
-            'gender' => 'requied',
+            'gender' => 'required',
         ]);
 
 

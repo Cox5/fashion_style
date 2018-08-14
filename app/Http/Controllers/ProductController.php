@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Product;
 use Illuminate\Http\Request;
 
+use DB;
+
 class ProductController extends Controller
 {
     /**
@@ -14,7 +16,13 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+
+        $products = Product::all();
+
+        //dump($products);
+
+        return view('product-overview', compact('products'));
+
     }
 
     /**
@@ -44,9 +52,14 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($id)
     {
         //
+        $data['id'] = $id;
+
+        $product = DB::table('products')->where('product_id', $data)->first();
+
+        return view('product-page')->with(['product' => $product]);
     }
 
     /**

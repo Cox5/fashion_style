@@ -21,7 +21,16 @@ Route::get('/register', 'RegistrationController@create');
 
 Route::get('/my-account-account-info', 'CustomerController@show');
 
+Route::post('/subscribe', 'SubscriptionController@store');
 
+// show all products
+Route::get('/product-overview', 'ProductController@index');
+
+// show product by its ID on a product-page
+Route::get('/product/{id}', ['uses' =>'ProductController@show']);
+
+// show billing/shipping address for a customer
+Route::get('/my-account', 'CustomerController@showAccount');
 
 # Manage homepage routes 
 Route::get('/', function () {
@@ -32,9 +41,6 @@ Route::get('/homepage', function() {
     return view('homepage');
 });
 
-Route::get('/product-overvirew', function() {
-    return view('product-overvirew');
-});
 
 Route::get('/product-page', function() {
     return view('product-page');
@@ -55,11 +61,6 @@ Route::get('/checkout-page', function() {
 Route::get('/thank-you-page', function() {
     return view('thank-you-page');
 });
-
-Route::get('/my-account', function() {
-    return view('my-account');
-});
-
 
 
 Route::get('/my-account-account-info-edit', function() {

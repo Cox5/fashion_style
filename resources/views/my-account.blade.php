@@ -52,17 +52,26 @@
 			<div class="account-blocks">
 				<div class="wrap">
 					<div class="account-block-wrap clearfix">
+						@guest
+						<div class="alert alert-warning">
+							<strong>Warning!</strong> You must be logged in to see account info.
+						</div>
+						@endguest
+						
+						@auth
 						<div class="account-block">
 							<div class="account-block-header">
 								<h6>Billing address</h6>
 								<a href="javascript:;">Edit</a>
 							</div>
 							<div class="account-block-content">
-								<p>John Smith</p>
-								<p>221 Baker Street</p>
-								<p>London</p>
-								<p>WC2N</p>
-								<p>United Kingdom</p>
+								<p>{{ $user->name }}</p>
+								<p>{{ $user->customer->bill_address }}</p>
+								<p>{{ $user->customer->bill_city }}</p>
+								<p>{{ $user->customer->bill_zip }}</p>
+								<p>{{ $user->customer->bill_country }}</p>
+						
+							
 							</div>
 							<a class="add-more" href="javascript:;">Add an new address</a>
 						</div>
@@ -72,11 +81,13 @@
 								<a href="javascript:;">Edit</a>
 							</div>
 							<div class="account-block-content">
-								<p>John Smith</p>
-								<p>221 Baker Street</p>
-								<p>London</p>
-								<p>WC2N</p>
-								<p>United Kingdom</p>
+								<p>{{ $user->name }}</p>
+								<p>{{ $user->customer->ship_address }}</p>
+								<p>{{ $user->customer->ship_city }}</p>
+								<p>{{ $user->customer->ship_zip }}</p>
+								<p>{{ $user->customer->ship_country }}</p>
+							@endauth
+						
 							</div>
 						</div>
 					</div>

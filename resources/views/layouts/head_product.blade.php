@@ -1,9 +1,9 @@
-<!-- header actions have disabled classes -->
 <header class="header">
         <div class="wrap">
             <a href="/" class="logo">
                 <img src="{{ URL::asset('img/logo.jpg') }}" width="50" alt="Fashion/Style" />
             </a>
+            <span class="filters-toggle js-toggle-filters">Filters</span>
             <ul class="main-nav">
                 <li>
                     <a href="javascript:;">Women</a>
@@ -36,11 +36,6 @@
             </ul>
             <div class="header-actions">
                 <ul>
-                    <li class="professionals">
-                        <a href="javascript:;">
-                            For professionals
-                        </a>
-                    </li>
                     <li class="subnav-desktop">
                         <a href="javascript:;" class="js-subnav-toggle">
                             ...
@@ -63,32 +58,32 @@
                                     <ul>
                                         <li>
                                             <a href="javascript:;">
-                                                <img src="{{ URL::asset('img/content/suggestion-01.jpg') }}" alt="" />
+                                                <img src="assets/img/content/suggestion-01.jpg" alt="">
                                             </a>
                                         </li>
                                         <li>
                                             <a href="javascript:;">
-                                                <img src="{{ URL::asset('img/content/suggestion-02.jpg') }}" alt="" />
+                                                <img src="assets/img/content/suggestion-02.jpg" alt="">
                                             </a>
                                         </li>
                                         <li>
                                             <a href="javascript:;">
-                                                <img src="{{ URL::asset('img/content/suggestion-03.jpg') }}" alt="" />
+                                                <img src="assets/img/content/suggestion-03.jpg" alt="">
                                             </a>
                                         </li>
                                         <li>
                                             <a href="javascript:;">
-                                                <img src="{{ URL::asset('img/content/suggestion-04.jpg') }}" alt="" />
+                                                <img src="assets/img/content/suggestion-04.jpg" alt="">
                                             </a>
                                         </li>
                                         <li>
                                             <a href="javascript:;">
-                                                <img src="{{ URL::asset('img/content/suggestion-05.jpg') }}" alt="" />
+                                                <img src="assets/img/content/suggestion-05.jpg" alt="">
                                             </a>
                                         </li>
                                         <li>
                                             <a href="javascript:;">
-                                                <img src="{{ URL::asset('img/content/suggestion-06.jpg') }}" alt="" />
+                                                <img src="assets/img/content/suggestion-06.jpg" alt="">
                                             </a>
                                         </li>
                                     </ul>
@@ -99,69 +94,61 @@
                     <li class="basket-link">
                         <a href="javascript:;" class="js-basket-subnav-toggle">
                             <i class="icon font-ico-basket"></i>
+                            <span class="basket-items">2</span>
                         </a>
                         <div class="basket-subnav header-subnav">
                             <a href="/" class="logo">
-                                <img src="{{ URL::asset('img/logo.jpg') }}" width="60" alt="Fashion/Style"/>
+                                <img src="assets/img/logo.png" width="162" alt="Fashion/Style">
                             </a>
                             <span class="close-subnav js-close-subnav"><i class="icon font-ico-close"></i></span>
-
-                            @if (Auth::check())
-                                    <div class="logged-in-user" style="font-size: 15px;">
-                                        <label for="user"></label>
-                                        <h4>Your current bag, {{ Auth::user()->customer->firstname }}</h4> 
+                            <h3>My bag</h3>
+                            <div class="basket-item">
+                                <div class="basket-thumbnail">
+                                    <a href="javascript:;">
+                                        <img src="assets/img/content/bag-item1.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="basket-description">
+                                    <h6>
+                                        <a href="javascript:;">Jacket XYZ</a>
+                                        <a class="remove-product" href="javascript:;"><i class="icon font-ico-recycle-bin"></i></a>
+                                    </h6>
+                                    <span class="price">65,<sup>00 €</sup></span>
+                                    <div class="variations">
+                                        <span class="select-size">M</span>
+                                        <span class="separator"> - </span>
+                                        <span class="color">Grey</span>
+                                        <span class="separator"> - </span>
+                                        <span class="quantity"></span>1</span>
                                     </div>
-                                    <div class="basket-item">
-                                        <div class="basket-thumbnail">
-                                            <a href="javascript:;">
-                                                <img src="{{ URL::asset('img/content/bag-item1.jpg') }}" alt=""/>
-                                            </a>
-                                        </div>
-                                        <div class="basket-description">
-                                            <h6>
-                                                <a href="javascript:;">Jacket XYZ</a>
-                                                <a class="remove-product" href="javascript:;"><i class="icon font-ico-recycle-bin"></i></a>
-                                            </h6>
-                                            <span class="price">65,<sup>00 €</sup></span>
-                                            <div class="variations">
-                                                <span class="select-size">M</span>
-                                                <span class="separator"> - </span>
-                                                <span class="color">Grey</span>
-                                                <span class="separator"> - </span>
-                                                <span class="quantity"></span>1</span>
-                                            </div>
-                                        </div>
+                                </div>
+                            </div>
+                            <div class="basket-item">
+                                <div class="basket-thumbnail">
+                                    <a href="javascript:;">
+                                        <img src="assets/img/content/bag-item1.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="basket-description">
+                                    <h6>
+                                        <a href="javascript:;">Jacket XYZ</a>
+                                        <a class="remove-product" href="javascript:;"><i class="icon font-ico-recycle-bin"></i></a>
+                                    </h6>
+                                    <span class="price">65,<sup>00 €</sup></span>
+                                    <div class="variations">
+                                        <span class="select-size">M</span>
+                                        <span class="separator"> - </span>
+                                        <span class="color">Black</span>
+                                        <span class="separator"> - </span>
+                                        <span class="quantity"></span>1</span>
                                     </div>
-                                    <div class="basket-item">
-                                        <div class="basket-thumbnail">
-                                            <a href="javascript:;">
-                                                    <img src="{{ URL::asset('img/content/bag-item1.jpg') }}" alt=""/>
-                                            </a>
-                                        </div>
-                                        <div class="basket-description">
-                                            <h6>
-                                                <a href="javascript:;">Jacket XYZ</a>
-                                                <a class="remove-product" href="javascript:;"><i class="icon font-ico-recycle-bin"></i></a>
-                                            </h6>
-                                            <span class="price">65,<sup>00 €</sup></span>
-                                            <div class="variations">
-                                                <span class="select-size">M</span>
-                                                <span class="separator"> - </span>
-                                                <span class="color">Black</span>
-                                                <span class="separator"> - </span>
-                                                <span class="quantity"></span>1</span>
-                                            </div>
-                                        </div>
-                                    </div>
-        
-                                    <div class="basket-prices block">
-                                        <span class="price-label">Total</span>
-                                        <span class="price">130,<sup>00 €</sup></span>
-                                    </div>
-                                    <a class="btn btn-black btn-big" href="javascript:;">See shoping bag</a>
-                            @else
-                                <h6>You must be logged in to add items to bag.</h6>
-                            @endif
+                                </div>
+                            </div>
+                            <div class="basket-prices block">
+                                <span class="price-label">Total</span>
+                                <span class="price">130,<sup>00 €</sup></span>
+                            </div>
+                            <a class="btn btn-black btn-big" href="javascript:;">See shoping bag</a>
                         </div>
                     </li>
                     <li class="profile-link">
@@ -171,34 +158,21 @@
                         <div class="login-subnav header-subnav">
                             <span class="close-subnav js-close-subnav"><i class="icon font-ico-close"></i></span>
                             <div class="login-form-wrap">
-                                @if (Auth::check())
-                                    <div class="logged-in-user" style="font-size: 15px;">
-                                        <label for="user"></label>
-                                        <h3>Welcome back {{ Auth::user()->customer->firstname }}</h3>
-                                        <a class="btn btn-black btn-big login-btn" href="/logout">Log out</a>
-                                    </div>
-                                @else
                                 <h3>Log in</h3>
                                 <h6>Manage your orders, newsletter are like saving shipping address...</h6>
                                 <div class="login-form clearfix">
                                     <h6>Don't have an account?</h6>
-                                    <a class="btn btn-big create-account-btn" href="/create-account">Create an account</a>
-                                    
+                                    <a class="btn btn-big create-account-btn" href="javascript:;">Create an account</a>
                                     <h6>Log in</h6>
-                                    <form action="/login" method="POST">
-                                        {{ csrf_field() }}
                                     <div class="form-item form-item-full">
-                                        <input class="form-item-text" type="email" name="email" id="email" placeholder="E-mail address">
+                                        <input class="form-item-text" type="text" name="" placeholder="E-mail address">
                                     </div>
                                     <div class="form-item form-item-full">
-                                        <input class="form-item-text" type="password" name="password" id="password" placeholder="Password">
+                                        <input class="form-item-text" type="password" name="" placeholder="Password">
                                     </div>
                                     <a class="forgot-password" href="javascript:;">Forgot your password?</a>
-                                    <button type="submit" class="btn btn-black btn-big login-btn">Log in</button>
-                                    </form>
+                                    <a class="btn btn-black btn-big login-btn" href="javascript:;">Log in</a>
                                 </div>
-                                @endif
-                                
                             </div>
                         </div>
                     </li>
@@ -217,27 +191,16 @@
                             <div class="l-dropdown">
                                 <label for="language">choose language</label>
                                 <div class="select-list">
-                                    <span class="selected"><img src="{{ URL::asset('/svg/ico-flag-uk.svg') }}" alt="English flag">English</span>
+                                    <span class="selected"><img src="assets/svg/ico-flag-uk.svg" alt="English flag">English</span>
                                     <div class="dest-dropdown js-dest-overlay">
                                         <ul>
-                                            <li><span class="primary"><img src="{{ URL::asset('/svg/ico-flag-uk.svg') }}" alt="English flag">English</span></li>
-                                            <li><span class="primary"><img src="{{ URL::asset('/svg/ico-flag-belgium.svg') }}" alt="Belgium flag">Belgium</span></li>
+                                            <li><span class="primary"><img src="assets/svg/ico-flag-uk.svg" alt="English flag">English</span></li>
+                                            <li><span class="primary"><img src="assets/svg/ico-flag-belgium.svg" alt="Belgium flag">Belgium</span></li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </li>
-                    <li class="user-info">
-                            @if (Auth::check())
-                            <div class="logged-in-user" style="font-size: 15px;">
-                                <label for="user"></label>
-                                <a href="/logout"><span class="user-info" style="font-size: 14px;">{{ Auth::user()->customer->firstname }}</span>
-                                </a>
-        
-                            </div>
-                            @endif
-
                     </li>
                     <li class="menu-toggle-wrap">
                         <a class="menu-toggle js-subnav-toggle" href="javascript:;">
@@ -332,11 +295,11 @@
                         <div class="l-dropdown">
                             <label for="language">choose language</label>
                             <div class="select-list">
-                                <span class="selected"><img src="{{ URL::asset('/svg/ico-flag-uk.svg') }}" alt="English flag">English</span>
+                                <span class="selected"><img src="assets/svg/ico-flag-uk.svg" alt="English flag">English</span>
                                 <div class="dest-dropdown js-dest-overlay">
                                     <ul>
-                                        <li><span class="primary"><img src="{{ URL::asset('/svg/ico-flag-uk.svg') }}" alt="English flag">English</span></li>
-                                        <li><span class="primary"><img src="{{ URL::asset('/svg/ico-flag-belgium.svg') }}" alt="Belgium flag">Belgium</span></li>
+                                        <li><span class="primary"><img src="assets/svg/ico-flag-uk.svg" alt="English flag">English</span></li>
+                                        <li><span class="primary"><img src="assets/svg/ico-flag-belgium.svg" alt="Belgium flag">Belgium</span></li>
                                     </ul>
                                 </div>
                             </div>

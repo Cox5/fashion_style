@@ -54,8 +54,9 @@
 					<div class="account-block-wrap clearfix">
 						<div class="account-block-full">
 							<div class="account-block-header">
+							@auth
 								<h6>Contact infos</h6>
-								<a href="javascript:;">Edit</a>
+								<a href="/my-account-account-info-edit">Edit</a>
 							</div>
 							<div class="account-block-form clearfix">
 								<div class="form-item">
@@ -92,6 +93,10 @@
 							<div class="account-block-form no-margin clearfix">
 								<a class="btn btn-black" href="javascript:;">Change password</a>
 							</div>
+							@endauth
+							@guest
+								<h3>You must be logged in to see this page</h3>
+							@endguest
 						</div>
 					</div>
 				</div>

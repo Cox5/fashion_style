@@ -12,13 +12,13 @@
 		<div class="content">
 			<div class="block collections-block">
 				<div class="block-wrap">
-					<img src="assets/img/content/home-collection-1.jpg" alt="" class="desktop-img">
-					<img src="assets/img/content/home-collection-mob1.jpg" alt="" class="mobile-img">
+					<img src="{{URL::asset('img/content/home-collection-1.jpg')}}" alt="" class="desktop-img">
+					<img src="{{URL::asset('img/content/home-collection-mob1.jpg') }}" alt="" class="mobile-img">
 					<a class="btn btn-black btn-big" href="javascript:;">shop to collection</a>
 				</div>
 				<div class="block-wrap">
-					<img src="assets/img/content/home-collection-2.jpg" alt="" class="desktop-img">
-					<img src="assets/img/content/home-collection-mob2.jpg" alt="" class="mobile-img">
+					<img src="{{URL::asset('img/content/home-collection-2.jpg')}}" alt="" class="desktop-img">
+					<img src="{{URL::asset('img/content/home-collection-mob2.jpg') }}" alt="" class="mobile-img">
 					<a class="btn btn-black btn-big" href="javascript:;">shop to collection</a>
 				</div>
 			</div>
@@ -49,14 +49,15 @@
 		<div class="subscribe-block">
 			<h2>Subscribe to our newsletter</h2>
 			<p>Subscribe to our newsletter and get 10% off on your first order.</p>
-			<form action="">
-				<input type="email" placeholder="E-mail address">
+			<form action="/subscribe" method="POST">
+					{{ csrf_field() }}
+				<input type="email" placeholder="E-mail address" id="email" name="email">
 				<div class="form-item checkbox">
-					<input id="man" type="checkbox" name="category" value="">
+					<input id="man" type="checkbox" name="gender" value="M">
 					<label class="form-checkbox" for="man">Man</label>
 				</div>
 				<div class="form-item checkbox">
-					<input id="women" type="checkbox" name="category" value="">
+					<input id="women" type="checkbox" name="gender" value="F">
 					<label class="form-checkbox" for="women">Women</label>
 				</div>
 				<button type="submit" class="btn btn-black btn-big">Subscribe</button>
