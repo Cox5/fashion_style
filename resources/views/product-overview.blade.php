@@ -65,9 +65,9 @@
 
 						<li class="product">
 						<div class="product-wrap">
-							<a class="product-thumbnail" href="javascript:;">
-								<img src="assets/img/content/overview-product-1.jpg" alt="" class="front">
-								<img src="assets/img/content/overview-product-7.jpg" alt="" class="back">
+								<a class="product-thumbnail" href="/product/{{$product->id}}">
+								<img src="{{URL::asset('img/content/overview-product-1.jpg')}}" alt="" class="front">
+								<img src="{{URL::asset('img/content/overview-product-7.jpg')}}" alt="" class="back">
 							</a>
 							<div class="product-info">
 								<!-- reusable product-colors block from product page -->
@@ -146,11 +146,17 @@
 										<li><a href="javascript:;">xxl</a></li>
 									</ul>
 								</div>
-								<a href="javascript:;" class="btn btn-black">add to bag</a>
+								<form action="{{ route('cart.store') }}" method="POST">
+									{{ csrf_field() }}
+									<input type="hidden" name="id" value="{{ $product->id }}">
+									<input type="hidden" name="product_name" value= "{{ $product->product_name }}">
+									<input type="hidden" name="price" value= "{{ $product->price }}">
+									<button class="btn btn-black" type="submit">add to bag</button>
+								</form>
 							</div>
 						</div>
 						<div class="product-bottom">
-							<h6><a href="/product/{{$product->product_id}}">{{ $product->product_name }}</a></h6>
+							<h6><a href="/product/{{$product->id}}">{{ $product->product_name }}</a></h6>
 							<span class="price">{{$product->price}}<sup>,00€</sup></span>
 						</div>
 					</li>

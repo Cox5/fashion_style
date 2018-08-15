@@ -56,6 +56,12 @@
 						<li>
 							<a href="create-account">11. Create account page</a>
 						</li>
+						<li>
+							<a href="deleteCart">12. Delete ALL Cart Items</a>
+						</li>
+						<li>
+							<a href="showCart">13. Show cart items (JSON | Debug)</a>
+						</li>
 					</ul>
 				</div>
 			</div>

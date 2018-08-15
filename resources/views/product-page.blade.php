@@ -271,7 +271,13 @@
 						<p>The model is 167cm for 54kg and is wearing a size M.</p>
 					</div>
 					<div class="block product-basket">
-						<a class="btn btn-black btn-big add-to-cart" href="javascript:;">Add to bag</a>
+						<form action="{{ route('cart.store') }}" method="POST">
+							{{ csrf_field() }}
+							<input type="hidden" name="id" value="{{ $product->id }}">
+							<input type="hidden" name="product_name" value= "{{ $product->product_name }}">
+							<input type="hidden" name="price" value= "{{ $product->price }}">
+							<button class="btn btn-black btn-big add-to-cart" type="submit">Add to bag</button>
+						</form>
 						<div class="right">
 							<p>Is your size or color out of stock?</p>
 							<a href="javascript:;" class="link">Get notified when it’s back</a>

@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Product;
+use \Cart as Cart;
+use Validator;
+
 
 class CartController extends Controller
 {
@@ -13,6 +17,9 @@ class CartController extends Controller
      */
     public function index()
     {
+        // Cart::add('192ao12', 'Product name test', 1, 9.99);
+        // Cart::add('192ao12', 'Product name 2 test', 1, 9.99);
+
         return view('checkout-page-mybag');
     }
 
@@ -34,7 +41,27 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($id, $product_name, $price);
+
+
+        //Cart::add($id, $product_name, $price);
+        Cart::add([
+            'id' => request('id'), 
+            'name' => request('product_name'), 
+            'qty' => 1, 
+            'price' => request('price'), 
+            'options' => ['size' => 'large']
+        ])->associate('App\Product');
+        
+        //Cart::add('1234', 'Product test name', 1, 9.99);
+
+        //Cart::associate($cartItem->rowId, 'Product');
+        
+
+        //dd($cartItems);
+
+        return view('checkout-page-mybag')->with('success_message', 'Item is added to your cart!');
+        //return view('checkout-page-mybag');
     }
 
     /**
@@ -43,9 +70,11 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $cartItems = Cart::content();
+
+        dd($cartItems);
     }
 
     /**
@@ -79,6 +108,15 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Cart::remove($id);
+
+        return back()->with('success_message', 'Item has been removed');
+    }
+
+    public function deleteCart()
+    {
+        Cart::destroy();
+
+        return redirect('/product-overview');
     }
 }

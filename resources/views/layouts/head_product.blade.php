@@ -94,7 +94,7 @@
                     <li class="basket-link">
                         <a href="javascript:;" class="js-basket-subnav-toggle">
                             <i class="icon font-ico-basket"></i>
-                            <span class="basket-items">2</span>
+                            <span class="basket-items">{{Cart::count()}}</span>
                         </a>
                         <div class="basket-subnav header-subnav">
                             <a href="/" class="logo">

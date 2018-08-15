@@ -14,8 +14,15 @@
 			<div class="checkout-blocks block">
 				<div class="block-half checkout-orders">
 					<h3>My <span>shopping</span> bag</h3>
-					<span class="subtitle"><i class="icon font-ico-basket"></i> My shopping bag</span>
+					@if(Cart::count() > 0)
+						<span class="subtitle"><i class="icon font-ico-basket"></i> My shopping bag, {{ Cart::count() }} item(s)</span>
+					@else 
+						<span class="subtitle"><i class="icon font-ico-basket"></i> Shopping bag is empty</span>
+					@endif
 					<div class="checkout-orders-list clearfix">
+						{{-- add product to cart dynamically down below --}}
+						
+						@foreach (Cart::content() as $item)
 						<div class="checkout-order">
 							<div class="order-thumbnail">
 								<a href="javascript:;">
@@ -25,9 +32,9 @@
 								</a>
 							</div>
 							<div class="order-description">
-								<h6><a href="javascript:;">Jacket XYZ</a></h6>
-								<span class="order-price">65<sup>,00€</sup></span>
-								<span class="small-text color">Grey</span>
+								<h6><a href="javascript:;"> {{$item->name}}</a></h6>
+								<span class="order-price">{{ $item->price }}<sup>,00€</sup></span>
+								<span class="small-text color">{{$item->model->color}}</span>
 								<div class="form-item">
 									<span class="form-label">Size</span>
 									<select class="form-item-select" name="">
@@ -47,46 +54,19 @@
 									</select>
 								</div>
 							</div>
-							<a class="remove-product" href="javascript:;"><i class="icon font-ico-recycle-bin"></i></a>
+							<form action="{{ route('cart.destroy', $item->rowId) }}" method="POST">
+								{{ csrf_field() }}
+								{{ method_field('DELETE') }}
+								<button type="submit"><i class="icon font-ico-recycle-bin"></i></button>
+								{{-- <a class="remove-product" href=";"><i class="icon font-ico-recycle-bin"></i></a> --}}
+							</form>
 						</div>
-						<div class="checkout-order">
-							<div class="order-thumbnail">
-								<a href="javascript:;">
-									<img src="{{URL::asset('img/content/bag-item2.jpg')}}" alt="" class="desktop-img">
-									<img src="{{URL::asset('img/content/bag-item-mob1.jpg')}}" alt="" class="mobile-img">
-									<span class="img-ratio">image vignette ratio <span>800x1000</span></span>
-								</a>
-							</div>
-							<div class="order-description">
-								<h6><a href="javascript:;">Jacket XYZ</a></h6>
-								<span class="order-price">65<sup>,00€</sup></span>
-								<span class="small-text color">Grey</span>
-								<div class="form-item">
-									<span class="form-label">Size</span>
-									<select class="form-item-select" name="">
-										<option value="M">M</option>
-										<option value="L">L</option>
-										<option value="XL">XL</option>
-										<option value="XXL">XXL</option>
-									</select>
-								</div>
-								<div class="form-item">
-									<span class="form-label">Quantity</span>
-									<select class="form-item-select" name="">
-										<option value="1">1X</option>
-										<option value="2">2X</option>
-										<option value="3">3X</option>
-										<option value="4">4X</option>
-									</select>
-								</div>
-							</div>
-							<a class="remove-product" href="javascript:;"><i class="icon font-ico-recycle-bin"></i></a>
-						</div>
+						@endforeach
 					</div>
 					<div class="subtotal-prices order-prices block">
 						<div class="price-row">
 							<span class="price-label">Sub-total</span>
-							<span class="price">130,<sup>00€</sup></span>
+							<span class="price">{{ Cart::subtotal() }}€</span>
 						</div>
 					</div>
 				</div>
@@ -133,7 +113,7 @@
 					<div class="subtotal-prices order-prices block">
 						<div class="price-row sub-total-row">
 							<span class="price-label">Sub total</span>
-							<span class="price">135<sup>,00€</sup></span>
+							<span class="price">{{ Cart::subtotal() }}€</span>
 						</div>
 						<div class="price-row shipping-row">
 							<span class="price-label">Shipping</span>
@@ -147,7 +127,7 @@
 					<div class="total-prices order-prices block">
 						<div class="price-row">
 							<span class="price-label">Total</span>
-							<span class="total-price">132<sup>,00€</sup></span>
+							<span class="total-price">{{ Cart::total() }} €</span>
 						</div>
 					</div>
 					<a class="btn btn-black btn-medium confirm-purchase" href="javascript:;">proceed to checkout</a>

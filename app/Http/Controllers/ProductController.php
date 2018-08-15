@@ -56,7 +56,7 @@ class ProductController extends Controller
      public function show($id)
     {
         
-        $product = Product::where('product_id', $id)->first();
+        $product = Product::where('id', $id)->first();
 
         return view('product-page')->with(['product' => $product]);
     }

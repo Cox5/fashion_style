@@ -61,6 +61,16 @@ Route::get('/gallery-page-rows', function() {
 // Show cart page view
 Route::get('/checkout-page-mybag', 'CartController@index')->name('cart.index');
 
+Route::post('/checkout-page-mybag', 'CartController@store')->name('cart.store');
+
+// removing items from cart (testing)
+Route::get('deleteCart', 'CartController@deleteCart');
+
+// show JSON cart DEBUG
+Route::get('showCart', 'CartController@show');
+
+Route::delete('/checkout-page-mybag{id}', 'CartController@destroy')->name('cart.destroy');
+
 Route::get('/checkout-page', function() {
     return view('checkout-page');
 });
