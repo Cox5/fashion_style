@@ -111,6 +111,7 @@
                                         <label for="user"></label>
                                         <h4>Your current bag, {{ Auth::user()->customer->firstname }}</h4> 
                                     </div>
+                                    {{-- start placing products dynamically here --}}
                                     <div class="basket-item">
                                         <div class="basket-thumbnail">
                                             <a href="javascript:;">
@@ -132,33 +133,12 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="basket-item">
-                                        <div class="basket-thumbnail">
-                                            <a href="javascript:;">
-                                                    <img src="{{ URL::asset('img/content/bag-item1.jpg') }}" alt=""/>
-                                            </a>
-                                        </div>
-                                        <div class="basket-description">
-                                            <h6>
-                                                <a href="javascript:;">Jacket XYZ</a>
-                                                <a class="remove-product" href="javascript:;"><i class="icon font-ico-recycle-bin"></i></a>
-                                            </h6>
-                                            <span class="price">65,<sup>00 €</sup></span>
-                                            <div class="variations">
-                                                <span class="select-size">M</span>
-                                                <span class="separator"> - </span>
-                                                <span class="color">Black</span>
-                                                <span class="separator"> - </span>
-                                                <span class="quantity"></span>1</span>
-                                            </div>
-                                        </div>
-                                    </div>
         
                                     <div class="basket-prices block">
                                         <span class="price-label">Total</span>
                                         <span class="price">130,<sup>00 €</sup></span>
                                     </div>
-                                    <a class="btn btn-black btn-big" href="javascript:;">See shoping bag</a>
+                                    <a class="btn btn-black btn-big" href="/checkout-page-mybag">See shoping bag</a>
                             @else
                                 <h6>You must be logged in to add items to bag.</h6>
                             @endif

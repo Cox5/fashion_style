@@ -58,9 +58,8 @@ Route::get('/gallery-page-rows', function() {
     return view('gallery-page-rows');
 });
 
-Route::get('/checkout-page-mybag', function() {
-    return view('checkout-page-mybag');
-});
+// Show cart page view
+Route::get('/checkout-page-mybag', 'CartController@index')->name('cart.index');
 
 Route::get('/checkout-page', function() {
     return view('checkout-page');

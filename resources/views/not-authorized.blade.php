@@ -23,7 +23,7 @@
 							<h3>Oops!</h3>
 						</div>
 						<div class="checkout-block-form clearfix mob-border">
-							<p>You must be logged in order to see this page! <br>Redirect to <a href="login-page">Login </a>page.</p>
+							<p>You must be logged in order to see this page! <br><a href="login-page">Click here to redirect to Login page.</a></p>
 						</div>
 					</div>
 				</div>
