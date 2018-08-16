@@ -40,33 +40,67 @@
 					<div class="checkout-login-form block">
 						<h2>Check out</h2>
 						<div class="checkout-block-header clearfix">
-							<h6>Shipping address</h6>
-							<a class="btn btn-black" href="javascript:;">Login</a>
-							<a class="registered-customer" href="javascript:;">Already a client?</a>
+							@if (Auth::check())
+								<h5>You are logged in as {{ Auth::user()->name }}</h5>
+								<h4>Shipping address</h4>
+							@else
+								You are currently not logged in.
+								<a class="btn btn-black" href="/login-page">Login</a>
+							{{-- <a class="registered-customer" href="javascript:;">Already a client?</a> --}}
+							@endif
+						</div>
+						<form action="" method="POST">
+						<div class="form-item">
+							@if (Auth::check())
+								<input class="form-item-text" type="text" name="" placeholder="First name" value="{{ $user->customer->firstname }}" readonly>
+							@else
+								<input class="form-item-text" type="text" name="" placeholder="First name">
+							@endif
 						</div>
 						<div class="form-item">
-							<input class="form-item-text" type="text" name="" placeholder="First name">
+							@if (Auth::check())
+								<input class="form-item-text" type="text" name="" placeholder="Last name" value="{{ $user->customer->lastname }}" readonly>
+							@else
+								<input class="form-item-text" type="text" name="" placeholder="Last name">
+							@endif
 						</div>
 						<div class="form-item">
-							<input class="form-item-text" type="text" name="" placeholder="Last name">
+							@if (Auth::check())
+								<input class="form-item-text" type="email" name="" placeholder="E-mail address" value="{{ Auth::user()->email }}" readonly>
+							@else
+								<input class="form-item-text" type="email" name="" placeholder="E-mail address">
+							@endif
 						</div>
 						<div class="form-item">
-							<input class="form-item-text form-error" type="text" name="" placeholder="E-mail address">
+							@if (Auth::check())
+								<input class="form-item-text" type="text" name="" placeholder="Phone number" value="{{ $user->customer->phone }}">
+							@else
+								<input class="form-item-text" type="text" name="" placeholder="Phone number">
+							@endif
 						</div>
 						<div class="form-item">
-							<input class="form-item-text" type="text" name="" placeholder="Phone number">
-						</div>
-						<div class="form-item">
-							<input class="form-item-text" type="text" name="" placeholder="Street & number">
+							@if (Auth::check())
+								<input class="form-item-text" type="text" name="" placeholder="Street & number" value="{{ $user->customer->ship_address }}">
+							@else
+								<input class="form-item-text" type="text" name="" placeholder="Street & number">
+							@endif
 						</div>
 						<div class="form-item">
 							<input class="form-item-text" type="text" name="" placeholder="Apartement, unit (optional)">
 						</div>
 						<div class="form-item">
-							<input class="form-item-text" type="text" name="" placeholder="Town / city">
+							@if (Auth::check())
+								<input class="form-item-text" type="text" name="" placeholder="Town / city" value="{{ $user->customer->bill_city }}">
+							@else
+								<input class="form-item-text" type="text" name="" placeholder="Town / city">
+							@endif
 						</div>
 						<div class="form-item">
-							<input class="form-item-text" type="text" name="" placeholder="Postcode">
+							@if (Auth::check())
+								<input class="form-item-text" type="text" name="" placeholder="Postcode" value="{{ $user->customer->bill_zip }}">
+							@else
+								<input class="form-item-text" type="text" name="" placeholder="Postcode">
+							@endif
 						</div>
 						<div class="form-item">
 							<span class="form-label">Country</span>
@@ -88,6 +122,7 @@
 								<label class="form-checkbox" for="cb2">Create an account</label>
 							</div>
 						</div>
+					</form>
 					</div>
 					<div class="shipping-methods block">
 						<h6>Shipping method</h6>
@@ -161,11 +196,12 @@
 							</label>
 						</div>
 					</div>
-					<a class="btn btn-black btn-big confirm-purchase" href="javascript:;">Confirm</a>
+					<a class="btn btn-black btn-big confirm-purchase" href="/thank-you-page">Confirm</a>
 				</div>
 				<div class="block-half checkout-orders">
 					<h6>My order</h6>
 					<div class="checkout-orders-list clearfix">
+						@foreach (Cart::content() as $item)
 						<div class="checkout-order">
 							<div class="order-thumbnail">
 								<a href="javascript:;">
@@ -173,30 +209,18 @@
 								</a>
 							</div>
 							<div class="order-description">
-								<h6><a href="javascript:;">Long Sleave Shirt / XYZ</a></h6>
-								<span class="small-text">Size XL</span>
-								<span class="small-text">Quantity 1</span>
+								<h6><a href="javascript:;">{{ $item->name }}</a></h6>
+								<span class="small-text">Size {{ $item->model->size }}</span>
+								<span class="small-text">Quantity {{ $item->qty }}</span>
 							</div>
-							<span class="order-price">65,<sup>00€</sup></span>
+							<span class="order-price">{{ $item->model->price }} €</span>
 						</div>
-						<div class="checkout-order">
-							<div class="order-thumbnail">
-								<a href="javascript:;">
-									<img src="{{URL::asset('img/content/table-item1.jpg')}}" alt="">
-								</a>
-							</div>
-							<div class="order-description">
-								<h6><a href="javascript:;">Long Sleave Shirt / XYZ</a></h6>
-								<span class="small-text">Size XL</span>
-								<span class="small-text">Quantity 1</span>
-							</div>
-							<span class="order-price">65,<sup>00€</sup></span>
-						</div>
+						@endforeach
 					</div>
 					<div class="subtotal-prices order-prices block">
 						<div class="price-row">
 							<span class="price-label">Sub total</span>
-							<span class="price">130,<sup>00€</sup></span>
+							<span class="price">{{ Cart::subtotal() }} €</span>
 						</div>
 						<div class="price-row">
 							<span class="price-label">Shipping</span>
@@ -205,8 +229,8 @@
 					</div>
 					<div class="total-prices order-prices block">
 						<div class="price-row">
-							<span class="price-label">Total (TVA <sup>Inc.</sup>)</span>
-							<span class="price">130,<sup>00€</sup></span>
+							<span class="price-label">Total(TVA<sup>Inc.</sup>)</span>
+							<span class="price">{{ Cart::total() }}€</span>
 						</div>
 					</div>
 					<div class="discount-code-form form-item form-item-full">

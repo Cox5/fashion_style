@@ -4,6 +4,20 @@
 	@include('layouts.head')
 </head>
 <body>
+
+		<script src="{{ asset('js/app.js') }}"></script>
+		<script>
+			(function(){
+				const classname = document.querySelectorAll('.form-item-select');
+	
+				Array.from(classname).forEach(function(element)) {
+					element.addEventListener('change', function() {
+						alert('changed');
+					})
+				})
+			})();
+		</script>
+
 	<div class="container">
 
 		<span class="page-overlay"></span>
@@ -32,7 +46,7 @@
 								</a>
 							</div>
 							<div class="order-description">
-								<h6><a href="javascript:;"> {{$item->name}}</a></h6>
+								<h6><a href="/product/{{$item->model->id}}"> {{$item->name}}</a></h6>
 								<span class="order-price">{{ $item->price }}<sup>,00€</sup></span>
 								<span class="small-text color">{{$item->model->color}}</span>
 								<div class="form-item">
@@ -130,7 +144,7 @@
 							<span class="total-price">{{ Cart::total() }} €</span>
 						</div>
 					</div>
-					<a class="btn btn-black btn-medium confirm-purchase" href="javascript:;">proceed to checkout</a>
+					<a class="btn btn-black btn-medium confirm-purchase" href="{{ route('checkout.index') }}">proceed to checkout</a>
 				</div>
 			</div>
 		</div>
@@ -142,5 +156,9 @@
 	<script type="text/javascript" src="{{ URL::asset('scripts/libs/jquery-3.1.1.min.js') }}"></script>
 	<script type="text/javascript" src="{{ URL::asset('scripts/helper.js') }}"></script>
 	<script type="text/javascript" src="{{ URL::asset('scripts/default.js') }}"></script>
+
+	
+	
+
 </body>
 </html>

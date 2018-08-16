@@ -101,7 +101,7 @@
 								<div class="table-content">
 									<div class="table-subrow">
 										<div class="subrow-item">
-											<img src="assets/img/content/table-item1.jpg" alt="">
+											<img src="{{ URL::asset('img/content/table-item1.jpg')}}" alt="">
 										</div>
 										<div class="subrow-item">
 											<div class="item-desc">
@@ -117,7 +117,7 @@
 									</div>
 									<div class="table-subrow">
 										<div class="subrow-item">
-											<img src="assets/img/content/table-item1.jpg" alt="">
+											<img src="{{ URL::asset('img/content/table-item1.jpg')}}" alt="">
 										</div>
 										<div class="subrow-item">
 											<div class="item-desc">
@@ -133,7 +133,7 @@
 									</div>
 									<div class="table-subrow">
 										<div class="subrow-item">
-											<img src="assets/img/content/table-item1.jpg" alt="">
+											<img src="{{ URL::asset('img/content/table-item1.jpg')}}" alt="">
 										</div>
 										<div class="subrow-item">
 											<div class="item-desc">
@@ -174,7 +174,7 @@
 								<div class="table-content">
 									<div class="table-subrow">
 										<div class="subrow-item">
-											<img src="assets/img/content/table-item1.jpg" alt="">
+											<img src="{{ URL::asset('img/content/table-item1.jpg')}}" alt="">
 										</div>
 										<div class="subrow-item">
 											<div class="item-desc">
@@ -190,7 +190,7 @@
 									</div>
 									<div class="table-subrow">
 										<div class="subrow-item">
-											<img src="assets/img/content/table-item1.jpg" alt="">
+											<img src="{{ URL::asset('img/content/table-item1.jpg')}}" alt="">
 										</div>
 										<div class="subrow-item">
 											<div class="item-desc">
@@ -206,7 +206,7 @@
 									</div>
 									<div class="table-subrow">
 										<div class="subrow-item">
-											<img src="assets/img/content/table-item1.jpg" alt="">
+											<img src="{{ URL::asset('img/content/table-item1.jpg')}}" alt="">
 										</div>
 										<div class="subrow-item">
 											<div class="item-desc">
@@ -269,7 +269,7 @@
 								<div class="table-content">
 									<div class="table-subrow">
 										<div class="subrow-item">
-											<img src="assets/img/content/table-item1.jpg" alt="">
+											<img src="{{ URL::asset('img/content/table-item1.jpg')}}" alt="">
 										</div>
 										<div class="subrow-item">
 											<div class="item-desc">
@@ -285,7 +285,7 @@
 									</div>
 									<div class="table-subrow">
 										<div class="subrow-item">
-											<img src="assets/img/content/table-item1.jpg" alt="">
+											<img src="{{ URL::asset('img/content/table-item1.jpg')}}" alt="">
 										</div>
 										<div class="subrow-item">
 											<div class="item-desc">
@@ -301,7 +301,7 @@
 									</div>
 									<div class="table-subrow">
 										<div class="subrow-item">
-											<img src="assets/img/content/table-item1.jpg" alt="">
+											<img src="{{ URL::asset('img/content/table-item1.jpg')}}" alt="">
 										</div>
 										<div class="subrow-item">
 											<div class="item-desc">
@@ -342,7 +342,7 @@
 								<div class="table-content">
 									<div class="table-subrow">
 										<div class="subrow-item">
-											<img src="assets/img/content/table-item1.jpg" alt="">
+											<img src="{{ URL::asset('img/content/table-item1.jpg')}}" alt="">
 										</div>
 										<div class="subrow-item">
 											<div class="item-desc">
@@ -358,7 +358,7 @@
 									</div>
 									<div class="table-subrow">
 										<div class="subrow-item">
-											<img src="assets/img/content/table-item1.jpg" alt="">
+											<img src="{{ URL::asset('img/content/table-item1.jpg')}}" alt="">
 										</div>
 										<div class="subrow-item">
 											<div class="item-desc">
@@ -374,7 +374,7 @@
 									</div>
 									<div class="table-subrow">
 										<div class="subrow-item">
-											<img src="assets/img/content/table-item1.jpg" alt="">
+											<img src="{{ URL::asset('img/content/table-item1.jpg')}}" alt="">
 										</div>
 										<div class="subrow-item">
 											<div class="item-desc">
@@ -401,25 +401,25 @@
 				<h2>Share your style <span class="fright">#ST</span></h2>
 				<div class="feed-item">
 					<a href="javascript:;">
-						<img src="assets/img/content/feed1.jpg" alt="">
+						<img src="{{ URL::asset('img/content/feed1.jpg')}}" alt="">
 						<h4 class="feed-title">style in<br/>cotton</h4>
 					</a>
 				</div>
 				<div class="feed-item">
 					<a href="javascript:;">
-						<img src="assets/img/content/feed2.jpg" alt="">
+						<img src="{{ URL::asset('img/content/feed2.jpg')}}" alt="">
 						<h4 class="feed-title">style in<br/>cotton</h4>
 					</a>
 				</div>
 				<div class="feed-item">
 					<a href="javascript:;">
-						<img src="assets/img/content/feed3.jpg" alt="">
+						<img src="{{ URL::asset('img/content/feed3.jpg')}}" alt="">
 						<h4 class="feed-title">style in<br/>cotton</h4>
 					</a>
 				</div>
 				<div class="feed-item">
 					<a href="javascript:;">
-						<img src="assets/img/content/feed4.jpg" alt="">
+						<img src="{{ URL::asset('img/content/feed4.jpg')}}" alt="">
 						<h4 class="feed-title">style in<br/>cotton</h4>
 					</a>
 				</div>
