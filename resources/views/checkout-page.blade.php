@@ -233,11 +233,15 @@
 							<span class="price">{{ Cart::total() }}€</span>
 						</div>
 					</div>
+					<form action="{{ route('coupon.store') }}" method="POST">
 					<div class="discount-code-form form-item form-item-full">
 						<label for="dsc" class="form-label">Use a discount code</label>
-						<input class="form-item-text" type="text" name="" id="dsc" placeholder="Discount code (eg. AFX8912)">
+						<input class="form-item-text" type="text" name="dsc" id="dsc" placeholder="Discount code (eg. AFX8912)">
 					</div>
-					<a class="btn btn-black btn-big confirm-purchase show-mobile" href="javascript:;">Confirm</a>
+						{{ csrf_field() }}
+						<button type="submit" class="btn btn-black btn-big confirm-purchase show-mobile">Confirm</button>
+					</form>
+					@include('layouts.errors')
 				</div>
 			</div>
 

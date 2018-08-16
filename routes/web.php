@@ -11,10 +11,10 @@
 |
 */
 
-# handle login form with Customer controller's login function
-Route::post('/login', 'SessionsController@store');
-# allow user to logout by typing /logout in URL field
-Route::get('/logout', 'SessionsController@destroy');
+// # handle login form with Customer controller's login function
+// Route::post('/login', 'SessionsController@store');
+// # allow user to logout by typing /logout in URL field
+// Route::get('/logout', 'SessionsController@destroy');
 
 Route::post('/register', 'RegistrationController@store');
 Route::get('/register', 'RegistrationController@create');
@@ -39,6 +39,9 @@ Route::post('/save-changes', 'CustomerController@update');
 Route::get('/change-password', 'CustomerController@showChangePassword');
 
 Route::post('/change-password', 'CustomerController@changePassword');
+
+Route::post('/coupon', 'CouponsController@store')->name('coupon.store');
+Route::delete('/coupon', 'CouponsController@destroy')->name('coupon.destroy');
 
 # Manage homepage routes 
 Route::get('/', function () {
@@ -91,3 +94,9 @@ Route::get('/create-account', function() {
     return view('create-account');
 });
 
+
+// artisan make:auth routes
+// scaffholding for login and register features
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

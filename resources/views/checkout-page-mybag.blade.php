@@ -87,11 +87,15 @@
 				<div class="block-half checkout-form-wrap">
 					<p>You need help finding the right size? <br>Check out our <a href="javascript:;">size guide</a>.</p>
 					<div class="discount-code-form form-item form-item-full">
+					<form action="{{ route('coupon.store') }}" method="POST">
+						{{ csrf_field() }}
 						<label for="dsc" class="form-label subtitle">Use a discount code</label>
 						<div class="disc-field-wrap">
-							<input class="form-item-text" type="text" name="" id="dsc" placeholder="Discount code (eg. AFX8912)">
+							<input class="form-item-text" type="text" name="dsc" id="dsc" placeholder="Discount code (eg. AFX8912)">
 							<button type="submit" class="btn btn-black">Validate</button>
 						</div>
+						@include('layouts.errors')
+					</form>
 					</div>
 					<div class="shipping-methods block">
 						<span class="subtitle">Shipping method</span>
@@ -135,7 +139,7 @@
 						</div>
 						<div class="price-row discount-row">
 							<span class="price-label">Discount</span>
-							<span class="price">-3<sup>,00€</sup></span>
+							<span class="price">-{{session()->get('coupon')['discount']}}€</sup></span>
 						</div>
 					</div>
 					<div class="total-prices order-prices block">
