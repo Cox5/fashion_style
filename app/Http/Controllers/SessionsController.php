@@ -20,9 +20,11 @@ class SessionsController extends Controller
 
     public function destroy() 
     {
+        // log out the user
         auth()->logout();
 
-        return redirect('/');
+        // redirect to last previous page
+        return redirect()->back();
     }
 
     public function store() 
@@ -34,9 +36,10 @@ class SessionsController extends Controller
             ]);
         }
 
-        return redirect('/');
 
-        // If true, sign them in
+        // If true, sign the user in
+        return redirect()->back();
+
     }
 
     public function update(Request $request, Customer $customer)
