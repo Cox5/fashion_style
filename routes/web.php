@@ -71,9 +71,7 @@ Route::get('showCart', 'CartController@show');
 
 Route::delete('/checkout-page-mybag{id}', 'CartController@destroy')->name('cart.destroy');
 
-Route::get('/checkout-page', function() {
-    return view('checkout-page');
-});
+Route::get('/checkout-page', 'CheckoutController@index')->name('checkout.index');
 
 #route for successfull order 
 Route::get('/thank-you-page', function() {
