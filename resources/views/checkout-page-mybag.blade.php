@@ -86,48 +86,6 @@
 				</div>
 				<div class="block-half checkout-form-wrap">
 					<p>You need help finding the right size? <br>Check out our <a href="javascript:;">size guide</a>.</p>
-					<div class="discount-code-form form-item form-item-full">
-					<form action="{{ route('coupon.store') }}" method="POST">
-						{{ csrf_field() }}
-						<label for="dsc" class="form-label subtitle">Use a discount code</label>
-						<div class="disc-field-wrap">
-							<input class="form-item-text" type="text" name="dsc" id="dsc" placeholder="Discount code (eg. AFX8912)">
-							<button type="submit" class="btn btn-black">Validate</button>
-						</div>
-						@include('layouts.errors')
-					</form>
-					</div>
-					<div class="shipping-methods block">
-						<span class="subtitle">Shipping method</span>
-						<div class="form-item full-width">
-							<span class="form-label">Country</span>
-							<select class="form-item-select" name="">
-								<option value="1">Belgium</option>
-								<option value="2">France</option>
-								<option value="3">Netherlands</option>
-								<option value="4">Germany</option>
-								<option value="5">United Kingdom</option>
-							</select>
-						</div>
-						<div class="radio">
-							<input id="rd1" type="radio" name="shipping-method" value="1" checked>
-							<label class="form-radio" for="rd1">
-								<span class="shipping-merchant"><img src="{{URL::asset('img/dpd-shipping.png')}}" width="87" alt=""></span> <span class="text">Standard<br/> (3 open days)</span> <span class="order-price">5<sup>,00€</sup></span>
-							</label>
-						</div>
-						<div class="radio">
-							<input id="rd2" type="radio" name="shipping-method" value="2">
-							<label class="form-radio" for="rd2">
-								<span class="shipping-merchant"><img src="{{URL::asset('img/dpd-shipping.png')}}" width="87" alt=""></span> <span class="text">Express<br/> (24h)</span> <span class="order-price">10<sup>,00€</sup></span>
-							</label>
-						</div>
-						<div class="radio">
-							<input id="rd3" type="radio" name="shipping-method" value="2">
-							<label class="form-radio" for="rd3">
-								<span class="shipping-merchant"><img src="{{URL::asset('img/dpd-shipping.png')}}" width="87" alt=""></span> <span class="text">Pick up point<br/> (2 open days)</span> <span class="order-price">5<sup>,00€</sup></span>
-							</label>
-						</div>
-					</div>
 					<div class="subtotal-prices order-prices block">
 						<div class="price-row sub-total-row">
 							<span class="price-label">Sub total</span>

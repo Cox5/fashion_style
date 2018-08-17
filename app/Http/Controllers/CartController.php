@@ -52,16 +52,10 @@ class CartController extends Controller
             'price' => request('price'), 
             'options' => ['size' => 'large']
         ])->associate('App\Product');
-        
-        //Cart::add('1234', 'Product test name', 1, 9.99);
-
-        //Cart::associate($cartItem->rowId, 'Product');
-        
 
         //dd($cartItems);
 
         return view('checkout-page-mybag')->with('success_message', 'Item is added to your cart!');
-        //return view('checkout-page-mybag');
     }
 
     /**

@@ -14,7 +14,7 @@
 
                     <div class="login-form-wrap">
                             <h2>Create account</h2>
-                            <form method="POST" action="/register" id="registerform">
+                        <form method="POST" action="/register" id="registerform">
                                 {{ csrf_field() }}
                         <div class="container">
                             <div class="row">
@@ -41,7 +41,7 @@
                                     <input class="form-item-text" type="text" name="phone" id="phone" placeholder="Phone number" required>
                                 </div>
                                 <div class="form-item form-item-full">
-                                <select class="form-item-text" name="gender" id="gender" form="registerform" class="c-dropdown">
+                                <select class="form-item-text" name="gender" id="gender" form="registerform" class="c-dropdown" >
                                         <option value="">Gender</option>
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
@@ -58,7 +58,7 @@
                                         <input class="form-item-text" type="text" name="bill_city" id="bill_city" placeholder="Billing city" required>
                                     </div>
                                     <div class="form-item form-item-full">
-                                        <input class="form-item-text" type="number" name="bill_zip" id="bill_zip" placeholder="Billing ZIP" required>
+                                        <input class="form-item-text" type="text" name="bill_zip" id="bill_zip" placeholder="Billing ZIP" required>
                                     </div>
                                     <div class="form-item form-item-full">
                                         <input class="form-item-text" type="text" name="bill_country" id="bill_country" placeholder="Billing country" required>
@@ -71,16 +71,16 @@
                                         <h6>Billing Address Info</h6>
                                         
                                         <div class="form-item form-item-full">
-                                            <input class="form-item-text" type="text" name="ship_address" id="ship_address" placeholder="Shipping Address" required>
+                                            <input class="form-item-text" type="text" name="ship_address" id="ship_address" placeholder="Shipping Address" >
                                         </div>
                                         <div class="form-item form-item-full">
-                                            <input class="form-item-text" type="text" name="ship_city" id="ship_city" placeholder="Shipping city" required>
+                                            <input class="form-item-text" type="text" name="ship_city" id="ship_city" placeholder="Shipping city" >
                                         </div>
                                         <div class="form-item form-item-full">
-                                            <input class="form-item-text" type="number" name="ship_zip" id="ship_zip" placeholder="Shipping ZIP" required>
+                                            <input class="form-item-text" type="text" name="ship_zip" id="ship_zip" placeholder="Shipping ZIP" >
                                         </div>
                                         <div class="form-item form-item-full">
-                                            <input class="form-item-text" type="text" name="ship_country" id="ship_country" placeholder="Shipping country" required>
+                                            <input class="form-item-text" type="text" name="ship_country" id="ship_country" placeholder="Shipping country" >
                                          </div>
 
                                         

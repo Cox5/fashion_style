@@ -52,9 +52,9 @@
                         </a>
                         <div class="header-search">
                             <div class="wrap">
-                                <form action="" method="post">
+                                <form action="{{ route('search') }}" method="GET">
                                     <div class="search-form">
-                                        <input type="text" name="search-form" />
+                                        <input type="text" name="query" id="query" value="{{ request()->input('query') }}" />
                                         <button class="btn btn-black btn-big" type="submit">Search</button>
                                     </div>
                                 </form>
@@ -130,7 +130,7 @@
                                             </div>
                                             <div class="basket-description">
                                                 <h6>
-                                                    <a href="javascript:;">{{$item->name}}</a>
+                                                    <a href="/product/{{$item->model->id}}">{{$item->name}}</a>
                                                     <form action="{{ route('cart.destroy', $item->rowId) }}" method="POST">
                                                         {{ csrf_field() }}
                                                         {{ method_field('DELETE') }}
@@ -283,9 +283,10 @@
                     </a>
                 </div>
                 <div class="links-list">
-                    <form action="" method="post">
+                    <form action="{{ route('search') }}" method="GET">
+                        {{ csrf_field() }}
                         <div class="search-form">
-                            <input type="text" name="search-form" placeholder="Your search">
+                            <input type="text" name="query" id="query" placeholder="Your search">
                             <button class="btn" type="submit"></button>
                         </div>
                     </form>

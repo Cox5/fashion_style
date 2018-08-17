@@ -47,9 +47,9 @@
                         </a>
                         <div class="header-search">
                             <div class="wrap">
-                                <form action="" method="post">
+                                <form action="{{ route('search') }}" method="GET">
                                     <div class="search-form">
-                                        <input type="text" name="search-form" />
+                                        <input type="text" name="query" id="query" value="{{ request()->input('query') }}" />
                                         <button class="btn btn-black btn-big" type="submit">Search</button>
                                     </div>
                                 </form>
@@ -58,32 +58,32 @@
                                     <ul>
                                         <li>
                                             <a href="javascript:;">
-                                                <img src="assets/img/content/suggestion-01.jpg" alt="">
+                                                <img src="{{ URL::asset('img/content/suggestion-01.jpg') }}" alt="" />
                                             </a>
                                         </li>
                                         <li>
                                             <a href="javascript:;">
-                                                <img src="assets/img/content/suggestion-02.jpg" alt="">
+                                                <img src="{{ URL::asset('img/content/suggestion-02.jpg') }}" alt="" />
                                             </a>
                                         </li>
                                         <li>
                                             <a href="javascript:;">
-                                                <img src="assets/img/content/suggestion-03.jpg" alt="">
+                                                <img src="{{ URL::asset('img/content/suggestion-03.jpg') }}" alt="" />
                                             </a>
                                         </li>
                                         <li>
                                             <a href="javascript:;">
-                                                <img src="assets/img/content/suggestion-04.jpg" alt="">
+                                                <img src="{{ URL::asset('img/content/suggestion-04.jpg') }}" alt="" />
                                             </a>
                                         </li>
                                         <li>
                                             <a href="javascript:;">
-                                                <img src="assets/img/content/suggestion-05.jpg" alt="">
+                                                <img src="{{ URL::asset('img/content/suggestion-05.jpg') }}" alt="" />
                                             </a>
                                         </li>
                                         <li>
                                             <a href="javascript:;">
-                                                <img src="assets/img/content/suggestion-06.jpg" alt="">
+                                                <img src="{{ URL::asset('img/content/suggestion-06.jpg') }}" alt="" />
                                             </a>
                                         </li>
                                     </ul>
@@ -101,7 +101,21 @@
                                 <img src="assets/img/logo.png" width="162" alt="Fashion/Style">
                             </a>
                             <span class="close-subnav js-close-subnav"><i class="icon font-ico-close"></i></span>
-                            <h3>My bag</h3>
+
+                            <div class="logged-in-user" style="font-size: 15px;">
+                                <label for="user"></label>
+                                @auth
+                                <h4>Your current bag, {{ Auth::user()->customer->firstname }}</h4> 
+                                @endauth
+                                @guest
+                                <h4>Your current bag, guest</h4> 
+                                @endguest
+                            </div>
+
+                            @if (Cart::count() == 0)
+                                <h6>You have no items in bag</h6>
+                            @else
+                            @foreach (Cart::content() as $item)
                             <div class="basket-item">
                                 <div class="basket-thumbnail">
                                     <a href="javascript:;">
@@ -110,8 +124,12 @@
                                 </div>
                                 <div class="basket-description">
                                     <h6>
-                                        <a href="javascript:;">Jacket XYZ</a>
-                                        <a class="remove-product" href="javascript:;"><i class="icon font-ico-recycle-bin"></i></a>
+                                        <a href="/product/{{$item->model->id}}">{{$item->name}}</a>
+                                        <form action="{{ route('cart.destroy', $item->rowId) }}" method="POST">
+                                            {{ csrf_field() }}
+                                            {{ method_field('DELETE') }}
+                                            <button type="submit"><i class="icon font-ico-recycle-bin"></i></button>
+                                        </form>
                                     </h6>
                                     <span class="price">65,<sup>00 €</sup></span>
                                     <div class="variations">
@@ -123,32 +141,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="basket-item">
-                                <div class="basket-thumbnail">
-                                    <a href="javascript:;">
-                                        <img src="assets/img/content/bag-item1.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="basket-description">
-                                    <h6>
-                                        <a href="javascript:;">Jacket XYZ</a>
-                                        <a class="remove-product" href="javascript:;"><i class="icon font-ico-recycle-bin"></i></a>
-                                    </h6>
-                                    <span class="price">65,<sup>00 €</sup></span>
-                                    <div class="variations">
-                                        <span class="select-size">M</span>
-                                        <span class="separator"> - </span>
-                                        <span class="color">Black</span>
-                                        <span class="separator"> - </span>
-                                        <span class="quantity"></span>1</span>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
+                            
                             <div class="basket-prices block">
                                 <span class="price-label">Total</span>
-                                <span class="price">130,<sup>00 €</sup></span>
+                                <span class="price">{{ Cart::subtotal() }}€</span>
                             </div>
-                            <a class="btn btn-black btn-big" href="javascript:;">See shoping bag</a>
+                            <a class="btn btn-black btn-big" href="/checkout-page-mybag">See shoping bag</a>
+                            @endif
                         </div>
                     </li>
                     <li class="profile-link">
@@ -158,21 +158,31 @@
                         <div class="login-subnav header-subnav">
                             <span class="close-subnav js-close-subnav"><i class="icon font-ico-close"></i></span>
                             <div class="login-form-wrap">
+                                @if (Auth::check())
+                                    <div class="logged-in-user" style="font-size: 15px;">
+                                        <label for="user"></label>
+                                        <h3>Welcome back {{ Auth::user()->customer->firstname }}</h3>
+                                        <a class="btn btn-black btn-big login-btn" href="/logout">Log out</a>
+                                    </div>
+                                @else
                                 <h3>Log in</h3>
                                 <h6>Manage your orders, newsletter are like saving shipping address...</h6>
                                 <div class="login-form clearfix">
                                     <h6>Don't have an account?</h6>
                                     <a class="btn btn-big create-account-btn" href="javascript:;">Create an account</a>
                                     <h6>Log in</h6>
+                                    <form action="/login" method="POST">
                                     <div class="form-item form-item-full">
-                                        <input class="form-item-text" type="text" name="" placeholder="E-mail address">
+                                        <input class="form-item-text" type="text" name="email" placeholder="E-mail address">
                                     </div>
                                     <div class="form-item form-item-full">
-                                        <input class="form-item-text" type="password" name="" placeholder="Password">
+                                        <input class="form-item-text" type="password" name="password" placeholder="Password">
                                     </div>
                                     <a class="forgot-password" href="javascript:;">Forgot your password?</a>
-                                    <a class="btn btn-black btn-big login-btn" href="javascript:;">Log in</a>
+                                    <button type="submit" class="btn btn-black btn-big login-btn">Log in</button>
+                                    </form>
                                 </div>
+                                @endif
                             </div>
                         </div>
                     </li>

@@ -51,7 +51,7 @@
 			</div>
 
 			<div class="block product-page-shop">
-				<a class="back-link" href="product-overvirew.html"><i class="icon font-ico-arrow-left"></i> Back to products</a>
+				<a class="back-link" href="/product-overview"><i class="icon font-ico-arrow-left"></i> Back to products</a>
 				<div class="product-image">
 					<div class="product-thumbnails">
 						<div class="thumb selected">

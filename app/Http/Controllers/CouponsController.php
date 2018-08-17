@@ -42,7 +42,7 @@ class CouponsController extends Controller
 
         if (!$coupon) 
         {
-            return redirect()->route('cart.index')->withErrors('Invalid coupon code!');
+            return redirect()->route('checkout.index')->withErrors('Invalid coupon code!');
         }
 
         session()->put('coupon', [
@@ -50,7 +50,7 @@ class CouponsController extends Controller
             'discount' => $coupon->discount(Cart::subtotal()),
         ]);
 
-        return redirect()->route('cart.index')->with('success_message', 'Coupon has been applied');
+        return redirect()->route('checkout.index')->with('success_message', 'Coupon has been applied');
     }
 
     /**

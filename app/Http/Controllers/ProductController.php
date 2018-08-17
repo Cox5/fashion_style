@@ -56,7 +56,7 @@ class ProductController extends Controller
      public function show($id)
     {
         
-        $product = Product::where('id', $id)->first();
+        $product = Product::where('id', $id)->firstOrFail();
 
         return view('product-page')->with(['product' => $product]);
     }
@@ -93,5 +93,14 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         //
+    }
+
+    public function search(Request $request) 
+    {
+        $query = $request->input('query');
+
+        $products = Product::where('product_name', 'like', "%$query%")->get();
+
+        return view('search-results')->with('products', $products);
     }
 }

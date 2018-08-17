@@ -10,7 +10,7 @@
 		<header class="header">
 			<div class="wrap">
 				<a href="/" class="logo">
-					<img src="assets/img/logo.png" width="162" alt="Fashion/Style" />
+					<img src="{{URL::asset('img/logo.jpg')}}" width="50" alt="Fashion/Style" />
 				</a>
 			</div>
 		</header>

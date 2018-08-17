@@ -28,7 +28,7 @@
 							{{ csrf_field() }}
 						<div class="login-form clearfix">
 							<h6>Don't have an account?</h6>
-							<a class="btn btn-big create-account-btn" href="javascript:;">Create an account</a>
+							<a class="btn btn-big create-account-btn" href="/create-account">Create an account</a>
 							<h6>Log in</h6>
 							<div class="form-item form-item-full">
 								<input class="form-item-text" type="email" name="email" id="email" placeholder="E-mail address">
@@ -36,7 +36,7 @@
 							<div class="form-item form-item-full">
 								<input class="form-item-text" type="password" name="password" id="password" placeholder="Password">
 							</div>
-							<a class="forgot-password" href="javascript:;">Forgot your password?</a>
+							<a class="forgot-password" href="">Forgot your password?</a>
 							<button type="submit" class="btn btn-black btn-big login-btn">Log in</button>
 							<br>
 						</div>
