@@ -51,13 +51,13 @@
 			<p>Subscribe to our newsletter and get 10% off on your first order.</p>
 			<form action="/subscribe" method="POST">
 					{{ csrf_field() }}
-				<input type="email" placeholder="E-mail address" id="email" name="email">
-				<div class="form-item checkbox">
-					<input id="man" type="checkbox" name="gender" value="M">
+				<input type="email" placeholder="E-mail address" id="email" name="email" required>
+				<div class="radio">
+					<input id="man" type="radio" name="gender" value="M" required>
 					<label class="form-checkbox" for="man">Man</label>
 				</div>
-				<div class="form-item checkbox">
-					<input id="women" type="checkbox" name="gender" value="F">
+				<div class="radio">
+					<input id="women" type="radio" name="gender" value="F" required>
 					<label class="form-checkbox" for="women">Women</label>
 				</div>
 				<button type="submit" class="btn btn-black btn-big">Subscribe</button>
