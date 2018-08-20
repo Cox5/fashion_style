@@ -14,6 +14,7 @@ class SubscriptionController extends Controller
     {
         $this->validate(request(), [
             'email' => 'required|email|unique:subscribers',
+            'gender' => 'required',
         ]);
 
         $subsrciber = Subscriber::create(request(['email', 'gender']));
