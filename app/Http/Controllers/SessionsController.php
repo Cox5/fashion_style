@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use \Cart as Cart;
 
 class SessionsController extends Controller
 {
@@ -23,6 +24,9 @@ class SessionsController extends Controller
         // log out the user
         auth()->logout();
 
+        session()->forget('coupon');
+        Cart::instance('default')->destroy();
+
         // redirect to last previous page
         return redirect()->back();
     }
@@ -38,7 +42,8 @@ class SessionsController extends Controller
 
 
         // If true, sign the user in
-        return redirect()->back();
+        // return redirect()->back();
+        return view('/');
 
     }
 
