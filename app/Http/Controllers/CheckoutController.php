@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Auth;
 use App\Order;
 use \Cart as Cart;
 use App\OrderProduct;
+use App\Mail\OrderPlaced;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class CheckoutController extends Controller
 {
@@ -84,6 +86,8 @@ class CheckoutController extends Controller
                 'quantity' => $item->qty,
             ]);
         }
+
+        Mail::send(new OrderPlaced);
 
         // On success, remove all items from cart and remove coupon session
         Cart::instance('default')->destroy();
