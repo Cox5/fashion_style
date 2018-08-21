@@ -55,7 +55,8 @@ class CartController extends Controller
 
         //dd($cartItems);
 
-        return view('checkout-page-mybag')->with('success_message', 'Item is added to your cart!');
+        return redirect('product-overview');
+        //return view('checkout-page-mybag')->with('success_message', 'Item is added to your cart!');
     }
 
     /**
