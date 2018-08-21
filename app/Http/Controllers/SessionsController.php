@@ -43,7 +43,7 @@ class SessionsController extends Controller
 
         // If true, sign the user in
         // return redirect()->back();
-        return view('/');
+        return redirect('/');
 
     }
 
