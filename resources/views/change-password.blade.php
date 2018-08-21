@@ -12,7 +12,12 @@
 
     <div class="content block">
 
+        
+        
         <div class="login-form-wrap">
+            
+            
+
                 <h2>Change password</h2>
                 <form method="POST" action="/change-password" id="changepassword">
                     {{ csrf_field() }}
@@ -31,12 +36,11 @@
 
                     <button type="submit" class="btn btn-black btn-big login-btn">Change password</button>
 
-                    </div>
-
+                </div>
+                @include('layouts.flash-message')
                 </form>
+            </div>
         </div>
-        @include('layouts.errors')
-    </div>
 </div>
 
 
