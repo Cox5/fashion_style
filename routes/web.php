@@ -65,9 +65,13 @@ Route::get('showCart', 'CartController@show');
 
 # Proceed to checkout page once a customer has added item/s to cart
 Route::get('/checkout-page', 'CheckoutController@index')->name('checkout.index');
+Route::post('/checkout-page', 'CheckoutController@store')->name('checkout.store');
 
 # Search function
 Route::get('search-results', 'ProductController@search')->name('search');
+
+# Order page
+Route::get('/my-account-orders', 'OrdersController@show')->name('order.show');
 
 
 /*
@@ -96,10 +100,6 @@ Route::get('/thank-you-page', function() {
     return view('thank-you-page');
 });
 
-
-Route::get('/my-account-orders', function() {
-    return view('my-account-orders');
-});
 
 Route::get('/login-page', function() {
     return view('login-page');
