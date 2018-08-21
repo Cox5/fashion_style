@@ -44,8 +44,11 @@ Route::get('/my-account-account-info-edit', 'CustomerController@create');
 Route::post('/save-changes', 'CustomerController@update');
 
 # Change password routes | GET, POST
-Route::get('/change-password', 'CustomerController@showChangePassword');
-Route::post('/change-password', 'CustomerController@changePassword');
+// Route::get('/change-password', 'CustomerController@showChangePassword');
+// Route::post('/change-password', 'CustomerController@changePassword');
+
+Route::get('/change-password', 'UpdatePasswordController@index');
+Route::post('/change-password', 'UpdatePasswordController@update');
 
 # Coupon routes | POST, DELETE
 Route::post('/coupon', 'CouponsController@store')->name('coupon.store');
