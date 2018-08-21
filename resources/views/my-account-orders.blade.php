@@ -76,154 +76,69 @@
 							</div>
 						</div>
 						<div class="table-body">
-							<div class="table-row">
-								<div class="table-item">
-									<h6>20/02/2017</h6>
-								</div>
-								<div class="table-item">
-									<h6>£STSM608</h6>
-								</div>
-								<div class="table-item">
-									<span class="item-price">279,<sup>90€</sup></span>
-								</div>
-								<div class="table-item">
-									<h6>2356</h6>
-								</div>
-								<div class="table-item">
-									<h6>Shipped</h6>
-								</div>
-								<div class="table-item toggle-subrow">
-									<h6>
-										<span class="hide-phablet">Detail of your articles</span>
-										<span class="hide-tablet-up" data-hide="Hide ">details</span>
-									</h6>
-								</div>
-								<div class="table-content">
-									<div class="table-subrow">
-										<div class="subrow-item">
-											<img src="{{ URL::asset('img/content/table-item1.jpg')}}" alt="">
+							@forelse($orders as $order)
+								@if (! $order->shipped)
+									<div class="table-row">
+										<div class="table-item">
+											<h6>{{ $order->created_at }}</h6>
 										</div>
-										<div class="subrow-item">
-											<div class="item-desc">
-												<h6>XYZ Jacket</h6>
-												<span class="small-text">Cranberry Red - XL</span>
-												<span class="small-text">QUANTITY 1</span>
-												<a href="javascript:;" class="small-text hide-tablet-up">Viev article</a>
+										<div class="table-item">
+											<h6>{{ $order->id }}</h6>
+										</div>
+										<div class="table-item">
+											<span class="item-price">{{ $order->total }}€</span>
+										</div>
+										<div class="table-item">
+											<h6>{{ $order->tracking_number }}</h6> 
+										</div>
+										<div class="table-item">
+											<h6>
+												@if ($order->shipped == 0)
+													Not shipped
+												@else
+													Shipped
+												@endif
+											</h6>
+										</div>
+										
+										
+										<div class="table-item toggle-subrow">
+											<h6>
+												<span class="hide-phablet">Detail of your articles</span>
+												<span class="hide-tablet-up" data-hide="Hide ">details</span>
+											</h6>
+										</div>
+										<div class="table-content">
+											@foreach ($order->products as $product)
+											<div class="table-subrow">
+												<div class="subrow-item">
+													<img src="{{ URL::asset('img/content/table-item1.jpg')}}" alt="">
+												</div>
+												<div class="subrow-item">
+													<div class="item-desc">
+														<h6> {{$product->product_name}}</h6>
+														<span class="small-text">{{ $product->color }} - {{$product->size}}</span>
+														<span class="small-text">Quantity: {{ $product->pivot->quantity }}</span>
+														<a href="javascript:;" class="small-text hide-tablet-up">Viev article</a>
+													</div>
+												</div>
+												<div class="subrow-item">
+													<span class="item-price">{{ $product->price }}€</span>
+												</div>
 											</div>
-										</div>
-										<div class="subrow-item">
-											<span class="item-price">65,<sup>00€</sup></span>
+											@endforeach
 										</div>
 									</div>
-									<div class="table-subrow">
-										<div class="subrow-item">
-											<img src="{{ URL::asset('img/content/table-item1.jpg')}}" alt="">
-										</div>
-										<div class="subrow-item">
-											<div class="item-desc">
-												<h6>XYZ Jacket</h6>
-												<span class="small-text">Cranberry Red - XL</span>
-												<span class="small-text">QUANTITY 1</span>
-												<a href="javascript:;" class="small-text hide-tablet-up">Viev article</a>
-											</div>
-										</div>
-										<div class="subrow-item">
-											<span class="item-price">65,<sup>00€</sup></span>
-										</div>
-									</div>
-									<div class="table-subrow">
-										<div class="subrow-item">
-											<img src="{{ URL::asset('img/content/table-item1.jpg')}}" alt="">
-										</div>
-										<div class="subrow-item">
-											<div class="item-desc">
-												<h6>XYZ Jacket</h6>
-												<span class="small-text">Cranberry Red - XL</span>
-												<span class="small-text">QUANTITY 1</span>
-												<a href="javascript:;" class="small-text hide-tablet-up">Viev article</a>
-											</div>
-										</div>
-										<div class="subrow-item">
-											<span class="item-price">65,<sup>00€</sup></span>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="table-row">
-								<div class="table-item">
-									<h6>20/02/2017</h6>
-								</div>
-								<div class="table-item">
-									<h6>£STSM608</h6>
-								</div>
-								<div class="table-item">
-									<span class="item-price">279,<sup>90€</sup></span>
-								</div>
-								<div class="table-item">
-									<h6>2356</h6>
-								</div>
-								<div class="table-item">
-									<h6>Shipped</h6>
-								</div>
-								<div class="table-item toggle-subrow">
-									<h6>
-										<span class="hide-phablet">Detail of your articles</span>
-										<span class="hide-tablet-up" data-hide="Hide ">details</span>
-									</h6>
-								</div>
-								<div class="table-content">
-									<div class="table-subrow">
-										<div class="subrow-item">
-											<img src="{{ URL::asset('img/content/table-item1.jpg')}}" alt="">
-										</div>
-										<div class="subrow-item">
-											<div class="item-desc">
-												<h6>XYZ Jacket</h6>
-												<span class="small-text">Cranberry Red - XL</span>
-												<span class="small-text">QUANTITY 1</span>
-												<a href="javascript:;" class="small-text hide-tablet-up">Viev article</a>
-											</div>
-										</div>
-										<div class="subrow-item">
-											<span class="item-price">65,<sup>00€</sup></span>
-										</div>
-									</div>
-									<div class="table-subrow">
-										<div class="subrow-item">
-											<img src="{{ URL::asset('img/content/table-item1.jpg')}}" alt="">
-										</div>
-										<div class="subrow-item">
-											<div class="item-desc">
-												<h6>XYZ Jacket</h6>
-												<span class="small-text">Cranberry Red - XL</span>
-												<span class="small-text">QUANTITY 1</span>
-												<a href="javascript:;" class="small-text hide-tablet-up">Viev article</a>
-											</div>
-										</div>
-										<div class="subrow-item">
-											<span class="item-price">65,<sup>00€</sup></span>
-										</div>
-									</div>
-									<div class="table-subrow">
-										<div class="subrow-item">
-											<img src="{{ URL::asset('img/content/table-item1.jpg')}}" alt="">
-										</div>
-										<div class="subrow-item">
-											<div class="item-desc">
-												<h6>XYZ Jacket</h6>
-												<span class="small-text">Cranberry Red - XL</span>
-												<span class="small-text">QUANTITY 1</span>
-												<a href="javascript:;" class="small-text hide-tablet-up">Viev article</a>
-											</div>
-										</div>
-										<div class="subrow-item">
-											<span class="item-price">65,<sup>00€</sup></span>
-										</div>
-									</div>
-								</div>
-							</div>
+								@endif
+							@empty
+							<h4>You have no ongoing orders</h4>
+							@endforelse
 						</div>
 					</div>
+
+
+
+
 					<div class="account-table">
 						<h3>Delivery History</h3>
 						<div class="table-header">
@@ -244,152 +159,60 @@
 							</div>
 						</div>
 						<div class="table-body">
-							<div class="table-row">
-								<div class="table-item">
-									<h6>20/02/2017</h6>
-								</div>
-								<div class="table-item">
-									<h6>£STSM608</h6>
-								</div>
-								<div class="table-item">
-									<span class="item-price">279,<sup>90€</sup></span>
-								</div>
-								<div class="table-item">
-									<h6>2356</h6>
-								</div>
-								<div class="table-item">
-									<h6>Shipped</h6>
-								</div>
-								<div class="table-item toggle-subrow">
-									<h6>
-										<span class="hide-phablet">Detail of your articles</span>
-										<span class="hide-tablet-up" data-hide="Hide ">details</span>
-									</h6>
-								</div>
-								<div class="table-content">
-									<div class="table-subrow">
-										<div class="subrow-item">
-											<img src="{{ URL::asset('img/content/table-item1.jpg')}}" alt="">
+							@forelse($orders as $order)
+								@if ($order->shipped)
+									<div class="table-row">
+										<div class="table-item">
+											<h6> {{ $order->created_at}} </h6>
 										</div>
-										<div class="subrow-item">
-											<div class="item-desc">
-												<h6>XYZ Jacket</h6>
-												<span class="small-text">Cranberry Red - XL</span>
-												<span class="small-text">QUANTITY 1</span>
-												<a href="javascript:;" class="small-text hide-tablet-up">Viev article</a>
+										<div class="table-item">
+											<h6>{{ $order->id }}</h6>
+										</div>
+										<div class="table-item">
+											<span class="item-price">{{ $order->total }}€</span>
+										</div>
+										<div class="table-item">
+											<h6>{{ $order->tracking_number }}</h6>
+										</div>
+										<div class="table-item">
+												@if ($order->shipped)
+													<h6>Shipped</h6>
+												@else 
+													<h6>Not shipped</h6>
+												@endif
+										</div>
+										<div class="table-item toggle-subrow">
+											<h6>
+												<span class="hide-phablet">Detail of your articles</span>
+												<span class="hide-tablet-up" data-hide="Hide ">details</span>
+											</h6>
+										</div>
+										<div class="table-content">
+											@foreach($order->products as $product)
+											<div class="table-subrow">
+												<div class="subrow-item">
+													<img src="{{ URL::asset('img/content/table-item1.jpg')}}" alt="">
+												</div>
+												<div class="subrow-item">
+													<div class="item-desc">
+														<h6>{{ $product->product_name }}</h6>
+														<span class="small-text">{{ $product->color}} - {{ $product->size}}</span>
+														<span class="small-text">Quantity:  {{ $product->pivot->quantity}}</span>
+														<a href="javascript:;" class="small-text hide-tablet-up">Viev article</a>
+													</div>
+												</div>
+												<div class="subrow-item">
+													<span class="item-price">{{ $product->price }}€</span>
+												</div>
 											</div>
-										</div>
-										<div class="subrow-item">
-											<span class="item-price">65,<sup>00€</sup></span>
+											@endforeach
 										</div>
 									</div>
-									<div class="table-subrow">
-										<div class="subrow-item">
-											<img src="{{ URL::asset('img/content/table-item1.jpg')}}" alt="">
-										</div>
-										<div class="subrow-item">
-											<div class="item-desc">
-												<h6>XYZ Jacket</h6>
-												<span class="small-text">Cranberry Red - XL</span>
-												<span class="small-text">QUANTITY 1</span>
-												<a href="javascript:;" class="small-text hide-tablet-up">Viev article</a>
-											</div>
-										</div>
-										<div class="subrow-item">
-											<span class="item-price">65,<sup>00€</sup></span>
-										</div>
-									</div>
-									<div class="table-subrow">
-										<div class="subrow-item">
-											<img src="{{ URL::asset('img/content/table-item1.jpg')}}" alt="">
-										</div>
-										<div class="subrow-item">
-											<div class="item-desc">
-												<h6>XYZ Jacket</h6>
-												<span class="small-text">Cranberry Red - XL</span>
-												<span class="small-text">QUANTITY 1</span>
-												<a href="javascript:;" class="small-text hide-tablet-up">Viev article</a>
-											</div>
-										</div>
-										<div class="subrow-item">
-											<span class="item-price">65,<sup>00€</sup></span>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="table-row">
-								<div class="table-item">
-									<h6>20/02/2017</h6>
-								</div>
-								<div class="table-item">
-									<h6>£STSM608</h6>
-								</div>
-								<div class="table-item">
-									<span class="item-price">279,<sup>90€</sup></span>
-								</div>
-								<div class="table-item">
-									<h6>2356</h6>
-								</div>
-								<div class="table-item">
-									<h6>Shipped</h6>
-								</div>
-								<div class="table-item toggle-subrow">
-									<h6>
-										<span class="hide-phablet">Detail of your articles</span>
-										<span class="hide-tablet-up" data-hide="Hide ">details</span>
-									</h6>
-								</div>
-								<div class="table-content">
-									<div class="table-subrow">
-										<div class="subrow-item">
-											<img src="{{ URL::asset('img/content/table-item1.jpg')}}" alt="">
-										</div>
-										<div class="subrow-item">
-											<div class="item-desc">
-												<h6>XYZ Jacket</h6>
-												<span class="small-text">Cranberry Red - XL</span>
-												<span class="small-text">QUANTITY 1</span>
-												<a href="javascript:;" class="small-text hide-tablet-up">Viev article</a>
-											</div>
-										</div>
-										<div class="subrow-item">
-											<span class="item-price">65,<sup>00€</sup></span>
-										</div>
-									</div>
-									<div class="table-subrow">
-										<div class="subrow-item">
-											<img src="{{ URL::asset('img/content/table-item1.jpg')}}" alt="">
-										</div>
-										<div class="subrow-item">
-											<div class="item-desc">
-												<h6>XYZ Jacket</h6>
-												<span class="small-text">Cranberry Red - XL</span>
-												<span class="small-text">QUANTITY 1</span>
-												<a href="javascript:;" class="small-text hide-tablet-up">Viev article</a>
-											</div>
-										</div>
-										<div class="subrow-item">
-											<span class="item-price">65,<sup>00€</sup></span>
-										</div>
-									</div>
-									<div class="table-subrow">
-										<div class="subrow-item">
-											<img src="{{ URL::asset('img/content/table-item1.jpg')}}" alt="">
-										</div>
-										<div class="subrow-item">
-											<div class="item-desc">
-												<h6>XYZ Jacket</h6>
-												<span class="small-text">Cranberry Red - XL</span>
-												<span class="small-text">QUANTITY 1</span>
-												<a href="javascript:;" class="small-text hide-tablet-up">Viev article</a>
-											</div>
-										</div>
-										<div class="subrow-item">
-											<span class="item-price">65,<sup>00€</sup></span>
-										</div>
-									</div>
-								</div>
-							</div>
+								@endif
+							@empty
+								<h5>You don't have any completed orders yet. </h5>
+							@endforelse
+
 						</div>
 					</div>
 					<div class="centered">
