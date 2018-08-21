@@ -41,76 +41,79 @@
 					<div class="checkout-login-form block">
 						<h2>Check out</h2>
 						<div class="checkout-block-header clearfix">
-							@if (Auth::check())
+							@auth
 								<h5>You are logged in as {{ Auth::user()->name }}</h5>
 								<h4>Shipping address</h4>
-							@else
+							@endauth
+							@guest
 								You are currently not logged in.
 								<a class="btn btn-black" href="/login-page">Login</a>
 							{{-- <a class="registered-customer" href="javascript:;">Already a client?</a> --}}
-							@endif
+							@endguest
 						</div>
-						<form action="" method="POST" id="payment-form">
+					<form action="{{ route('checkout.store') }}" id="payment-form" method="POST">
+						{{ csrf_field() }}
 						<div class="form-item">
 							@if (Auth::check())
-								<input class="form-item-text" type="text" name="" placeholder="First name" value="{{ $user->customer->firstname }}" readonly>
+								<input class="form-item-text" type="text" name="firstname" placeholder="First name" value="{{ $user->customer->firstname }}" readonly>
 							@else
-								<input class="form-item-text" type="text" name="" placeholder="First name">
-							@endif
-						</div>
-						<div class="form-item">
-							@if (Auth::check())
-								<input class="form-item-text" type="text" name="" placeholder="Last name" value="{{ $user->customer->lastname }}" readonly>
-							@else
-								<input class="form-item-text" type="text" name="" placeholder="Last name">
+								<input class="form-item-text" type="text" name="firstname" placeholder="First name">
 							@endif
 						</div>
 						<div class="form-item">
 							@if (Auth::check())
-								<input class="form-item-text" type="email" name="" placeholder="E-mail address" value="{{ Auth::user()->email }}" readonly>
+								<input class="form-item-text" type="text" name="lastname" placeholder="Last name" value="{{ $user->customer->lastname }}" readonly>
 							@else
-								<input class="form-item-text" type="email" name="" placeholder="E-mail address">
+								<input class="form-item-text" type="text" name="lastname" placeholder="Last name">
 							@endif
 						</div>
 						<div class="form-item">
 							@if (Auth::check())
-								<input class="form-item-text" type="text" name="" placeholder="Phone number" value="{{ $user->customer->phone }}">
+								<input class="form-item-text" type="email" name="email" placeholder="E-mail address" value="{{ Auth::user()->email }}" readonly>
 							@else
-								<input class="form-item-text" type="text" name="" placeholder="Phone number">
+								<input class="form-item-text" type="email" name="email" placeholder="E-mail address">
 							@endif
 						</div>
 						<div class="form-item">
 							@if (Auth::check())
-								<input class="form-item-text" type="text" name="" placeholder="Street & number" value="{{ $user->customer->ship_address }}">
+								<input class="form-item-text" type="text" name="phone" placeholder="Phone number" value="{{ $user->customer->phone }}">
 							@else
-								<input class="form-item-text" type="text" name="" placeholder="Street & number">
-							@endif
-						</div>
-						<div class="form-item">
-							<input class="form-item-text" type="text" name="" placeholder="Apartement, unit (optional)">
-						</div>
-						<div class="form-item">
-							@if (Auth::check())
-								<input class="form-item-text" type="text" name="" placeholder="Town / city" value="{{ $user->customer->bill_city }}">
-							@else
-								<input class="form-item-text" type="text" name="" placeholder="Town / city">
+								<input class="form-item-text" type="text" name="phone" placeholder="Phone number">
 							@endif
 						</div>
 						<div class="form-item">
 							@if (Auth::check())
-								<input class="form-item-text" type="text" name="" placeholder="Postcode" value="{{ $user->customer->bill_zip }}">
+								<input class="form-item-text" type="text" name="shipping_address" placeholder="Street & number" value="{{ $user->customer->ship_address }}">
 							@else
-								<input class="form-item-text" type="text" name="" placeholder="Postcode">
+								<input class="form-item-text" type="text" name="shipping_address" placeholder="Street & number">
+							@endif
+						</div>
+						<div class="form-item">
+							<input class="form-item-text" type="text" name="shipping_address_apt" placeholder="Apartement, unit (optional)">
+						</div>
+						<div class="form-item">
+							@if (Auth::check())
+								<input class="form-item-text" type="text" name="shipping_city" placeholder="Town / city" value="{{ $user->customer->ship_city }}">
+							@else
+								<input class="form-item-text" type="text" name="shipping_city" placeholder="Town / city">
+							@endif
+						</div>
+						<div class="form-item">
+							@if (Auth::check())
+								<input class="form-item-text" type="text" name="shipping_zip" placeholder="Postcode" value="{{ $user->customer->ship_zip }}">
+							@else
+								<input class="form-item-text" type="text" name="shipping_zip" placeholder="Postcode">
 							@endif
 						</div>
 						<div class="form-item">
 							<span class="form-label">Country</span>
-							<select class="form-item-select" name="">
-								<option value="1">Belgium</option>
-								<option value="2">France</option>
-								<option value="3">Netherlands</option>
-								<option value="4">Germany</option>
-								<option value="5">United Kingdom</option>
+							<select class="form-item-select" name="country">
+								<option value="Belgium">Belgium</option>
+								<option value="France">France</option>
+								<option value="Netherlands">Netherlands</option>
+								<option value="Germany">Germany</option>
+								<option value="United Kingdom">United Kingdom</option>
+								<option value="Serbia">Serbia</option>
 							</select>
 						</div>
 						<div class="checkbox-list block">
@@ -199,20 +202,22 @@
 					</div>
 
 					<div class="checkout-login-form block">
-
-						<form action="" method="POST" id="payment-form">
-							<div class="form-item">
-								<label for="card-element">Credit or debit card</label>
-									<div id="card-element">
+						
+						{{-- <div class="form-item">
+							<label for="card-element">Credit or debit card</label>
+								<div id="card-element">
 										
-									</div>
-							</div>
+								</div>
+						</div>
 
+						<div id="card-errors" role="alert"></div>
+						</form> --}}
+
+						<button type="submit" class="btn btn-black btn-big confirm-purchase" href="">Confirm</a>
+					</form>
 
 					</div>
-				</form>
 
-					<a class="btn btn-black btn-big confirm-purchase" href="/thank-you-page">Confirm</a>
 				</div>
 				<div class="block-half checkout-orders">
 					<h6>My order</h6>
@@ -242,21 +247,40 @@
 							<span class="price-label">Shipping</span>
 							<span class="price">Free</span>
 						</div>
+						<div class="price-row">
+								<span class="price-label">Discount</span>
+								<span class="price"> - {{ $discount }} €</span>
+							</div>
 					</div>
 					<div class="total-prices order-prices block">
 						<div class="price-row">
 							<span class="price-label">Total(TVA<sup>Inc.</sup>)</span>
-							<span class="price">{{ Cart::total() }}€</span>
+							<span class="price">{{ $newTotal }}€</span>
 						</div>
 					</div>
+					@if (! session()->has('coupon'))
 					<form action="{{ route('coupon.store') }}" method="POST">
 					<div class="discount-code-form form-item form-item-full">
 						<label for="dsc" class="form-label">Use a discount code</label>
-						<input class="form-item-text" type="text" name="dsc" id="dsc" placeholder="Discount code (eg. AFX8912)">
+						<input class="form-item-text" type="text" name="dsc" id="dsc" placeholder="Discount code (eg. AFX8912)" required>
+						
 					</div>
 						{{ csrf_field() }}
 						<button type="submit" class="btn btn-black btn-big confirm-purchase show-mobile">Confirm</button>
 					</form>
+					@endif
+					<div class="discount-code-form form-item form-item-full">
+					@if(session()->has('coupon'))
+						<br>
+							<label class="form-label"> Coupon is applied - {{ session()->get('coupon')['name']  }}</label>
+							<form action="{{ route('coupon.destroy') }}" method="POST">
+								{{ csrf_field() }}
+								{{ method_field('delete') }}
+								<button class="btn btn-black" type="submit">Remove coupon</button>
+							</form>
+					@endif
+					</div>
+
 					@include('layouts.errors')
 				</div>
 			</div>
@@ -332,7 +356,7 @@
 				stripeTokenHandler(result.token);
 				}
 			});
-			});
+		});
 
 			function stripeTokenHandler(token) {
 				// Insert the token ID into the form so it gets submitted to the server
@@ -344,7 +368,7 @@
 				form.appendChild(hiddenInput);
 
 				// Submit the form
-				form.submit();
+				//form.submit();
 }
 
 		})();
