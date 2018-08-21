@@ -14,7 +14,7 @@ class SessionsController extends Controller
     }
 
     //
-    public function create() 
+    public function index() 
     {
         return view('login-page');
     }
@@ -45,13 +45,5 @@ class SessionsController extends Controller
         // return redirect()->back();
         return redirect('/');
 
-    }
-
-    public function update(Request $request, Customer $customer)
-    {
-        if (Auth::check()) 
-        {
-            
-        }
     }
 }

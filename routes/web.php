@@ -13,6 +13,7 @@
 
 # handle login form with Customer controller's login function
 Route::post('/login', 'SessionsController@store');
+Route::get('/login-page', 'SessionsController@index');
 
 # Allow user to logout by typing /logout in URL field
 Route::get('/logout', 'SessionsController@destroy');
@@ -101,17 +102,13 @@ Route::get('/thank-you-page', function() {
 });
 
 
-Route::get('/login-page', function() {
-    return view('login-page');
-});
+// Route::get('/login-page', function() {
+//     return view('login-page');
+// });
 
 Route::get('/create-account', function() {
     return view('create-account');
 });
-
-// Route::get('/search-results', function() {
-//     return view('search-results');
-// });
 
 
 # Integrated routes for Auth

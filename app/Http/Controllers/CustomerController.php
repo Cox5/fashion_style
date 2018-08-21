@@ -11,15 +11,6 @@ use Illuminate\Support\Facades\Hash;
 
 class CustomerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -40,17 +31,6 @@ class CustomerController extends Controller
         return view('not-authorized');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-
-    }
 
     /**
      * Display the specified resource.
@@ -144,18 +124,6 @@ class CustomerController extends Controller
         //return redirect()->back()->with("success","Password changed successfully !");
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Customer  $customer
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Customer $customer)
-    {
-        //
-
-
-    }
 
     /**
      * Update the specified resource in storage.
@@ -195,15 +163,5 @@ class CustomerController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Customer  $customer
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Customer $customer)
-    {
-        //
-    }
 
 }
