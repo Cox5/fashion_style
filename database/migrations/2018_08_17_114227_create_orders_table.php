@@ -18,7 +18,21 @@ class CreateOrdersTable extends Migration
             $table->integer('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users')
                    ->onUpdate('cascade')->onDelete('set null');
-            $table->string('')
+            $table->string('phone');
+            $table->string('shipping_address');
+            $table->string('shipping_address_apt')->nullable();
+            $table->string('shipping_city');
+            $table->string('shipping_zip');
+            $table->string('shipping_country');
+            $table->integer('discount')->default(0);
+            $table->string('discount_code')->nullable();
+            $table->integer('subtotal');
+            $table->integer('tax');
+            $table->integer('total');
+            $table->string('payment_gateway')->default('stripe');
+            $table->boolean('shipped')->default(false);
+            $table->string('error')->nullable();
+            
             $table->timestamps();
         });
     }
