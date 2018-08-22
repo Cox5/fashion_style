@@ -24,4 +24,9 @@ class Product extends Model implements Buyable
     {
         return $this->belongsToMany('App\Order');
     }
+
+    public function images()
+    {
+        return $this->hasMany('App\Image');
+    }
 }
