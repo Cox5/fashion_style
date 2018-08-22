@@ -22,30 +22,41 @@ class CheckoutController extends Controller
 
         $user = null;
         $customer = null;
+        $subscribed = false;
 
         if (Auth::check())
         {
             $user = Auth::user();
             $customer = $user->customer();
+            if ($user->customer->subscribed) {
+                $subscribed = true;
+            }
         }
             
+        //dd($subscribed);
 
-        $tax = config('cart.tax') / 100;
+        //$tax = config('cart.tax') / 100;
         $discount = session()->has('coupon') ? session()->get('coupon')['discount'] : 0;
+        $subscribe_discount = $subscribed ? '10%' : '0';
         $code = session()->has('coupon') ? session()->get('coupon')['name'] : null;
         $newSubtotal = (Cart::subtotal() - $discount);
-        $newTax = $newSubtotal * $tax;
-        $newTotal = $newSubtotal * (1 + $tax);
+        if ($subscribed) {
+            $newSubtotal = $newSubtotal * 0.9;
+        } 
+        //$newSubtotal = $subscribed ? $newSubtotal * 0.9 : newSubtotal;
+        //$newTax = $newSubtotal * $tax;
+        $newTotal = $newSubtotal; //* (1 + $tax);
 
         return view('checkout-page')->with([
-            'tax' => $tax,
+            //'tax' => $tax,
             'discount' => $discount,
             'code' => $code,
             'newSubtotal' => $newSubtotal,
-            'newTax' => $newTax,
+            //'newTax' => $newTax,
             'newTotal' => $newTotal,
             'user' => $user,
             'customer' => $customer,
+            'subscribe_discount' => $subscribe_discount,
         ]);
     }
 
@@ -87,7 +98,8 @@ class CheckoutController extends Controller
             ]);
         }
 
-        Mail::send(new OrderPlaced);
+        # Mailtrap testing, currently not working...
+        //Mail::send(new OrderPlaced);
 
         // On success, remove all items from cart and remove coupon session
         Cart::instance('default')->destroy();
@@ -120,6 +132,7 @@ class CheckoutController extends Controller
     {
         $tax = config('cart.tax') / 100;
         $discount = session()->has('coupon') ? session()->get('coupon')['discount'] : 0;
+        $subscriber_discount = 
         $code = session()->has('coupon') ? session()->get('coupon')['name'] : null;
         $newSubtotal = (Cart::subtotal() - $discount);
         $newTax = $newSubtotal * $tax;

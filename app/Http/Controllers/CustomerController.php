@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Customer;
 use Auth;
 use App\User;
+use App\Address;
 use App;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -61,9 +62,13 @@ class CustomerController extends Controller
         if (Auth::check())
         {
             $user = Auth::user();
-            $customer = $user->customer();
+            //$customer = $user->customer();
+            $address = $user->address();
+            //$address = Address::where('user_id', Auth::id())->get();
+            
 
-            return view('my-account')->with(['user' => $user, 'customer' => $customer]);
+           // return view('my-account')->with(['user' => $user, 'address' => $address]);
+            return view('my-account')->with(['user' =>  $user, 'address' => $address]);
         }
         
         return view('not-authorized');

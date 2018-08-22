@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Customer;
+use App\Address;
 
 class RegistrationController extends Controller
 {
@@ -35,13 +36,21 @@ class RegistrationController extends Controller
         ]);
 
 
-        dump($request->all());
+        //dump($request->all());
+        $password = request('password');
+        $hashed = bcrypt($password);
 
         // Create and save the user
-        $user = User::create(request(['name', 'email', 'password']));
+        $user = new User; 
+        $user->name = request('name');
+        $user->email = request('email');
+        $user->password = $hashed;
+
+        $user->save();
+        //User::create(request(['name', 'email', 'password']));
 
         // izvuci iz $user ID
-        dump($user);
+        //dump($user);
 
         // split name from form to first and last name
         $name = explode(" ", request('name'));
@@ -50,6 +59,7 @@ class RegistrationController extends Controller
 
         // Add form data to customer table
         $customer = new Customer;
+        $address = new Address;
 
         $customer->user_id = $user->id;
         $customer->firstname = $firstname;
@@ -58,17 +68,21 @@ class RegistrationController extends Controller
         $customer->phone = request('phone');
         $customer->gender = request('gender');
         
-        $customer->bill_address = request('bill_address');
-        $customer->bill_city = request('bill_city');
-        $customer->bill_zip = request('bill_zip');
-        $customer->bill_country = request('bill_country');
+        
+        $address->user_id = $user->id;
+        $address->bill_address = request('bill_address');
+        $address->bill_city = request('bill_city');
+        $address->bill_zip = request('bill_zip');
+        $address->bill_country = request('bill_country');
 
-        $customer->ship_address = request('ship_address');
-        $customer->ship_city = request('ship_city');
-        $customer->ship_zip = request('ship_zip');
-        $customer->ship_country = request('ship_country');
+        $address->ship_address = request('ship_address');
+        $address->ship_city = request('ship_city');
+        $address->ship_zip = request('ship_zip');
+        $address->ship_country = request('ship_country');
+        
 
         $customer->save();
+        $address->save();
 
         // Optional: sign the user in
         auth()->login($user);

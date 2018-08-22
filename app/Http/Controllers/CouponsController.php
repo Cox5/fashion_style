@@ -16,6 +16,7 @@ class CouponsController extends Controller
      */
     public function store(Request $request)
     {
+        # Request coupon code from coupons form on checkout-page
         $code = request('dsc');
 
         $coupon = Coupon::where('code', $code)->first();
