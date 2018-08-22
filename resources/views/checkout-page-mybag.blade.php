@@ -40,7 +40,7 @@
 						<div class="checkout-order">
 							<div class="order-thumbnail">
 								<a href="javascript:;">
-									<img src="{{URL::asset('img/content/bag-item2.jpg')}}" alt="" class="desktop-img">
+									<img src="{{URL::asset('img/content/products/'.$item->model->image_front.'.jpg')}}" alt="" class="desktop-img">
 									<img src="{{URL::asset('img/content/bag-item-mob1.jpg')}}" alt="" class="mobile-img">
 									<span class="img-ratio">image vignette ratio <span>800x1000</span></span>
 								</a>

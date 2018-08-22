@@ -119,7 +119,7 @@
                             <div class="basket-item">
                                 <div class="basket-thumbnail">
                                     <a href="javascript:;">
-                                        <img src="{{ URL::asset('/img/content/bag-item1.jpg')}}" alt="">
+                                        <img src="{{URL::asset('img/content/products/'.$item->model->image_front.'.jpg')}}" alt="">
                                     </a>
                                 </div>
                                 <div class="basket-description">

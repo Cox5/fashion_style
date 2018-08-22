@@ -108,6 +108,9 @@
 						<div class="form-item">
 							<span class="form-label">Country</span>
 							<select class="form-item-select" name="country">
+								@auth
+									<option selected="selected">{{$user->address->ship_country}}</option>
+								@endauth
 								<option value="Belgium">Belgium</option>
 								<option value="France">France</option>
 								<option value="Netherlands">Netherlands</option>
@@ -226,7 +229,7 @@
 						<div class="checkout-order">
 							<div class="order-thumbnail">
 								<a href="javascript:;">
-									<img src="{{URL::asset('img/content/table-item1.jpg')}}" alt="">
+									<img src="{{URL::asset('img/content/products/'.$item->model->image_front.'.jpg')}}" alt="">
 								</a>
 							</div>
 							<div class="order-description">
@@ -243,6 +246,10 @@
 							<span class="price-label">Sub total</span>
 							<span class="price">{{ Cart::subtotal() }} €</span>
 						</div>
+						<div class="price-row">
+								<span class="price-label">Tax (20%)</span>
+								<span class="price">{{ $tax * 100 }}% </span>
+							</div>
 						<div class="price-row">
 							<span class="price-label">Shipping</span>
 							<span class="price">Free</span>
@@ -268,9 +275,11 @@
 						</div>
 					</div>
 
+					@auth
 					@if ($user->customer->subscribed)
 						<h5>You are eligible for a 10% discount</h5>
 					@endif
+					@endauth
 
 					<hr></hr>
 

@@ -66,8 +66,8 @@
 						<li class="product">
 						<div class="product-wrap">
 								<a class="product-thumbnail" href="/product/{{$product->id}}">
-								<img src="{{URL::asset('img/content/overview-product-1.jpg')}}" alt="" class="front">
-								<img src="{{URL::asset('img/content/overview-product-7.jpg')}}" alt="" class="back">
+								<img src="{{URL::asset('img/content/products/'.$product->image_front.'.jpg')}}" alt="{{$product->product_name}}" class="front">
+								<img src="{{URL::asset('img/content/products/'.$product->image_front.'.jpg')}}" alt="{{$product->product_name}}" class="back">
 							</a>
 							<div class="product-info">
 								<!-- reusable product-colors block from product page -->
