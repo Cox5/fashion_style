@@ -66,10 +66,10 @@
 							</div>
 							<div class="account-block-content">
 								<p>{{ $user->name }}</p>
-								<p>{{ $user->customer->bill_address }}</p>
-								<p>{{ $user->customer->bill_city }}</p>
-								<p>{{ $user->customer->bill_zip }}</p>
-								<p>{{ $user->customer->bill_country }}</p>
+								<p>{{ $user->address->bill_address }}</p>
+								<p>{{ $user->address->bill_city }}</p>
+								<p>{{ $user->address->bill_zip }}</p>
+								<p>{{ $user->address->bill_country }}</p>
 						
 							
 							</div>
@@ -82,10 +82,10 @@
 							</div>
 							<div class="account-block-content">
 								<p>{{ $user->name }}</p>
-								<p>{{ $user->customer->ship_address }}</p>
-								<p>{{ $user->customer->ship_city }}</p>
-								<p>{{ $user->customer->ship_zip }}</p>
-								<p>{{ $user->customer->ship_country }}</p>
+								<p>{{ $user->address->ship_address }}</p>
+								<p>{{ $user->address->ship_city }}</p>
+								<p>{{ $user->address->ship_zip }}</p>
+								<p>{{ $user->address->ship_country }}</p>
 							@endauth
 						
 							</div>

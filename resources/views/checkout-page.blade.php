@@ -83,7 +83,7 @@
 						</div>
 						<div class="form-item">
 							@if (Auth::check())
-								<input class="form-item-text" type="text" name="shipping_address" placeholder="Street & number" value="{{ $user->customer->ship_address }}">
+								<input class="form-item-text" type="text" name="shipping_address" placeholder="Street & number" value="{{ $user->address->ship_address }}">
 							@else
 								<input class="form-item-text" type="text" name="shipping_address" placeholder="Street & number">
 							@endif
@@ -93,14 +93,14 @@
 						</div>
 						<div class="form-item">
 							@if (Auth::check())
-								<input class="form-item-text" type="text" name="shipping_city" placeholder="Town / city" value="{{ $user->customer->ship_city }}">
+								<input class="form-item-text" type="text" name="shipping_city" placeholder="Town / city" value="{{ $user->address->ship_city }}">
 							@else
 								<input class="form-item-text" type="text" name="shipping_city" placeholder="Town / city">
 							@endif
 						</div>
 						<div class="form-item">
 							@if (Auth::check())
-								<input class="form-item-text" type="text" name="shipping_zip" placeholder="Postcode" value="{{ $user->customer->ship_zip }}">
+								<input class="form-item-text" type="text" name="shipping_zip" placeholder="Postcode" value="{{ $user->address->ship_zip }}">
 							@else
 								<input class="form-item-text" type="text" name="shipping_zip" placeholder="Postcode">
 							@endif
@@ -249,8 +249,17 @@
 						</div>
 						<div class="price-row">
 								<span class="price-label">Discount</span>
+						
+						<div class="price-row">
+							<hr></hr>
+						</div>
+								<span class="price-label">Coupon</span>
 								<span class="price"> - {{ $discount }} €</span>
-							</div>
+						</div>
+						<div class="price-row">
+							<span class="price-label">Subscribe</span>
+							<span class="price"> - {{ $subscribe_discount }}</span>
+					</div>
 					</div>
 					<div class="total-prices order-prices block">
 						<div class="price-row">
@@ -258,6 +267,13 @@
 							<span class="price">{{ $newTotal }}€</span>
 						</div>
 					</div>
+
+					@if ($user->customer->subscribed)
+						<h5>You are eligible for a 10% discount</h5>
+					@endif
+
+					<hr></hr>
+
 					@if (! session()->has('coupon'))
 					<form action="{{ route('coupon.store') }}" method="POST">
 					<div class="discount-code-form form-item form-item-full">
@@ -279,6 +295,8 @@
 								<button class="btn btn-black" type="submit">Remove coupon</button>
 							</form>
 					@endif
+
+					
 					</div>
 
 					@include('layouts.errors')
