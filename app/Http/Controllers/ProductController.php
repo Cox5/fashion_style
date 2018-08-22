@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Image;
 use Illuminate\Http\Request;
 
 use DB;
@@ -36,9 +37,18 @@ class ProductController extends Controller
      public function show($id)
     {
         
-        $product = Product::where('id', $id)->firstOrFail();
+        $product = Product::where('id', $id)->firstOrFail()->get();
+       // $products = Product::with('images')->firstOrFail()->get();
+        $images = Image::where('product_id', $id)->firstOrFail()->get();
 
-        return view('product-page')->with(['product' => $product]);
+
+        //$products = $product->images;
+
+        //return $product->images;
+
+        //dd($product);
+
+        return view('product-page', compact($product, $images));
     }
 
 

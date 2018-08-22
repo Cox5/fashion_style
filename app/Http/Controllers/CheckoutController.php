@@ -35,7 +35,7 @@ class CheckoutController extends Controller
             
         //dd($subscribed);
 
-        //$tax = config('cart.tax') / 100;
+        $tax = config('cart.tax') / 100;
         $discount = session()->has('coupon') ? session()->get('coupon')['discount'] : 0;
         $subscribe_discount = $subscribed ? '10%' : '0';
         $code = session()->has('coupon') ? session()->get('coupon')['name'] : null;
@@ -43,16 +43,15 @@ class CheckoutController extends Controller
         if ($subscribed) {
             $newSubtotal = $newSubtotal * 0.9;
         } 
-        //$newSubtotal = $subscribed ? $newSubtotal * 0.9 : newSubtotal;
-        //$newTax = $newSubtotal * $tax;
-        $newTotal = $newSubtotal; //* (1 + $tax);
+        $newTax = $newSubtotal * $tax;
+        $newTotal = $newSubtotal * (1 + $tax);
 
         return view('checkout-page')->with([
-            //'tax' => $tax,
+            'tax' => $tax,
             'discount' => $discount,
             'code' => $code,
             'newSubtotal' => $newSubtotal,
-            //'newTax' => $newTax,
+            'newTax' => $newTax,
             'newTotal' => $newTotal,
             'user' => $user,
             'customer' => $customer,
