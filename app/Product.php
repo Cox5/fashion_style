@@ -27,6 +27,6 @@ class Product extends Model implements Buyable
 
     public function images()
     {
-        return $this->hasMany('App\Image');
+        return $this->hasOne('App\Image');
     }
 }
