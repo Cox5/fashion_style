@@ -28,18 +28,18 @@ class SessionsController extends Controller
         Cart::instance('default')->destroy();
 
         // redirect to last previous page
-        return redirect()->back();
+        return redirect('/');
     }
 
     public function store() 
     {
         // Attempt to login user
-        if (!auth()->attempt(request(['email', 'password']))) {
+        if (!auth()->attempt(request(['email', 'password']))) 
+        {
             return back()->withErrors([
                 'message' => 'Please check your credentials and try again.'
             ]);
         }
-
 
         // If true, sign the user in
         // return redirect()->back();
