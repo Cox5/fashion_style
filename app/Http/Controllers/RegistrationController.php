@@ -9,7 +9,7 @@ use App\Address;
 
 class RegistrationController extends Controller
 {
-    //
+    
     public function create() 
     {
         return view('create-account');
@@ -17,9 +17,10 @@ class RegistrationController extends Controller
 
     public function store(Request $request) 
     {
-        // Validate the form
+        # Validate the form
         $this->validate(request(), [
-            'name' => 'required',
+            'firstname' => 'required',
+            'lastname' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|confirmed',
             'date_of_birth' => 'required',
@@ -36,34 +37,31 @@ class RegistrationController extends Controller
         ]);
 
 
-        //dump($request->all());
+        # Request and hash the password
         $password = request('password');
         $hashed = bcrypt($password);
 
-        // Create and save the user
+        # Create and save the user
         $user = new User; 
-        $user->name = request('name');
+
+        # Merge first and last name together 
+        $name = request('firstname') . " " . request('lastname');
+
+        # Set users' information from request
+        $user->name = $name;
         $user->email = request('email');
         $user->password = $hashed;
 
+        # Save the uer to DB
         $user->save();
-        //User::create(request(['name', 'email', 'password']));
 
-        // izvuci iz $user ID
-        //dump($user);
-
-        // split name from form to first and last name
-        $name = explode(" ", request('name'));
-        $firstname = $name[0];
-        $lastname = $name[1];
-
-        // Add form data to customer table
+        # Add form data to customer table
         $customer = new Customer;
         $address = new Address;
 
         $customer->user_id = $user->id;
-        $customer->firstname = $firstname;
-        $customer->lastname = $lastname;
+        $customer->firstname = request('firstname');
+        $customer->lastname = request('lastname');
         $customer->date_of_birth = request('date_of_birth');
         $customer->phone = request('phone');
         $customer->gender = request('gender');
@@ -80,14 +78,14 @@ class RegistrationController extends Controller
         $address->ship_zip = request('ship_zip');
         $address->ship_country = request('ship_country');
         
-
+        # Save data to customer and address DB tables
         $customer->save();
         $address->save();
 
-        // Optional: sign the user in
+        # Optional: sign the user in after registration
         auth()->login($user);
 
-        // redirect to home page
+        # redirect to home page
         return redirect('/');
     }
 }
