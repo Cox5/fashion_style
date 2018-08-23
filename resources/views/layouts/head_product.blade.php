@@ -131,7 +131,7 @@
                                             <button type="submit"><i class="icon font-ico-recycle-bin"></i></button>
                                         </form>
                                     </h6>
-                                    <span class="price">65,<sup>00 €</sup></span>
+                                    <span class="price">{{ $item->price}}€</sup></span>
                                     <div class="variations">
                                         <span class="select-size">M</span>
                                         <span class="separator"> - </span>
@@ -201,11 +201,11 @@
                             <div class="l-dropdown">
                                 <label for="language">choose language</label>
                                 <div class="select-list">
-                                    <span class="selected"><img src="assets/svg/ico-flag-uk.svg" alt="English flag">English</span>
+                                    <span class="selected"><img src="{{ URL::asset('/svg/ico-flag-uk.svg') }}" alt="English flag">English</span>
                                     <div class="dest-dropdown js-dest-overlay">
                                         <ul>
-                                            <li><span class="primary"><img src="assets/svg/ico-flag-uk.svg" alt="English flag">English</span></li>
-                                            <li><span class="primary"><img src="assets/svg/ico-flag-belgium.svg" alt="Belgium flag">Belgium</span></li>
+                                            <li><span class="primary"><img src="{{ URL::asset('/svg/ico-flag-uk.svg') }}" alt="English flag">English</span></li>
+                                            <li><span class="primary"><img src="{{ URL::asset('/svg/ico-flag-belgium.svg') }}" alt="Belgium flag">Belgium</span></li>
                                         </ul>
                                     </div>
                                 </div>

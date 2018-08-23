@@ -23,8 +23,11 @@
                                 <div class="block-half" style="padding-left:25%;">
                                 <h6>Register</h6>
                                 <div class="form-item form-item-full">
-                                    <input class="form-item-text" type="text" name="name" id="name" placeholder="Your name" required>
+                                    <input class="form-item-text" type="text" name="firstname" id="firstname" placeholder="First name" required autofocus>
                                 </div>
+                                <div class="form-item form-item-full">
+                                        <input class="form-item-text" type="text" name="lastname" id="lastname" placeholder="Last name" required>
+                                    </div>
                                 <div class="form-item form-item-full">
                                     <input class="form-item-text" type="date" name="date_of_birth" id="date_of_birth" placeholder="Date of birth" required>
                                 </div>

@@ -31,7 +31,7 @@
 							<a class="btn btn-big create-account-btn" href="/create-account">Create an account</a>
 							<h6>Log in</h6>
 							<div class="form-item form-item-full">
-								<input class="form-item-text" type="email" name="email" id="email" placeholder="E-mail address">
+								<input class="form-item-text" type="email" name="email" id="email" placeholder="E-mail address" autofocus>
 							</div>
 							<div class="form-item form-item-full">
 								<input class="form-item-text" type="password" name="password" id="password" placeholder="Password">

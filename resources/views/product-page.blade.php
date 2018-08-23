@@ -57,26 +57,26 @@
 				<div class="product-image">
 					<div class="product-thumbnails">
 						<div class="thumb selected">
-							<a href="assets/img/content/product-page-img-big-1.jpg">
+							<a href="{{URL::asset('img/content/products/'.$product->image_front.'.jpg')}}">
 								<img src="{{URL::asset('img/content/products/'.$product->image_front.'.jpg')}}" alt="">
 							</a>
 							<span class="thumb-size">thumb size <span>70X86</span></span>
 						</div>
 						<div class="thumb">
-							<a href="assets/img/content/product-page-img-big-back1.jpg">
-								<img src="{{URL::asset('img/content/products/'.$product->image_front.'.jpg')}}" alt="">
+							<a href="{{URL::asset('img/content/products/'.$product->images->image1.'.jpg')}}">
+								<img src="{{URL::asset('img/content/products/'.$product->images->image1.'.jpg')}}" alt="">
 							</a>
 							<span class="thumb-size">thumb size <span>70X86</span></span>
 						</div>
 						<div class="thumb">
-							<a href="assets/img/content/product-page-img-big-2.jpg">
-								<img src="assets/img/content/product-thumbnail-1.jpg" alt="">
+							<a href="{{URL::asset('img/content/products/'.$product->images->image2.'.jpg')}}">
+								<img src="{{URL::asset('img/content/products/'.$product->images->image2.'.jpg')}}" alt="">
 							</a>
 							<span class="thumb-size">thumb size <span>70X86</span></span>
 						</div>
 						<div class="thumb">
-							<a href="assets/img/content/product-page-img-big-3.jpg">
-								<img src="assets/img/content/product-thumbnail-back1.jpg" alt="">
+							<a href="{{URL::asset('img/content/products/'.$product->images->image3.'.jpg')}}">
+								<img src="{{URL::asset('img/content/products/'.$product->images->image3.'.jpg')}}" alt="">
 							</a>
 							<span class="thumb-size">thumb size <span>70X86</span></span>
 						</div>

@@ -24,7 +24,7 @@
 							<a href="javascript:;" >My orders</a>
 						</li>
 						<li>
-							<a href="javascript:;">Log Out</a>
+							<a href="{{url('/logout')}}">Log Out</a>
 						</li>
 						<li class="btn-close js-close-category">
 							<a href="javascript:;">
@@ -43,7 +43,7 @@
 							<a href="javascript:;">My orders</a>
 						</li>
 						<li>
-							<a href="javascript:;">Log Out</a>
+							<a href="{{route('logout')}}">Log Out</a>
 						</li>
 						<a href="javascript:;" class="category-toggle js-category-toggle"></a>
 					</ul>

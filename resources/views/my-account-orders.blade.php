@@ -191,7 +191,7 @@
 											@foreach($order->products as $product)
 											<div class="table-subrow">
 												<div class="subrow-item">
-													<img src="{{URL::asset('img/content/products/'.$product->image_front.'.jpg')}}" alt="">
+													<img src="{{URL::asset('img/content/products/'.$product->image_front.'.jpg')}}" width="100px" alt="">
 												</div>
 												<div class="subrow-item">
 													<div class="item-desc">

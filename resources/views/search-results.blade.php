@@ -22,8 +22,8 @@
                             <li class="product">
                             <div class="product-wrap">
                                     <a class="product-thumbnail" href="/product/{{$product->id}}">
-                                    <img src="" alt="" class="front">
-                                    <img src="" alt="" class="back">
+                                    <img src="{{URL::asset('img/content/products/'.$product->image_front.'.jpg')}}" alt="" class="front">
+                                    <img src="{{URL::asset('img/content/products/'.$product->image_back.'.jpg')}}" alt="" class="back">
                                 </a>
                                 <div class="product-info">
                                     <!-- reusable product-colors block from product page -->
@@ -31,62 +31,62 @@
                                         <ul class="slider-wrap">
                                             <li>
                                                 <a href="javascript:;" data-color="brown light">
-                                                    <img src="assets/img/content/product-colors/color-white-smoke.png" alt="">
+                                                    <img src="{{ URL::asset('img/content/product-colors/color-white-smoke.png')}}" alt="">
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="javascript:;" data-color="grey smoke">
-                                                    <img src="assets/img/content/product-colors/color-dark-blue.png" alt="">
+                                                    <img src="{{ URL::asset('img/content/product-colors/color-dark-blue.png')}}" alt="">
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="javascript:;" data-color="dark blue">
-                                                    <img src="assets/img/content/product-colors/color-granite.png" alt="">
+                                                    <img src="{{ URL::asset('img/content/product-colors/color-granite.png')}}" alt="">
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="javascript:;" data-color="brown light">
-                                                    <img src="assets/img/content/product-colors/color-red.png" alt="">
+                                                    <img src="{{ URL::asset('img/content/product-colors/color-red.png')}}" alt="">
                                                 </a>
                                             </li>
                                             <li class="selected">
                                                 <a href="javascript:;" data-color="grey smoke">
-                                                    <img src="assets/img/content/product-colors/color-orange.png" alt="">
+                                                    <img src="{{ URL::asset('img/content/product-colors/color-orange.png')}}" alt="">
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="javascript:;" data-color="dark blue">
-                                                    <img src="assets/img/content/product-colors/color-mineral-blue.png" alt="">
+                                                    <img src="{{ URL::asset('img/content/product-colors/color-mineral-blue.png')}}" alt="">
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="javascript:;" data-color="brown light">
-                                                    <img src="assets/img/content/product-colors/color-sea-blue.png" alt="">
+                                                    <img src="{{ URL::asset('img/content/product-colors/color-sea-blue.png')}}" alt="">
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="javascript:;" data-color="grey smoke">
-                                                    <img src="assets/img/content/product-colors/color-blood-red.png" alt="">
+                                                    <img src="{{ URL::asset('img/content/product-colors/color-blood-red.png')}}" alt="">
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="javascript:;" data-color="dark blue">
-                                                    <img src="assets/img/content/product-colors/color-brown-light.png" alt="">
+                                                    <img src="{{ URL::asset('img/content/product-colors/color-brown-light.png')}}" alt="">
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="javascript:;" data-color="brown light">
-                                                    <img src="assets/img/content/product-colors/color-gravel-dark.png" alt="">
+                                                    <img src="{{ URL::asset('img/content/product-colors/color-gravel-dark.png')}}" alt="">
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="javascript:;" data-color="grey smoke">
-                                                    <img src="assets/img/content/product-colors/color-grey-smoke.png" alt="">
+                                                    <img src="{{ URL::asset('img/content/product-colors/color-grey-smoke.png')}}" alt="">
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="javascript:;" data-color="dark blue">
-                                                    <img src="assets/img/content/product-colors/color-dark-blue.png" alt="">
+                                                    <img src="{{ URL::asset('img/content/product-colors/color-dark-blue.png')}}" alt="">
                                                 </a>
                                             </li>
                                         </ul>

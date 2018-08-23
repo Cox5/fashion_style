@@ -1,3 +1,4 @@
+
 <div class="block product-filters-wrap">
         <div class="product-filters js-product-filters">
             <span class="close-filter js-close-filter"><i class="icon font-ico-close"></i></span>
@@ -64,6 +65,7 @@
                     <a class="reset-filters js-reset-filters" href="javascript:;">Reset filter</a>
                 </div>
             </div>
+        {{-- <form action="{{ route('product.filter') }}" method="POST">  --}}
             <div class="filter">
                 <span class="filter-toggle">Size</span>
                 <div class="filter-body">
@@ -93,6 +95,7 @@
                     <a class="size-guide" href="javascript:;">View size guide</a>
                 </div>
             </div>
+        {{-- </form> --}}
             <div class="filter">
                 <span class="filter-toggle">Fabric</span>
                 <div class="filter-body">
@@ -189,3 +192,5 @@
             </div>
         </div>
     </div>
+
+    
