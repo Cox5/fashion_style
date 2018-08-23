@@ -36,19 +36,11 @@ class ProductController extends Controller
     #show product by its ID from database , related to product-page view
      public function show($id)
     {
-        
-        $product = Product::where('id', $id)->firstOrFail()->get();
-       // $products = Product::with('images')->firstOrFail()->get();
-        $images = Image::where('product_id', $id)->firstOrFail()->get();
+    
+        $product = Product::where('id', $id)->first();
+        $images = $product->images();
 
-
-        //$products = $product->images;
-
-        //return $product->images;
-
-        //dd($product);
-
-        return view('product-page', compact($product, $images));
+        return view('product-page', compact('product', 'images'));
     }
 
 
@@ -57,7 +49,17 @@ class ProductController extends Controller
         $query = $request->input('query');
 
         $products = Product::where('product_name', 'like', "%$query%")->get();
+        //$images = $products->images();
 
-        return view('search-results')->with('products', $products);
+        return view('search-results', compact('products'));
+    }
+
+    public function filter(Request $request)
+    {
+        $query = $request->input('size');
+
+        $products = Product::where('size', 'like', "%$query")->get();
+
+        return view('filter-results', compact('products'));
     }
 }
