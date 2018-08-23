@@ -16,7 +16,7 @@ Route::post('/login', 'SessionsController@store');
 Route::get('/login-page', 'SessionsController@index');
 
 # Allow user to logout by typing /logout in URL field
-Route::get('/logout', 'SessionsController@destroy');
+Route::get('/logout', 'SessionsController@destroy')->name('logout');
 
 # Registration routes | GET, POST
 Route::post('/register', 'RegistrationController@store');
@@ -35,7 +35,7 @@ Route::get('/product-overview', 'ProductController@index');
 Route::get('/product/{id}', ['uses' =>'ProductController@show']);
 
 # Show billing/shipping address for a customer
-Route::get('/my-account', 'CustomerController@showAccount');
+Route::get('/my-account', 'CustomerController@showAccount')->name('account.show');
 
 # Show customer information 
 Route::get('/my-account-account-info-edit', 'CustomerController@create');
@@ -44,9 +44,6 @@ Route::get('/my-account-account-info-edit', 'CustomerController@create');
 Route::post('/save-changes', 'CustomerController@update');
 
 # Change password routes | GET, POST
-// Route::get('/change-password', 'CustomerController@showChangePassword');
-// Route::post('/change-password', 'CustomerController@changePassword');
-
 Route::get('/change-password', 'UpdatePasswordController@index');
 Route::post('/change-password', 'UpdatePasswordController@update');
 
@@ -60,6 +57,9 @@ Route::post('/checkout-page-mybag', 'CartController@store')->name('cart.store');
 
 # Remove an item from cart
 Route::delete('/checkout-page-mybag{id}', 'CartController@destroy')->name('cart.destroy');
+
+# Product filtration
+Route::get('/filter-results', 'ProductController@filter')->name('product.filter');
 
 # Remove all items from cart (testing | debug)
 Route::get('deleteCart', 'CartController@deleteCart');
