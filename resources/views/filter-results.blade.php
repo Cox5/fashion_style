@@ -17,7 +17,7 @@
                     <ul class="clearfix">
     
                         {{-- start listing products dynamically --}}
-                        @foreach ($products as $product)
+                        @forelse ($products as $product)
     
                             <li class="product">
                             <div class="product-wrap">
@@ -117,7 +117,9 @@
                             </div>
                         </li>
     
-                        @endforeach
+                        @empty
+                            <h2>No match!</h2>
+                        @endforelse
                     </ul>
                     <div class="centered">
                         <a class="btn btn-big load-more" href="javascript:;">Load more</a>

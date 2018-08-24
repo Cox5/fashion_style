@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use App\Image;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 
 use DB;
@@ -55,12 +56,43 @@ class ProductController extends Controller
         return view('search-results', compact('products'));
     }
 
-    public function filter(Request $request)
+    public function filter(Request $request, Product $products)
     {
         # List products based on their size
-        $query = $request->input('size');
 
-        $products = Product::where('size', 'like', "%$query")->get();
+        //$products = $products->newQuery();
+
+        //$query = $request->input('size');
+         //dd($query);
+
+        $products = Product::where(function($query) {
+
+            $sizes = Input::has('size') ? Input::get('size') : [];
+            $colors = Input::has('color') ? Input::get('color') : [];
+
+            
+            if (isset($sizes)) {
+                foreach($sizes as $size) {
+                    $query->where('size', '=', $size);
+                }
+            }
+
+            if(isset($colors)) {
+                foreach ($colors as $color) {
+                    $query->where('color', '=', $color);
+                }
+            }
+
+        })->get();
+
+
+        // foreach ($query as $size) {
+        //     var_dump($size);
+        //     $products->where('size', 'like', "%$size")->get();
+        // }
+
+        // dd($products);
+        //$products = Product::where('size', 'like', "%$query")->get();
 
         return view('filter-results', compact('products'));
     }

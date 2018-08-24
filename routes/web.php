@@ -59,6 +59,9 @@ Route::post('/checkout-page-mybag', 'CartController@store')->name('cart.store');
 Route::delete('/checkout-page-mybag{id}', 'CartController@destroy')->name('cart.destroy');
 
 # Product filtration
+Route::get('/filter_form', function () {
+    return view('filter_form');
+});
 Route::get('/filter-results', 'ProductController@filter')->name('product.filter');
 
 # Remove all items from cart (testing | debug)

@@ -62,6 +62,9 @@
 						<li>
 							<a href="showCart">13. Show cart items (JSON | Debug)</a>
 						</li>
+						<li>
+							<a href="filter_form">14. Filter products</a>
+						</li>
 					</ul>
 				</div>
 			</div>
