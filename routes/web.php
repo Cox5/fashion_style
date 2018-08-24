@@ -23,7 +23,7 @@ Route::post('/register', 'RegistrationController@store');
 Route::get('/register', 'RegistrationController@create');
 
 # Show customer account information
-Route::get('/my-account-account-info', 'CustomerController@show');
+Route::get('/my-account-account-info', 'CustomerController@show')->name('account-info.show');
 
 # Subscrice button for newsletter 
 Route::post('/subscribe', 'SubscriptionController@store');
@@ -32,7 +32,7 @@ Route::post('/subscribe', 'SubscriptionController@store');
 Route::get('/product-overview', 'ProductController@index');
 
 # Show product by its ID on a product-page
-Route::get('/product/{id}', ['uses' =>'ProductController@show']);
+Route::get('/product/{id}', 'ProductController@show');
 
 # Show billing/shipping address for a customer
 Route::get('/my-account', 'CustomerController@showAccount')->name('account.show');
@@ -101,13 +101,12 @@ Route::get('/gallery-page-rows', function() {
 
 # Route for successfull order 
 Route::get('/thank-you-page', function() {
-    return view('thank-you-page');
+    if(Auth::check()) {
+        return view('thank-you-page');
+    } else {
+        return view('not-authorized');
+    }
 });
-
-
-// Route::get('/login-page', function() {
-//     return view('login-page');
-// });
 
 Route::get('/create-account', function() {
     return view('create-account');

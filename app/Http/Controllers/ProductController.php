@@ -18,9 +18,8 @@ class ProductController extends Controller
     public function index()
     {
 
+        # List latest products first on product-overview page
         $products = Product::latest()->get();
-
-        //dump($products);
 
         return view('product-overview', compact('products'));
 
@@ -37,6 +36,7 @@ class ProductController extends Controller
      public function show($id)
     {
     
+        # Get selected product and associate it with its respective images
         $product = Product::where('id', $id)->first();
         $images = $product->images();
 
@@ -46,16 +46,18 @@ class ProductController extends Controller
 
     public function search(Request $request) 
     {
+        # Get the query from search box
         $query = $request->input('query');
 
+        # Search for all occurrences with LIKE selector
         $products = Product::where('product_name', 'like', "%$query%")->get();
-        //$images = $products->images();
 
         return view('search-results', compact('products'));
     }
 
     public function filter(Request $request)
     {
+        # List products based on their size
         $query = $request->input('size');
 
         $products = Product::where('size', 'like', "%$query")->get();

@@ -1,0 +1,4 @@
+Admin login details:
+
+e: admin@admin.com
+p: pass

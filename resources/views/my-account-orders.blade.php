@@ -21,10 +21,10 @@
 							<a href="javascript:;">Address</a>
 						</li>
 						<li>
-							<a href="javascript:;" class="active">My orders</a>
+							<a href="{{route('order.show')}}">My orders</a>
 						</li>
 						<li>
-							<a href="javascript:;">Log Out</a>
+							<a href="{{route('logout')}}">Log Out</a>
 						</li>
 						<li class="btn-close js-close-category">
 							<a href="javascript:;">
@@ -34,16 +34,16 @@
 					</ul>
 					<ul class="sub-category">
 						<li>
-							<a href="javascript:;">Account info</a>
+							<a href="{{route('account-info.show')}}">Account info</a>
 						</li>
 						<li>
 							<a href="javascript:;">Address</a>
 						</li>
 						<li class="selected">
-							<a href="javascript:;">My orders</a>
+							<a href="{{route('order.show')}}">My orders</a>
 						</li>
 						<li>
-							<a href="javascript:;">Log Out</a>
+							<a href="{{route('logout')}}">Log Out</a>
 						</li>
 						<a href="javascript:;" class="category-toggle js-category-toggle"></a>
 					</ul>

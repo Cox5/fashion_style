@@ -19,6 +19,7 @@ class CouponsController extends Controller
         # Request coupon code from coupons form on checkout-page
         $code = request('dsc');
 
+        # Search for the coupon inside Coupons DB
         $coupon = Coupon::where('code', $code)->first();
 
         if (!$coupon) 
@@ -26,6 +27,7 @@ class CouponsController extends Controller
             return redirect()->route('checkout.index')->withErrors('Invalid coupon code!');
         }
 
+        # If found, put the coupon into session
         session()->put('coupon', [
             'name' => $coupon->code,
             'discount' => $coupon->discount(Cart::subtotal()),
@@ -42,6 +44,7 @@ class CouponsController extends Controller
      */
     public function destroy()
     {
+        # Action for removing the coupon from session
         session()->forget('coupon');
 
         return redirect()->route('checkout.index')->with('success_message', 'Coupon has been removed');

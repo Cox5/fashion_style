@@ -34,13 +34,13 @@
 					</ul>
 					<ul class="sub-category">
 						<li class="selected">
-							<a href="javascript:;">Account info</a>
+							<a href="{{route('account-info.show')}}">Account info</a>
 						</li>
 						<li>
 							<a href="javascript:;">Address</a>
 						</li>
 						<li>
-							<a href="javascript:;">My orders</a>
+							<a href="{{route('order.show')}}">My orders</a>
 						</li>
 						<li>
 							<a href="{{route('logout')}}">Log Out</a>

@@ -20,7 +20,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        # Check if the user is logged in
         if (Auth::check()) 
         {
             $user = Auth::user();
@@ -62,12 +62,8 @@ class CustomerController extends Controller
         if (Auth::check())
         {
             $user = Auth::user();
-            //$customer = $user->customer();
             $address = $user->address();
-            //$address = Address::where('user_id', Auth::id())->get();
             
-
-           // return view('my-account')->with(['user' => $user, 'address' => $address]);
             return view('my-account')->with(['user' =>  $user, 'address' => $address]);
         }
         
@@ -76,7 +72,7 @@ class CustomerController extends Controller
         
     }
 
-    #display password change form if authorized (logged in)
+    # Display password change form if authorized (logged in)
     public function showChangePassword() 
     {
         if (Auth::check()) 
@@ -88,6 +84,8 @@ class CustomerController extends Controller
 
     public function changePassword(Request $request) 
     {
+        
+        # Do all the work if the user is logged in
         if (Auth::check()) 
         {
             $this->validate(request(), [
@@ -96,14 +94,13 @@ class CustomerController extends Controller
             ]);
 
             $request_data = $request->all();
-            dump($request->all());
         
-
+            # Get new password and hash it
             $current_password = Auth::user()->password;
             $current_psw_hashed = Hash::make($current_password);
-            //$new_password = bcrypt(request('password'));
 
-            dump($current_password);
+            
+            # If old password matches the password from input, then it's OK to change it to new one
             if(Hash::check($request->get('old_password'), Auth::user()->password))
             {
                 $user_id = Auth::user()->id;
@@ -111,22 +108,21 @@ class CustomerController extends Controller
                 $user->password = bcrypt(request('password_confirmation'));
                 $user->save();
 
-                dump($user);
+                //dump($user);
 
                 auth()->logout();
                 // log out the user and prompt login form again with new password
+                //return redirect()->back()->with("success","Password changed successfully !");
                 return 'ok';
             } 
             else 
             {
                 return 'error';    
-            }
-            
+            }  
         }
 
         return view('not-authorized');
-
-        //return redirect()->back()->with("success","Password changed successfully !");
+        
     }
 
 
@@ -140,8 +136,8 @@ class CustomerController extends Controller
     # edit customer info on acount-acount-info-edit page
      public function update(Request $request, Customer $customer)
     {
-        //
-
+        
+        # Validate input request
         $this->validate(request(), [
             'firstname' => 'required',
             'lastname' => 'required',
@@ -151,15 +147,13 @@ class CustomerController extends Controller
             'gender' => 'required',
         ]);
 
-        //dump($request->all());
-
-
+        # Merge first and last name
         $name = request('firstname') . " " . request('lastname');
 
-        //dump($name);
-
+        # Update user DB with new data
         App\User::where('id', Auth::id())->update(['name' => $name, 'email' => request('email')]);
 
+        # Update customer DB with new data
         App\Customer::where('user_id', Auth::id())->update(['firstname' => request('firstname'), 'lastname' => request('lastname'), 
                             'date_of_birth' => request('date_of_birth'), 'phone' => request('phone'), 'gender' => request('gender')]);
 

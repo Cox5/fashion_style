@@ -33,6 +33,7 @@ class UpdatePasswordController extends Controller
      */
     public function update(Request $request)
     {
+        # Validate passwords
         $this->validate($request, [
             'old_password' => 'required',
             'password' => 'required|confirmed',
@@ -47,15 +48,8 @@ class UpdatePasswordController extends Controller
                 'password' => bcrypt($request->password)
             ])->save();
  
-            //$request->session()->flash('success', 'Your password has been changed.');
- 
-            
-            // dd($user, $hashedPassword, $request);
             return back()->with('success', 'Password changed successfully');
         }
-        // dd($user, $hashedPassword, $request);
- 
-        //$request->session()->flash('failure', 'Your password has not been changed.');
  
         return back()->with('error', 'Error changing password');
     }

@@ -216,7 +216,12 @@
 						<div id="card-errors" role="alert"></div>
 						</form> --}}
 
+						@if (Cart::count() > 0)
 						<button type="submit" class="btn btn-black btn-big confirm-purchase" href="">Confirm</a>
+						@else 
+						<h6>You don't have any items in your bag</h6>
+						@endif
+
 					</form>
 
 					</div>
@@ -291,7 +296,11 @@
 						
 					</div>
 						{{ csrf_field() }}
+						@if (Cart::count() > 0)
 						<button type="submit" class="btn btn-black btn-big confirm-purchase show-mobile">Confirm</button>
+						@else
+						<h6>You don't have any items in your bag</h6>
+						@endif
 					</form>
 					@endif
 					<div class="discount-code-form form-item form-item-full">

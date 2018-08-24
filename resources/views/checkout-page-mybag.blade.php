@@ -93,13 +93,8 @@
 						</div>
 						<div class="price-row shipping-row">
 							<span class="price-label">Shipping</span>
-							{{-- <span class="price">5<sup>,00€</sup></span> --}}
 							<span class="price">Free</span>
 						</div>
-						{{-- <div class="price-row discount-row">
-							<span class="price-label">Discount</span>
-							<span class="price">-{{session()->get('coupon')['discount']}}€</sup></span>
-						</div> --}}
 					</div>
 					<div class="total-prices order-prices block">
 						<div class="price-row">
@@ -108,6 +103,8 @@
 						</div>
 					</div>
 					<a class="btn btn-black btn-medium confirm-purchase" href="{{ route('checkout.index') }}">proceed to checkout</a>
+					<br>
+					<a href="/product-overview"><h4>Continue Shopping? </h4></a>
 				</div>
 			</div>
 		</div>

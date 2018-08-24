@@ -111,6 +111,7 @@ class CheckoutController extends Controller
     # Generate unique tracking number for a specific order
     private function generateTrackingNumber()
     {
+        # Generate random tracking number (UNIQUE) for Orders DB table
         $tracking_number = mt_rand(100000, 999999);
 
         # If tr_number already exists, generate a new one
@@ -129,6 +130,7 @@ class CheckoutController extends Controller
 
     private function getCartInfo()
     {
+        # Calculate the price based on tax, coupon discount etc. 
         $tax = config('cart.tax') / 100;
         $discount = session()->has('coupon') ? session()->get('coupon')['discount'] : 0;
         $subscriber_discount = 
@@ -137,6 +139,7 @@ class CheckoutController extends Controller
         $newTax = $newSubtotal * $tax;
         $newTotal = $newSubtotal * (1 + $tax);
 
+        # Pass data to view
         return collect([
             'tax' => $tax,
             'discount' => $discount,

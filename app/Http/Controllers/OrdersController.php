@@ -35,7 +35,7 @@ class OrdersController extends Controller
      */
     public function show()
     {
-
+        # Get user_id for logged in user
         if (Auth::check()) 
         {
             $user_id = Auth::id();
@@ -45,6 +45,7 @@ class OrdersController extends Controller
             return view('not-authorized');
         }
 
+        # Get all orders from current user
         $orders = Order::where('user_id', Auth::id())->get();
         
         return view('my-account-orders')->with('orders', $orders);

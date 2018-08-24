@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \Cart as Cart;
+use Auth;
 
 class SessionsController extends Controller
 {
@@ -13,26 +14,32 @@ class SessionsController extends Controller
         $this->middleware('guest', ['except' => 'destroy']);
     }
 
-    //
     public function index() 
     {
+        if (Auth::check()) {
+            return view('/');
+        }
+
         return view('login-page');
     }
 
     public function destroy() 
     {
-        // log out the user
+        # log out the user
         auth()->logout();
 
-        session()->forget('coupon');
-        Cart::instance('default')->destroy();
+        # On log out, remove all products and coupons from session - DISABLED CURRENTLY
+        // session()->forget('coupon');
+        // Cart::instance('default')->destroy();
 
-        // redirect to last previous page
         return redirect('/');
     }
 
     public function store() 
     {
+        if (Auth::check()) {
+            return redirect('/');
+        }
         // Attempt to login user
         if (!auth()->attempt(request(['email', 'password']))) 
         {

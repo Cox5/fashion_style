@@ -32,10 +32,8 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($id, $product_name, $price);
 
-
-        //Cart::add($id, $product_name, $price);
+        # Add product to Cart
         Cart::add([
             'id' => request('id'), 
             'name' => request('product_name'), 
@@ -44,10 +42,7 @@ class CartController extends Controller
             'options' => ['size' => 'large']
         ])->associate('App\Product');
 
-        //dd($cartItems);
-
-        return redirect('product-overview');
-        //return view('checkout-page-mybag')->with('success_message', 'Item is added to your cart!');
+        return view('checkout-page-mybag')->with('success_message', 'Item is added to your cart!');
     }
 
     /**
@@ -58,6 +53,7 @@ class CartController extends Controller
      */
     public function show()
     {
+        # Debug action to show the current products in Cart
         $cartItems = Cart::content();
 
         dd($cartItems);
@@ -71,6 +67,7 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
+        # Remove the item from the Cart action
         Cart::remove($id);
 
         return back()->with('success_message', 'Item has been removed');
@@ -78,6 +75,7 @@ class CartController extends Controller
 
     public function deleteCart()
     {
+        # Action for removing all products from the cart
         Cart::destroy();
 
         return redirect('/product-overview');
