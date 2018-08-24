@@ -58,13 +58,7 @@ class ProductController extends Controller
 
     public function filter(Request $request, Product $products)
     {
-        # List products based on their size
-
-        //$products = $products->newQuery();
-
-        //$query = $request->input('size');
-         //dd($query);
-
+        # List products based on their size and color
         $products = Product::where(function($query) {
 
             $sizes = Input::has('size') ? Input::get('size') : [];
@@ -73,26 +67,17 @@ class ProductController extends Controller
             
             if (isset($sizes)) {
                 foreach($sizes as $size) {
-                    $query->where('size', '=', $size);
+                    $query->orWhere('size', '=', $size);
                 }
             }
 
             if(isset($colors)) {
                 foreach ($colors as $color) {
-                    $query->where('color', '=', $color);
+                    $query->orWhere('color', '=', $color);
                 }
             }
 
         })->get();
-
-
-        // foreach ($query as $size) {
-        //     var_dump($size);
-        //     $products->where('size', 'like', "%$size")->get();
-        // }
-
-        // dd($products);
-        //$products = Product::where('size', 'like', "%$query")->get();
 
         return view('filter-results', compact('products'));
     }
