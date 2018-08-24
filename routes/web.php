@@ -80,6 +80,9 @@ Route::get('search-results', 'ProductController@search')->name('search');
 # Order page
 Route::get('/my-account-orders', 'OrdersController@show')->name('order.show');
 
+# Invoice generate route
+Route::get('/pdfview', 'OrdersController@pdfview')->name('order.pdfview');
+
 
 /*
 |--------------------------------------------------------------------------

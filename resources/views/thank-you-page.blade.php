@@ -22,7 +22,7 @@
 						<div class="checkout-subheading">
 							<h3>Thank you!</h3>
 							<div class="right">
-								<a href="javascript:;" class="print-link"><i class="icon font-ico-print"></i><span>Print your invoice</span></a>
+								<a href="{{ route('order.pdfview')}}" class="print-link"><i class="icon font-ico-print"></i><span>Print your invoice</span></a>
 							</div>
 						</div>
 						<div class="checkout-block-form clearfix mob-border">

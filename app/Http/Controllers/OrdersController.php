@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\User;
 use Auth;
+use App\User;
 use App\Order;
 use App\OrderProduct;
+use Barryvdh\DomPDF\Facade as PDF;
+use Illuminate\Http\Request;
 Use App\Product;
+use App\Customer;
 
 class OrdersController extends Controller
 {
@@ -50,6 +52,22 @@ class OrdersController extends Controller
         
         return view('my-account-orders')->with('orders', $orders);
 
+    }
+
+    public function pdfview(Request $request)
+    {
+
+        $order = Order::where('user_id', Auth::id())->first();
+        $user = $order->customer();
+        //view()->share('items', $order);
+
+        //if($request->has('download')){
+        $pdf = PDF::loadView('pdfview', compact('order', 'user'));
+        return $pdf->download('pdfview.pdf');
+        //}
+
+
+        //return view('pdfview');
     }
 
 }
