@@ -11,6 +11,7 @@
 1. Create fashion_style database in MySQL and import fashion_style.sql into database
 1. `php artisan serve` to start the server
 1. Visit `127.0.0.1:8000` in your browser
+1. Use `admin@admin.com` and `pass` for login 
 
 
 
