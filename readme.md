@@ -1,3 +1,19 @@
+## Installation
+
+1. Install Composer Dependency Manager for PHP
+1. Clone the repo and `cd` into it
+1. `composer install`
+1. Rename or copy `.env.example` file to `.env`
+1. Set your database credentials in your `.env` file
+1. `php artisan key:generate`
+1. `php artisan cache:clear`
+1. `php artisan migrate`
+1. Create fashion_style database in MySQL and import fashion_style.sql into database
+1. `php artisan serve` to start the server
+1. Visit `127.0.0.1:8000` in your browser
+
+
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
